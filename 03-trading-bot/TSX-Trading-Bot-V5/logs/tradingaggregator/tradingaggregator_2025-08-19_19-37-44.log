@@ -1,0 +1,91 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-19T18:37:44.680Z
+================================================================================
+
+[2025-08-19T18:37:44.680Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-19T18:37:44.680Z"
+}
+[2025-08-19T18:37:44.809Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-19T18:37:44.825Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T18:37:44.825Z"
+}
+[2025-08-19T18:37:44.826Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-19T18:37:44.844Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-19T18:37:44.844Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-19T18:37:44.852Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T18:37:44.852Z"
+}
+[2025-08-19T18:40:00.375Z] [INFO] Starting order submission
+{
+  "orderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-19T18:40:00.376Z] [INFO] Order normalized successfully
+{
+  "orderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1",
+  "hasMetadata": true
+}
+[2025-08-19T18:40:00.409Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-19T18:40:00.410Z] [INFO] Order sent successfully
+{
+  "orderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1",
+  "result": {
+    "success": true,
+    "orderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1",
+    "connectionManagerOrderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1",
+    "response": {
+      "success": true,
+      "orderId": "config/bots/BOT_1.yaml_6faf1dbf-3644-407e-8575-c8f2b86799e1"
+    }
+  }
+}

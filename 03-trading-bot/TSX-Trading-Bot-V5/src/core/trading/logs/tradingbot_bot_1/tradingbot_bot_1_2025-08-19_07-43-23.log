@@ -1,0 +1,453 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-19T06:43:23.625Z
+================================================================================
+
+[2025-08-19T06:43:23.625Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "F.US.MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-19T06:43:23.626Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-19T06:43:23.651Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-19T06:43:23.847Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-19T06:43:23.847Z] [INFO] Initializing live market data connection
+{
+  "instrument": "F.US.MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-19T06:43:23.847Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "F.US.MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-19T06:43:23.848Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-19T06:43:23.848Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-19T06:43:24.572Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:24.573Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:24.822Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.95,
+  "bid": 3378.9,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:24.822Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.95,
+  "bid": 3378.9,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:25.272Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.95,
+  "bid": 3378.9,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:25.273Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.95,
+  "bid": 3378.9,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:26.771Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3379,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:26.771Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3379,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:26.771Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3379.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:26.772Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3379.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:28.424Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:28.424Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:28.425Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:28.425Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:29.775Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:29.775Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T06:43:30.373Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.8500000000004,
+  "bid": 3378.8,
+  "ask": 3378.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:30.373Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.8500000000004,
+  "bid": 3378.8,
+  "ask": 3378.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:30.472Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:30.472Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:32.373Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:32.374Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:33.624Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.8500000000004,
+  "bid": 3378.8,
+  "ask": 3378.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:33.624Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.8500000000004,
+  "bid": 3378.8,
+  "ask": 3378.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:33.672Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:33.673Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3378.9,
+  "bid": 3378.8,
+  "ask": 3379,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T06:43:34.352Z] [INFO] TradingBot started
+{}
+[2025-08-19T06:43:35.425Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-19T06:43:35.425Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-19T06:43:35.751Z] [INFO] Signal submitted to aggregator
+{
+  "success": true
+}
+[2025-08-19T06:44:58.921Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3378.7,
+  "stopLoss": 3373.7,
+  "takeProfit": 3383.7,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "LONG",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-19T06:44:58.926Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_84c89cbe-6edb-408b-8990-ac16fe7c7c7e",
+  "aggregatorOrderId": "BOT_1_84c89cbe-6edb-408b-8990-ac16fe7c7c7e",
+  "queueId": "queue_1755585898926"
+}
+[2025-08-19T06:44:58.927Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_84c89cbe-6edb-408b-8990-ac16fe7c7c7e",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_84c89cbe-6edb-408b-8990-ac16fe7c7c7e"
+}
+[2025-08-19T06:47:59.056Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-19T06:47:59.057Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-19T06:47:59.359Z] [INFO] Signal submitted to aggregator
+{
+  "success": true
+}
+[2025-08-19T06:49:59.352Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3380.1499999999996,
+  "stopLoss": 3375.1499999999996,
+  "takeProfit": 3385.1499999999996,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "LONG",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-19T06:49:59.353Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_904fc433-1872-4fdb-ba54-1c486954bf61",
+  "aggregatorOrderId": "BOT_1_904fc433-1872-4fdb-ba54-1c486954bf61",
+  "queueId": "queue_1755586199353"
+}
+[2025-08-19T06:49:59.354Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_904fc433-1872-4fdb-ba54-1c486954bf61",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_904fc433-1872-4fdb-ba54-1c486954bf61"
+}
+[2025-08-19T06:52:59.641Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-19T06:52:59.641Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-19T06:53:00.027Z] [INFO] Signal submitted to aggregator
+{
+  "success": true
+}
+[2025-08-19T06:55:01.335Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3380.3,
+  "stopLoss": 3375.3,
+  "takeProfit": 3385.3,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "LONG",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-19T06:55:01.337Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_0547d6ad-933f-4772-b17e-756b91116102",
+  "aggregatorOrderId": "BOT_1_0547d6ad-933f-4772-b17e-756b91116102",
+  "queueId": "queue_1755586501337"
+}
+[2025-08-19T06:55:01.337Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_0547d6ad-933f-4772-b17e-756b91116102",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_0547d6ad-933f-4772-b17e-756b91116102"
+}
+[2025-08-19T06:58:01.375Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-19T06:58:01.375Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-19T06:58:01.772Z] [INFO] Signal submitted to aggregator
+{
+  "success": true
+}
+[2025-08-19T06:59:58.720Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3380,
+  "stopLoss": 3375,
+  "takeProfit": 3385,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "LONG",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-19T06:59:58.722Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_9fbbe24a-64b9-4619-a624-b93d44913f74",
+  "aggregatorOrderId": "BOT_1_9fbbe24a-64b9-4619-a624-b93d44913f74",
+  "queueId": "queue_1755586798722"
+}
+[2025-08-19T06:59:58.722Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_9fbbe24a-64b9-4619-a624-b93d44913f74",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_9fbbe24a-64b9-4619-a624-b93d44913f74"
+}
+[2025-08-19T07:02:59.258Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-19T07:02:59.258Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-19T07:02:59.658Z] [INFO] Signal submitted to aggregator
+{
+  "success": true
+}

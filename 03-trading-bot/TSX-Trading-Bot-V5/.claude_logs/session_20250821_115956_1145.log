@@ -1,0 +1,10 @@
+=== RETROACTIVE LOG ENTRY: 2025-08-21 11:59:56.493600200 ===
+=== SESSION CONTEXT ===
+Current time: 2025-08-21 12:00:07.482131900
+Working directory: /c/Users/salte/ClaudeProjects/github-repos/TSX-Trading-Bot-V5
+User: salte
+Session PID: 1169
+
+=== MAIN ISSUE INVESTIGATED ===
+PDH/PDL Strategy Bootstrap Issue - Historic data not loading properly
+Strategy was waiting for live candles instead of using historical data

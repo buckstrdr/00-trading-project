@@ -1,0 +1,146 @@
+
+================================================================================
+ManualTrading Log File
+Started: 2025-08-19T13:44:23.273Z
+================================================================================
+
+[2025-08-19T13:44:23.274Z] [INFO] Manual Trading Server v2 starting up
+{
+  "port": 3003,
+  "connectionManager": "http://localhost:7500"
+}
+[2025-08-19T13:44:23.275Z] [INFO] 🚀 Starting Enhanced Manual Trading Server v2
+[2025-08-19T13:44:23.275Z] [INFO] Current directory: C:\Users\salte\ClaudeProjects\github-repos\TSX-Trading-Bot-V5\manual-trading
+[2025-08-19T13:44:23.275Z] [INFO] Node version: v22.17.0
+[2025-08-19T13:44:23.275Z] [INFO] 🧹 Clearing all data maps to prevent stale data...
+[2025-08-19T13:44:23.275Z] [INFO] ✅ All data maps cleared
+[2025-08-19T13:44:23.276Z] [INFO] Setting up Express...
+[2025-08-19T13:44:23.277Z] [INFO] ✅ Express setup complete
+[2025-08-19T13:44:23.277Z] [INFO] Setting up Redis connection...
+[2025-08-19T13:44:23.277Z] [INFO] Connecting to Redis...
+[2025-08-19T13:44:23.277Z] [INFO] Creating Redis publisher client...
+[2025-08-19T13:44:23.281Z] [INFO] Creating Redis subscriber client...
+[2025-08-19T13:44:23.282Z] [INFO] Connecting to Redis publisher...
+[2025-08-19T13:44:23.911Z] [INFO] ✅ Redis publisher connected and ready
+[2025-08-19T13:44:23.912Z] [INFO] ✅ Connected to Redis publisher
+[2025-08-19T13:44:23.912Z] [INFO] Connecting to Redis subscriber...
+[2025-08-19T13:44:23.983Z] [INFO] ✅ Redis subscriber connected and ready
+[2025-08-19T13:44:23.983Z] [INFO] ✅ Connected to Redis subscriber
+[2025-08-19T13:44:23.984Z] [INFO] ✅ Connected to Redis (publisher and subscriber)
+[2025-08-19T13:44:23.984Z] [INFO] Loading accounts through Aggregator... (forcing fresh data)
+[2025-08-19T13:44:24.452Z] [INFO] ✅ Loaded 2 accounts via Redis. Selected: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-19T13:44:24.452Z] [INFO] ✅ Account 7988358 registered for order event subscriptions
+[2025-08-19T13:44:24.452Z] [INFO]   Account 1: EXPRESSMAY2114064450 - Balance: $1855.36 - CanTrade: true
+[2025-08-19T13:44:24.452Z] [INFO]   Account 2: PRACTICEJUL1615111535 - Balance: $149850.82 - CanTrade: true
+[2025-08-19T13:44:24.452Z] [INFO] Loading available contracts through Aggregator...
+[2025-08-19T13:44:24.542Z] [INFO] ✅ Loaded 15 contracts via Aggregator
+[2025-08-19T13:44:24.542Z] [INFO] 🧹 Cleared both validInstruments and instruments maps
+[2025-08-19T13:44:24.543Z] [INFO] 🔍 First contract structure: {"contractId":"CON.F.US.GMET.Q25","symbol":"F.US.GMET","name":"METQ5","tickSize":0.5,"pointValue":0.1,"isActive":true,"description":"Micro Ether: August 2025"}
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.GMET: CON.F.US.GMET.Q25 (tick: 0.5, point: 0.1)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.M2K: CON.F.US.M2K.U25 (tick: 0.1, point: 5)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.M6A: CON.F.US.M6A.U25 (tick: 0.0001, point: 10000)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.M6B: CON.F.US.M6B.U25 (tick: 0.0001, point: 6250)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.M6E: CON.F.US.M6E.U25 (tick: 0.0001, point: 12500)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MBT: CON.F.US.MBT.Q25 (tick: 5, point: 0.1)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MCLE: CON.F.US.MCLE.V25 (tick: 0.01, point: 100)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MES: CON.F.US.MES.U25 (tick: 0.25, point: 5)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MGC: CON.F.US.MGC.Z25 (tick: 0.1, point: 10)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MHG: CON.F.US.MHG.U25 (tick: 0.0005, point: 2500)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MNG: CON.F.US.MNG.U25 (tick: 0.001, point: 1000)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MNQ: CON.F.US.MNQ.U25 (tick: 0.25, point: 2)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MX6: CON.F.US.MX6.U25 (tick: 0.00001, point: 499999.99999999994)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.MYM: CON.F.US.MYM.U25 (tick: 1, point: 0.5)
+[2025-08-19T13:44:24.543Z] [INFO]   ✅ F.US.SIL: CON.F.US.SIL.U25 (tick: 0.005, point: 1000)
+[2025-08-19T13:44:24.543Z] [INFO] ✅ Final validInstruments size: 15
+[2025-08-19T13:44:24.543Z] [INFO] ✅ Final instruments size: 15
+[2025-08-19T13:44:24.545Z] [INFO] 📡 Broadcasted account list change notification
+[2025-08-19T13:44:24.545Z] [INFO] 📊 Starting periodic account refresh (every 30 seconds)...
+[2025-08-19T13:44:24.545Z] [INFO] ✅ Account refresh interval started
+[2025-08-19T13:44:24.545Z] [INFO] 💓 Starting Connection Manager heartbeat (every 30 seconds)...
+[2025-08-19T13:44:24.545Z] [INFO] ✅ Connection Manager heartbeat started
+[2025-08-19T13:44:24.545Z] [INFO] Loading existing positions from Connection Manager...
+[2025-08-19T13:44:24.545Z] [INFO] 🔍 [DEBUG] Cleared all existing positions
+[2025-08-19T13:44:24.545Z] [INFO] 🚨 [CRITICAL] Starting to load positions for 2 accounts: 7988358, 9627376
+[2025-08-19T13:44:24.545Z] [INFO] 🔍 [DEBUG] Loading positions for account 1/2: EXPRESSMAY2114064450 (7988358)
+[2025-08-19T13:44:24.545Z] [{
+  "ID": 7988358,
+  "NAME": "EXPRESSMAY2114064450",
+  "BALANCE": 1855.36,
+  "CANTRADE": TRUE,
+  "ISVISIBLE": TRUE,
+  "SIMULATED": TRUE
+}] 🔍 [DEBUG] Account details:
+[2025-08-19T13:44:24.545Z] [INFO] 🔍 [DEBUG] Account ID being used: 7988358
+[2025-08-19T13:44:24.546Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-7988358-1755611064545",
+  "ACCOUNTID": 7988358,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1755611064546
+}] 📤 Publishing position request:
+[2025-08-19T13:44:24.546Z] [INFO] 📤 Published position request with ID: manual-pos-7988358-1755611064545, waiting for response...
+[2025-08-19T13:44:24.629Z] [{
+  "REQUESTID": "MANUAL-POS-7988358-1755611064545",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 7988358,
+  "TIMESTAMP": 1755611064628
+}] 📨 Raw position response received:
+[2025-08-19T13:44:24.630Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-19T13:44:24.630Z] [INFO] ✅ [DEBUG] Completed loading positions for account 1/2: 7988358
+[2025-08-19T13:44:24.736Z] [INFO] 🔍 [DEBUG] Loading positions for account 2/2: PRACTICEJUL1615111535 (9627376)
+[2025-08-19T13:44:24.736Z] [{
+  "ID": 9627376,
+  "NAME": "PRACTICEJUL1615111535",
+  "BALANCE": 149850.82,
+  "CANTRADE": TRUE,
+  "ISVISIBLE": TRUE,
+  "SIMULATED": TRUE
+}] 🔍 [DEBUG] Account details:
+[2025-08-19T13:44:24.736Z] [INFO] 🔍 [DEBUG] Account ID being used: 9627376
+[2025-08-19T13:44:24.736Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-9627376-1755611064736",
+  "ACCOUNTID": 9627376,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1755611064736
+}] 📤 Publishing position request:
+[2025-08-19T13:44:24.737Z] [INFO] 📤 Published position request with ID: manual-pos-9627376-1755611064736, waiting for response...
+[2025-08-19T13:44:24.849Z] [{
+  "REQUESTID": "MANUAL-POS-9627376-1755611064736",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 9627376,
+  "TIMESTAMP": 1755611064848
+}] 📨 Raw position response received:
+[2025-08-19T13:44:24.849Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-19T13:44:24.849Z] [INFO] ✅ [DEBUG] Completed loading positions for account 2/2: 9627376
+[2025-08-19T13:44:24.849Z] [INFO] 🚨 [CRITICAL] FINISHED loading positions: 0 total positions across 2 accounts
+[2025-08-19T13:44:24.849Z] [INFO] 🔍 [DEBUG] Total positions in memory: 0
+[2025-08-19T13:44:24.850Z] [INFO] Loading existing orders...
+[2025-08-19T13:44:24.850Z] [INFO] 📝 Requesting working orders through Trading Aggregator...
+[2025-08-19T13:44:24.852Z] [INFO] 📝 Received 0 working orders
+[2025-08-19T13:44:24.852Z] [INFO] 📝 Order tracking initialized - listening for order updates
+[2025-08-19T13:44:24.852Z] [INFO] ℹ️ Note: Working orders will be loaded as Connection Manager sends updates
+[2025-08-19T13:44:24.852Z] [INFO] Setting up order tracking...
+[2025-08-19T13:44:24.853Z] [INFO] ✅ Order tracking setup complete
+[2025-08-19T13:44:24.853Z] [INFO] Setting up market data subscription...
+[2025-08-19T13:44:24.853Z] [INFO] 📊 Market data heartbeat will log once per minute per instrument
+[2025-08-19T13:44:24.854Z] [INFO] ✅ Market data subscription setup complete
+[2025-08-19T13:44:24.855Z] [INFO] 📊 Market data heartbeat - F.US.MNQ: $23701.25
+[2025-08-19T13:44:24.855Z] [INFO] 📊 Market data heartbeat - F.US.MES: $6465.75
+[2025-08-19T13:44:25.107Z] [INFO] 📊 Market data heartbeat - F.US.MNG: $2.76
+[2025-08-19T13:44:25.155Z] [INFO] 📊 Market data heartbeat - F.US.MGC: $3382.10
+[2025-08-19T13:44:25.307Z] [INFO] 📊 Market data heartbeat - F.US.MYM: $45161.00
+[2025-08-19T13:44:25.606Z] [INFO] 📊 Market data heartbeat - F.US.M2K: $2303.80
+[2025-08-19T13:44:25.606Z] [INFO] 📊 Market data heartbeat - F.US.MBT: $115370.00
+[2025-08-19T13:44:26.655Z] [INFO] 📊 Market data heartbeat - F.US.GMET: $4289.50
+[2025-08-19T13:44:26.858Z] [INFO] 📊 Market data heartbeat - F.US.SIL: $38.02
+[2025-08-19T13:44:28.257Z] [INFO] 📊 Market data heartbeat - F.US.MHG: $4.44
+[2025-08-19T13:44:34.407Z] [INFO] 📊 Market data heartbeat - F.US.M6B: $1.35
+[2025-08-19T13:44:38.019Z] [INFO] 📊 Market data heartbeat - F.US.M6A: $0.65
+[2025-08-19T13:44:41.256Z] [INFO] 📊 Market data heartbeat - F.US.MCLE: $61.96
+[2025-08-19T13:44:42.853Z] [INFO] 📊 Market data heartbeat - F.US.M6E: $1.17
+[2025-08-19T13:44:44.856Z] [INFO] Starting price fetch interval for stale data...

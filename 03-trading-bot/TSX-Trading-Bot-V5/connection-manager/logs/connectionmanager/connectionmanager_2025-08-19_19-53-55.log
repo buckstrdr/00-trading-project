@@ -1,0 +1,166 @@
+
+================================================================================
+ConnectionManager Log File
+Started: 2025-08-19T18:53:55.706Z
+================================================================================
+
+[2025-08-19T18:53:55.707Z] [INFO] Connection Manager starting up
+{
+  "config": {
+    "port": 7500,
+    "apiUrl": "https://api.topstepx.com",
+    "corsOrigins": [
+      "http://localhost:3000"
+    ]
+  }
+}
+[2025-08-19T18:55:00.261Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_7fc80811-d210-40f8-9fa6-c6a8c2982623",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "SELL",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:00:00.045Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_094d410f-3c91-40a3-9565-2ed63f25b8a4",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "BUY",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:05:01.244Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_d224b984-b2a2-40fa-81ea-d9946e1db385",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "SELL",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:10:00.227Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_4d964f33-c64a-428e-93f2-7e8940d6cc2d",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "BUY",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:15:00.560Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_3d95a688-1f7d-4569-af51-4db30f1cc006",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "BUY",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:20:00.909Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_542378ed-e5db-4107-a917-8f62edfa3242",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "SELL",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:25:01.099Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_6939ad35-d1e6-41c5-a9db-f5a74d3bf156",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "SELL",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:30:00.107Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_ba704f3a-7407-4596-a5d0-8d590822aa1c",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "SELL",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:35:00.357Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_968ec2ad-25c9-45c3-bc9b-49c77d23e7f5",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "BUY",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}
+[2025-08-19T19:40:01.832Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_eac809c2-425d-4003-8501-ffc2db6e656f",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "BUY",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}

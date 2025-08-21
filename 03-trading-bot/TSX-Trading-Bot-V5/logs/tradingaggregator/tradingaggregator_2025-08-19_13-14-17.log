@@ -1,0 +1,150 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-19T12:14:17.668Z
+================================================================================
+
+[2025-08-19T12:14:17.669Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-19T12:14:17.669Z"
+}
+[2025-08-19T12:14:18.218Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-19T12:14:18.500Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T12:14:18.501Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-19T12:14:18.660Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-19T12:14:18.661Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-19T12:14:18.914Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T12:14:23.511Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T12:14:33.522Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T12:14:53.537Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T12:14:53.537Z"
+}
+[2025-08-19T12:40:00.627Z] [INFO] Starting order submission
+{
+  "orderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-19T12:40:00.628Z] [INFO] Order normalized successfully
+{
+  "orderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620",
+  "hasMetadata": true
+}
+[2025-08-19T12:40:00.647Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-19T12:40:00.648Z] [INFO] Order sent successfully
+{
+  "orderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620",
+  "result": {
+    "success": true,
+    "orderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620",
+    "connectionManagerOrderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620",
+    "response": {
+      "success": true,
+      "orderId": "--config_6f8a6310-9197-45ce-ab21-3425cff5c620"
+    }
+  }
+}
+[2025-08-19T12:45:00.007Z] [INFO] Starting order submission
+{
+  "orderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-19T12:45:00.007Z] [INFO] Order normalized successfully
+{
+  "orderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0",
+  "hasMetadata": true
+}
+[2025-08-19T12:45:00.035Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-19T12:45:00.036Z] [INFO] Order sent successfully
+{
+  "orderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0",
+  "result": {
+    "success": true,
+    "orderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0",
+    "connectionManagerOrderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0",
+    "response": {
+      "success": true,
+      "orderId": "--config_77569d62-7bec-4dd5-ada1-26130e2a7af0"
+    }
+  }
+}

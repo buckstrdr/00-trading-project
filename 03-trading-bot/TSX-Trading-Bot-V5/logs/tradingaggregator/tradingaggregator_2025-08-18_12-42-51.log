@@ -1,0 +1,154 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-18T11:42:51.260Z
+================================================================================
+
+[2025-08-18T11:42:51.260Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-18T11:42:51.260Z"
+}
+[2025-08-18T11:42:51.397Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-18T11:42:51.416Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T11:42:51.416Z"
+}
+[2025-08-18T11:42:51.416Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-18T11:42:51.438Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-18T11:42:51.439Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-18T11:42:51.449Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T11:42:51.449Z"
+}
+[2025-08-18T11:43:59.695Z] [INFO] Starting order submission
+{
+  "orderId": "NO_ID",
+  "hasOrder": true,
+  "orderKeys": [
+    "type",
+    "payload",
+    "requestId",
+    "timestamp",
+    "source"
+  ]
+}
+[2025-08-18T11:43:59.695Z] [INFO] Order normalized successfully
+{
+  "orderId": "AGG_1755517439695_hjfet7cfd",
+  "hasMetadata": true
+}
+[2025-08-18T11:43:59.728Z] [WARN] Order BLOCKED by risk controls
+{
+  "orderId": "AGG_1755517439695_hjfet7cfd",
+  "violations": [
+    {
+      "type": "MIN_ORDER_SIZE",
+      "message": "Order size 0 below minimum 1",
+      "severity": "HIGH"
+    }
+  ]
+}
+[2025-08-18T11:44:00.793Z] [INFO] Starting order submission
+{
+  "orderId": "NO_ID",
+  "hasOrder": true,
+  "orderKeys": [
+    "type",
+    "payload",
+    "requestId",
+    "timestamp",
+    "source"
+  ]
+}
+[2025-08-18T11:44:00.794Z] [INFO] Order normalized successfully
+{
+  "orderId": "AGG_1755517440794_yn5q7ippc",
+  "hasMetadata": true
+}
+[2025-08-18T11:44:00.794Z] [WARN] Order BLOCKED by risk controls
+{
+  "orderId": "AGG_1755517440794_yn5q7ippc",
+  "violations": [
+    {
+      "type": "MIN_ORDER_SIZE",
+      "message": "Order size 0 below minimum 1",
+      "severity": "HIGH"
+    }
+  ]
+}
+[2025-08-18T11:45:58.943Z] [INFO] Starting order submission
+{
+  "orderId": "NO_ID",
+  "hasOrder": true,
+  "orderKeys": [
+    "type",
+    "payload",
+    "requestId",
+    "timestamp",
+    "source"
+  ]
+}
+[2025-08-18T11:45:58.943Z] [INFO] Order normalized successfully
+{
+  "orderId": "AGG_1755517558943_3aayg9w8c",
+  "hasMetadata": true
+}
+[2025-08-18T11:45:58.943Z] [WARN] Order BLOCKED by risk controls
+{
+  "orderId": "AGG_1755517558943_3aayg9w8c",
+  "violations": [
+    {
+      "type": "MIN_ORDER_SIZE",
+      "message": "Order size 0 below minimum 1",
+      "severity": "HIGH"
+    }
+  ]
+}
+[2025-08-18T11:48:59.382Z] [INFO] Starting order submission
+{
+  "orderId": "NO_ID",
+  "hasOrder": true,
+  "orderKeys": [
+    "type",
+    "payload",
+    "requestId",
+    "timestamp",
+    "source"
+  ]
+}
+[2025-08-18T11:48:59.382Z] [INFO] Order normalized successfully
+{
+  "orderId": "AGG_1755517739382_rqlopp44s",
+  "hasMetadata": true
+}
+[2025-08-18T11:48:59.383Z] [WARN] Order BLOCKED by risk controls
+{
+  "orderId": "AGG_1755517739382_rqlopp44s",
+  "violations": [
+    {
+      "type": "MIN_ORDER_SIZE",
+      "message": "Order size 0 below minimum 1",
+      "severity": "HIGH"
+    }
+  ]
+}

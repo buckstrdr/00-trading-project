@@ -1,0 +1,220 @@
+
+================================================================================
+ManualTrading Log File
+Started: 2025-08-02T14:06:46.255Z
+================================================================================
+
+[2025-08-02T14:06:46.255Z] [INFO] Manual Trading Server v2 starting up
+{
+  "port": 3003,
+  "connectionManager": "http://localhost:7500"
+}
+[2025-08-02T14:06:46.256Z] [INFO] 🚀 Starting Enhanced Manual Trading Server v2
+[2025-08-02T14:06:46.257Z] [INFO] Current directory: C:\Users\salte\ClaudeProjects\github-repos\TSX-Trading-Bot-V5\manual-trading
+[2025-08-02T14:06:46.257Z] [INFO] Node version: v22.17.0
+[2025-08-02T14:06:46.257Z] [INFO] 🧹 Clearing all data maps to prevent stale data...
+[2025-08-02T14:06:46.257Z] [INFO] ✅ All data maps cleared
+[2025-08-02T14:06:46.258Z] [INFO] Setting up Express...
+[2025-08-02T14:06:46.259Z] [INFO] ✅ Express setup complete
+[2025-08-02T14:06:46.259Z] [INFO] Setting up Redis connection...
+[2025-08-02T14:06:46.259Z] [INFO] Connecting to Redis...
+[2025-08-02T14:06:46.259Z] [INFO] Creating Redis publisher client...
+[2025-08-02T14:06:46.263Z] [INFO] Creating Redis subscriber client...
+[2025-08-02T14:06:46.264Z] [INFO] Connecting to Redis publisher...
+[2025-08-02T14:06:46.327Z] [INFO] ✅ Redis publisher connected and ready
+[2025-08-02T14:06:46.328Z] [INFO] ✅ Connected to Redis publisher
+[2025-08-02T14:06:46.328Z] [INFO] Connecting to Redis subscriber...
+[2025-08-02T14:06:46.330Z] [INFO] ✅ Redis subscriber connected and ready
+[2025-08-02T14:06:46.330Z] [INFO] ✅ Connected to Redis subscriber
+[2025-08-02T14:06:46.331Z] [INFO] ✅ Connected to Redis (publisher and subscriber)
+[2025-08-02T14:06:46.331Z] [INFO] Loading accounts through Aggregator... (forcing fresh data)
+[2025-08-02T14:06:46.737Z] [INFO] ✅ Loaded 2 accounts via Redis. Selected: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-02T14:06:46.737Z] [INFO] ✅ Account 7988358 registered for order event subscriptions
+[2025-08-02T14:06:46.737Z] [INFO]   Account 1: EXPRESSMAY2114064450 - Balance: $1743.08 - CanTrade: true
+[2025-08-02T14:06:46.737Z] [INFO]   Account 2: PRACTICEJUL1615111535 - Balance: $150220.90 - CanTrade: true
+[2025-08-02T14:06:46.738Z] [INFO] Loading available contracts through Aggregator...
+[2025-08-02T14:06:46.826Z] [INFO] ✅ Loaded 15 contracts via Aggregator
+[2025-08-02T14:06:46.826Z] [INFO] 🧹 Cleared both validInstruments and instruments maps
+[2025-08-02T14:06:46.827Z] [INFO] 🔍 First contract structure: {"contractId":"CON.F.US.GMET.Q25","symbol":"F.US.GMET","name":"METQ5","tickSize":0.5,"pointValue":0.1,"isActive":true,"description":"Micro Ether: August 2025"}
+[2025-08-02T14:06:46.827Z] [INFO]   ✅ F.US.GMET: CON.F.US.GMET.Q25 (tick: 0.5, point: 0.1)
+[2025-08-02T14:06:46.827Z] [INFO]   ✅ F.US.M2K: CON.F.US.M2K.U25 (tick: 0.1, point: 5)
+[2025-08-02T14:06:46.827Z] [INFO]   ✅ F.US.M6A: CON.F.US.M6A.U25 (tick: 0.0001, point: 10000)
+[2025-08-02T14:06:46.827Z] [INFO]   ✅ F.US.M6B: CON.F.US.M6B.U25 (tick: 0.0001, point: 6250)
+[2025-08-02T14:06:46.828Z] [INFO]   ✅ F.US.M6E: CON.F.US.M6E.U25 (tick: 0.0001, point: 12500)
+[2025-08-02T14:06:46.828Z] [INFO]   ✅ F.US.MBT: CON.F.US.MBT.Q25 (tick: 5, point: 0.1)
+[2025-08-02T14:06:46.828Z] [INFO]   ✅ F.US.MCLE: CON.F.US.MCLE.U25 (tick: 0.01, point: 100)
+[2025-08-02T14:06:46.828Z] [INFO]   ✅ F.US.MES: CON.F.US.MES.U25 (tick: 0.25, point: 5)
+[2025-08-02T14:06:46.828Z] [INFO]   ✅ F.US.MGC: CON.F.US.MGC.Z25 (tick: 0.1, point: 10)
+[2025-08-02T14:06:46.829Z] [INFO]   ✅ F.US.MHG: CON.F.US.MHG.U25 (tick: 0.0005, point: 2500)
+[2025-08-02T14:06:46.829Z] [INFO]   ✅ F.US.MNG: CON.F.US.MNG.U25 (tick: 0.001, point: 1000)
+[2025-08-02T14:06:46.829Z] [INFO]   ✅ F.US.MNQ: CON.F.US.MNQ.U25 (tick: 0.25, point: 2)
+[2025-08-02T14:06:46.829Z] [INFO]   ✅ F.US.MX6: CON.F.US.MX6.U25 (tick: 0.00001, point: 499999.99999999994)
+[2025-08-02T14:06:46.829Z] [INFO]   ✅ F.US.MYM: CON.F.US.MYM.U25 (tick: 1, point: 0.5)
+[2025-08-02T14:06:46.829Z] [INFO]   ✅ F.US.SIL: CON.F.US.SIL.U25 (tick: 0.005, point: 1000)
+[2025-08-02T14:06:46.829Z] [INFO] ✅ Final validInstruments size: 15
+[2025-08-02T14:06:46.829Z] [INFO] ✅ Final instruments size: 15
+[2025-08-02T14:06:46.831Z] [INFO] 📡 Broadcasted account list change notification
+[2025-08-02T14:06:46.831Z] [INFO] 📊 Starting periodic account refresh (every 30 seconds)...
+[2025-08-02T14:06:46.831Z] [INFO] ✅ Account refresh interval started
+[2025-08-02T14:06:46.831Z] [INFO] 💓 Starting Connection Manager heartbeat (every 30 seconds)...
+[2025-08-02T14:06:46.832Z] [INFO] ✅ Connection Manager heartbeat started
+[2025-08-02T14:06:46.832Z] [INFO] Loading existing positions from Connection Manager...
+[2025-08-02T14:06:46.832Z] [INFO] 🔍 [DEBUG] Cleared all existing positions
+[2025-08-02T14:06:46.832Z] [INFO] 🚨 [CRITICAL] Starting to load positions for 2 accounts: 7988358, 9627376
+[2025-08-02T14:06:46.832Z] [INFO] 🔍 [DEBUG] Loading positions for account 1/2: EXPRESSMAY2114064450 (7988358)
+[2025-08-02T14:06:46.833Z] [{
+  "ID": 7988358,
+  "NAME": "EXPRESSMAY2114064450",
+  "BALANCE": 1743.08,
+  "CANTRADE": TRUE,
+  "ISVISIBLE": TRUE,
+  "SIMULATED": TRUE
+}] 🔍 [DEBUG] Account details:
+[2025-08-02T14:06:46.833Z] [INFO] 🔍 [DEBUG] Account ID being used: 7988358
+[2025-08-02T14:06:46.833Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-7988358-1754143606833",
+  "ACCOUNTID": 7988358,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1754143606833
+}] 📤 Publishing position request:
+[2025-08-02T14:06:46.834Z] [INFO] 📤 Published position request with ID: manual-pos-7988358-1754143606833, waiting for response...
+[2025-08-02T14:06:47.196Z] [{
+  "REQUESTID": "MANUAL-POS-7988358-1754143606833",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 7988358,
+  "TIMESTAMP": 1754143607195
+}] 📨 Raw position response received:
+[2025-08-02T14:06:47.197Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-02T14:06:47.197Z] [INFO] ✅ [DEBUG] Completed loading positions for account 1/2: 7988358
+[2025-08-02T14:06:47.308Z] [INFO] 🔍 [DEBUG] Loading positions for account 2/2: PRACTICEJUL1615111535 (9627376)
+[2025-08-02T14:06:47.308Z] [{
+  "ID": 9627376,
+  "NAME": "PRACTICEJUL1615111535",
+  "BALANCE": 150220.9,
+  "CANTRADE": TRUE,
+  "ISVISIBLE": TRUE,
+  "SIMULATED": TRUE
+}] 🔍 [DEBUG] Account details:
+[2025-08-02T14:06:47.308Z] [INFO] 🔍 [DEBUG] Account ID being used: 9627376
+[2025-08-02T14:06:47.309Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-9627376-1754143607308",
+  "ACCOUNTID": 9627376,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1754143607309
+}] 📤 Publishing position request:
+[2025-08-02T14:06:47.309Z] [INFO] 📤 Published position request with ID: manual-pos-9627376-1754143607308, waiting for response...
+[2025-08-02T14:06:47.398Z] [{
+  "REQUESTID": "MANUAL-POS-9627376-1754143607308",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 9627376,
+  "TIMESTAMP": 1754143607397
+}] 📨 Raw position response received:
+[2025-08-02T14:06:47.399Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-02T14:06:47.399Z] [INFO] ✅ [DEBUG] Completed loading positions for account 2/2: 9627376
+[2025-08-02T14:06:47.399Z] [INFO] 🚨 [CRITICAL] FINISHED loading positions: 0 total positions across 2 accounts
+[2025-08-02T14:06:47.399Z] [INFO] 🔍 [DEBUG] Total positions in memory: 0
+[2025-08-02T14:06:47.399Z] [INFO] Loading existing orders...
+[2025-08-02T14:06:47.400Z] [INFO] 📝 Requesting working orders through Trading Aggregator...
+[2025-08-02T14:06:47.403Z] [INFO] 📝 Received 0 working orders
+[2025-08-02T14:06:47.404Z] [INFO] 📝 Order tracking initialized - listening for order updates
+[2025-08-02T14:06:47.404Z] [INFO] ℹ️ Note: Working orders will be loaded as Connection Manager sends updates
+[2025-08-02T14:06:47.404Z] [INFO] Setting up order tracking...
+[2025-08-02T14:06:47.405Z] [INFO] ✅ Order tracking setup complete
+[2025-08-02T14:06:47.405Z] [INFO] Setting up market data subscription...
+[2025-08-02T14:06:47.405Z] [INFO] 📊 Market data heartbeat will log once per minute per instrument
+[2025-08-02T14:06:47.406Z] [INFO] ✅ Market data subscription setup complete
+[2025-08-02T14:07:07.421Z] [INFO] Starting price fetch interval for stale data...
+[2025-08-02T14:07:07.427Z] [INFO] ✅ Enhanced Manual Trading Server running on http://localhost:3003
+[2025-08-02T14:07:07.427Z] [INFO] 📊 Features: Order tracking, position management, SL/TP, real-time P&L, instrument validation
+[2025-08-02T14:07:16.845Z] [INFO] Loading accounts through Aggregator... 
+[2025-08-02T14:07:16.848Z] [INFO] ✅ Loaded 2 accounts via Redis. Selected: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-02T14:07:16.848Z] [INFO] ✅ Account 7988358 registered for order event subscriptions
+[2025-08-02T14:07:16.848Z] [INFO]   Account 1: EXPRESSMAY2114064450 - Balance: $1743.08 - CanTrade: true
+[2025-08-02T14:07:16.848Z] [INFO]   Account 2: PRACTICEJUL1615111535 - Balance: $150220.90 - CanTrade: true
+[2025-08-02T14:07:17.416Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-7988358-1754143637415",
+  "ACCOUNTID": 7988358,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1754143637416
+}] 📤 Publishing position request:
+[2025-08-02T14:07:17.416Z] [INFO] 📤 Published position request with ID: manual-pos-7988358-1754143637415, waiting for response...
+[2025-08-02T14:07:17.776Z] [{
+  "REQUESTID": "MANUAL-POS-7988358-1754143637415",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 7988358,
+  "TIMESTAMP": 1754143637775
+}] 📨 Raw position response received:
+[2025-08-02T14:07:17.776Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-02T14:07:17.777Z] [INFO] ✅ [DEBUG] Completed loading positions for account 1/2: 7988358
+[2025-08-02T14:07:17.880Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-9627376-1754143637880",
+  "ACCOUNTID": 9627376,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1754143637880
+}] 📤 Publishing position request:
+[2025-08-02T14:07:17.881Z] [INFO] 📤 Published position request with ID: manual-pos-9627376-1754143637880, waiting for response...
+[2025-08-02T14:07:17.970Z] [{
+  "REQUESTID": "MANUAL-POS-9627376-1754143637880",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 9627376,
+  "TIMESTAMP": 1754143637969
+}] 📨 Raw position response received:
+[2025-08-02T14:07:17.970Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-02T14:07:17.970Z] [INFO] ✅ [DEBUG] Completed loading positions for account 2/2: 9627376
+[2025-08-02T14:07:17.971Z] [INFO] 🚨 [CRITICAL] FINISHED loading positions: 0 total positions across 2 accounts
+[2025-08-02T14:07:17.971Z] [INFO] 🔍 [DEBUG] Total positions in memory: 0
+[2025-08-02T14:07:46.847Z] [INFO] Loading accounts through Aggregator... 
+[2025-08-02T14:07:46.850Z] [INFO] ✅ Loaded 2 accounts via Redis. Selected: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-02T14:07:46.851Z] [INFO] ✅ Account 7988358 registered for order event subscriptions
+[2025-08-02T14:07:46.851Z] [INFO]   Account 1: EXPRESSMAY2114064450 - Balance: $1743.08 - CanTrade: true
+[2025-08-02T14:07:46.851Z] [INFO]   Account 2: PRACTICEJUL1615111535 - Balance: $150220.90 - CanTrade: true
+[2025-08-02T14:07:47.417Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-7988358-1754143667416",
+  "ACCOUNTID": 7988358,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1754143667416
+}] 📤 Publishing position request:
+[2025-08-02T14:07:47.417Z] [INFO] 📤 Published position request with ID: manual-pos-7988358-1754143667416, waiting for response...
+[2025-08-02T14:07:47.782Z] [{
+  "REQUESTID": "MANUAL-POS-7988358-1754143667416",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 7988358,
+  "TIMESTAMP": 1754143667781
+}] 📨 Raw position response received:
+[2025-08-02T14:07:47.782Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-02T14:07:47.782Z] [INFO] ✅ [DEBUG] Completed loading positions for account 1/2: 7988358
+[2025-08-02T14:07:47.895Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-9627376-1754143667894",
+  "ACCOUNTID": 9627376,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1754143667895
+}] 📤 Publishing position request:
+[2025-08-02T14:07:47.896Z] [INFO] 📤 Published position request with ID: manual-pos-9627376-1754143667894, waiting for response...
+[2025-08-02T14:07:47.985Z] [{
+  "REQUESTID": "MANUAL-POS-9627376-1754143667894",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 9627376,
+  "TIMESTAMP": 1754143667984
+}] 📨 Raw position response received:
+[2025-08-02T14:07:47.985Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-02T14:07:47.985Z] [INFO] ✅ [DEBUG] Completed loading positions for account 2/2: 9627376
+[2025-08-02T14:07:47.985Z] [INFO] 🚨 [CRITICAL] FINISHED loading positions: 0 total positions across 2 accounts
+[2025-08-02T14:07:47.985Z] [INFO] 🔍 [DEBUG] Total positions in memory: 0

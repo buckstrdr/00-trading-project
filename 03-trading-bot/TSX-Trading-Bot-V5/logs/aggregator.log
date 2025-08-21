@@ -1,0 +1,135 @@
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-02T12:14:42.286Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-02T12:14:42.289Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-02T12:14:42.292Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-02T13:50:51.209Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-02T13:50:51.212Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-02T13:50:51.247Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-02T13:51:04.999Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-02T13:51:05.003Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-02T13:51:05.006Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T10:43:45.509Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T10:43:45.512Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T10:43:45.514Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T11:29:25.775Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T11:29:25.778Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T11:29:25.780Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T11:42:51.433Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T11:42:51.436Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T11:42:51.438Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T11:49:10.089Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T11:49:10.094Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T11:49:10.098Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T11:50:19.052Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T11:50:19.055Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T11:50:19.057Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T12:54:28.415Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T12:54:28.421Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T12:54:28.424Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T14:51:40.118Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T14:51:40.121Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T14:51:40.124Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T18:33:47.476Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T18:33:47.481Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T18:33:47.484Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-18T18:34:56.552Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-18T18:34:56.557Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-18T18:34:56.627Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T03:51:48.596Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T03:51:48.600Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T03:51:48.603Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T07:18:51.392Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T07:18:51.395Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T07:18:51.398Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T07:41:18.808Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T07:41:18.812Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T07:41:18.815Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T07:43:40.412Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T07:43:40.415Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T07:43:40.417Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T07:44:29.492Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T07:44:29.496Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T07:44:29.498Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T07:47:34.862Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T07:47:34.866Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T07:47:34.868Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T08:00:22.432Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T08:00:22.435Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T08:00:22.438Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T08:12:53.031Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T08:12:53.035Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T08:12:53.037Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T08:14:16.667Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T08:14:16.670Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T08:14:16.673Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T09:10:06.578Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T09:10:06.581Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T09:10:06.583Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T09:12:37.818Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T09:12:37.821Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T09:12:37.824Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T09:17:11.170Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T09:17:11.173Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T09:17:11.176Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T09:40:02.378Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T09:40:02.381Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T09:40:02.384Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T10:13:45.607Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T10:13:45.610Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T10:13:45.613Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T10:30:41.780Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T10:30:41.783Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T10:30:41.785Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T11:04:56.609Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T11:04:56.612Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T11:04:56.615Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T12:14:18.520Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T12:14:18.523Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T12:14:18.660Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T13:02:10.257Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T13:02:10.261Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T13:02:10.326Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T13:38:50.773Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T13:38:50.776Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T13:38:50.900Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T15:31:44.121Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T15:31:44.125Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T15:31:44.369Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T15:36:02.909Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T15:36:02.913Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T15:36:03.179Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T17:15:34.861Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T17:15:34.866Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T17:15:35.125Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T17:49:07.307Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T17:49:07.309Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T17:49:07.312Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T17:51:08.381Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T17:51:08.384Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T17:51:08.385Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T17:52:07.725Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T17:52:07.729Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T17:52:07.730Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T17:55:40.820Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T17:55:40.822Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T17:55:40.824Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T17:56:58.727Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T17:56:58.729Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T17:56:58.731Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T18:37:44.839Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T18:37:44.842Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T18:37:44.844Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T18:44:27.265Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T18:44:27.267Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T18:44:27.269Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-19T19:44:56.747Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-19T19:44:56.750Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-19T19:44:56.751Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-20T16:17:27.695Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-20T16:17:27.698Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-20T16:17:27.701Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-20T18:32:11.429Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-20T18:32:11.432Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-20T18:32:11.434Z"}
+{"level":"info","logDir":"C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\logs","logFile":"aggregator.log","message":"Monitoring server logger initialized","timestamp":"2025-08-20T21:07:58.430Z"}
+{"level":"info","message":"Attached aggregator and metrics collector","timestamp":"2025-08-20T21:07:58.433Z"}
+{"endpoints":["http://localhost:7701/health","http://localhost:7701/api/metrics","ws://localhost:7701"],"host":"localhost","level":"info","message":"Monitoring server started","port":7701,"timestamp":"2025-08-20T21:07:58.435Z"}

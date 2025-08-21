@@ -1,0 +1,1305 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-18T12:54:28.202Z
+================================================================================
+
+[2025-08-18T12:54:28.202Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-18T12:54:28.202Z"
+}
+[2025-08-18T12:54:28.349Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-18T12:54:28.386Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T12:54:28.386Z"
+}
+[2025-08-18T12:54:28.386Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-18T12:54:28.424Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-18T12:54:28.424Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-18T12:54:28.466Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T12:54:28.466Z"
+}
+[2025-08-18T12:54:59.851Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T12:54:59.852Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0",
+  "hasMetadata": true
+}
+[2025-08-18T12:54:59.854Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T12:54:59.854Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67",
+  "hasMetadata": true
+}
+[2025-08-18T12:54:59.923Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T12:54:59.925Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0",
+    "connectionManagerOrderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_3f8d663f-8b84-4a2a-b76f-53c39d8464f0"
+    }
+  }
+}
+[2025-08-18T12:55:00.022Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T12:55:00.023Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67",
+    "connectionManagerOrderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_4fb6b838-7781-4be9-b033-9b37602c4e67"
+    }
+  }
+}
+[2025-08-18T12:57:59.846Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T12:57:59.846Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff",
+  "hasMetadata": true
+}
+[2025-08-18T12:57:59.847Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T12:57:59.847Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce",
+  "hasMetadata": true
+}
+[2025-08-18T12:57:59.933Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T12:57:59.934Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff",
+    "connectionManagerOrderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_9b18711b-52b1-406d-9b35-3d431805d4ff"
+    }
+  }
+}
+[2025-08-18T12:58:00.033Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T12:58:00.034Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce",
+    "connectionManagerOrderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_1c6befd6-8a08-4a98-a746-1c8286f368ce"
+    }
+  }
+}
+[2025-08-18T13:00:59.882Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:00:59.882Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62",
+  "hasMetadata": true
+}
+[2025-08-18T13:00:59.937Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:00:59.938Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62",
+    "connectionManagerOrderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_56c2eec8-7fae-4668-8119-a30995b17e62"
+    }
+  }
+}
+[2025-08-18T13:04:58.676Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:04:58.676Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "hasMetadata": true
+}
+[2025-08-18T13:04:58.738Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:04:58.739Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+    "connectionManagerOrderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10"
+    }
+  }
+}
+[2025-08-18T13:08:04.398Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:08:04.398Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "hasMetadata": true
+}
+[2025-08-18T13:08:04.545Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:08:04.546Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+    "connectionManagerOrderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba"
+    }
+  }
+}
+[2025-08-18T13:11:09.798Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:11:09.798Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "hasMetadata": true
+}
+[2025-08-18T13:11:09.855Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:11:09.856Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+    "connectionManagerOrderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36"
+    }
+  }
+}
+[2025-08-18T13:14:58.707Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:14:58.707Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24",
+  "hasMetadata": true
+}
+[2025-08-18T13:14:58.720Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:14:58.721Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24",
+    "connectionManagerOrderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_52bb4864-5d49-4865-8b45-837933f8ee24"
+    }
+  }
+}
+[2025-08-18T13:18:04.278Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:18:04.278Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6",
+  "hasMetadata": true
+}
+[2025-08-18T13:18:04.375Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:18:04.376Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6",
+    "connectionManagerOrderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_f7bb6505-29e9-4b1f-b3fb-cb42de651cd6"
+    }
+  }
+}
+[2025-08-18T13:25:00.109Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:25:00.109Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539",
+  "hasMetadata": true
+}
+[2025-08-18T13:25:00.217Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:25:00.218Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539",
+    "connectionManagerOrderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_47b334f7-cd8c-41af-a66a-abab978a9539"
+    }
+  }
+}
+[2025-08-18T13:28:05.848Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:28:05.848Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c",
+  "hasMetadata": true
+}
+[2025-08-18T13:28:05.956Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:28:05.956Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c",
+    "connectionManagerOrderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_59633e5c-e056-4f2b-a7af-9b8f4bbb914c"
+    }
+  }
+}
+[2025-08-18T13:31:03.594Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T13:31:11.275Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:31:11.275Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c",
+  "hasMetadata": true
+}
+[2025-08-18T13:31:11.324Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:31:11.325Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c",
+    "connectionManagerOrderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_992911b6-8313-4eaf-9841-fa23f1372f6c"
+    }
+  }
+}
+[2025-08-18T13:31:13.603Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T13:31:13.603Z"
+}
+[2025-08-18T13:35:58.915Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:35:58.915Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7",
+  "hasMetadata": true
+}
+[2025-08-18T13:35:58.963Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:35:58.963Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7",
+    "connectionManagerOrderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_35b12c4a-f214-472b-9b55-a06121d81ca7"
+    }
+  }
+}
+[2025-08-18T13:38:48.834Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T13:38:48.834Z"
+}
+[2025-08-18T13:39:05.102Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:39:05.102Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c",
+  "hasMetadata": true
+}
+[2025-08-18T13:39:05.181Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:39:05.182Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c",
+    "connectionManagerOrderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_1c9a7354-1640-4485-97b3-2079d82ec57c"
+    }
+  }
+}
+[2025-08-18T13:40:23.875Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T13:40:33.887Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T13:40:53.892Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T13:40:53.892Z"
+}
+[2025-08-18T13:42:10.459Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:42:10.459Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358",
+  "hasMetadata": true
+}
+[2025-08-18T13:42:10.518Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:42:10.519Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358",
+    "connectionManagerOrderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_5e5fd5cb-ee20-4a37-9648-6b8631336358"
+    }
+  }
+}
+[2025-08-18T13:45:15.775Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:45:15.776Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6",
+  "hasMetadata": true
+}
+[2025-08-18T13:45:15.871Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:45:15.871Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6",
+    "connectionManagerOrderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_50683027-cfe0-44e8-b1eb-c4c3af5a5cf6"
+    }
+  }
+}
+[2025-08-18T13:48:21.888Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:48:21.888Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd",
+  "hasMetadata": true
+}
+[2025-08-18T13:48:21.958Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:48:21.959Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd",
+    "connectionManagerOrderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_93974a8c-eb33-4ef0-8f78-5adbe43f68cd"
+    }
+  }
+}
+[2025-08-18T13:51:27.520Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:51:27.520Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c",
+  "hasMetadata": true
+}
+[2025-08-18T13:51:27.604Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:51:27.605Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c",
+    "connectionManagerOrderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_e31fe0ae-2b01-4dd0-be05-555277db1d7c"
+    }
+  }
+}
+[2025-08-18T13:52:58.984Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T13:53:09.001Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T13:53:29.020Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T13:53:29.020Z"
+}
+[2025-08-18T13:54:58.653Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:54:58.653Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12",
+  "hasMetadata": true
+}
+[2025-08-18T13:54:58.791Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:54:58.792Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12",
+    "connectionManagerOrderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_8874b344-de8c-4371-8c46-8b3b16f09a12"
+    }
+  }
+}
+[2025-08-18T13:58:04.346Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T13:58:04.346Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351",
+  "hasMetadata": true
+}
+[2025-08-18T13:58:04.378Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T13:58:04.379Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351",
+    "connectionManagerOrderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_417e0436-cebe-4040-b0ea-efbbd8731351"
+    }
+  }
+}
+[2025-08-18T14:29:58.457Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T14:29:58.457Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca",
+  "hasMetadata": true
+}
+[2025-08-18T14:29:58.561Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T14:29:58.562Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca",
+    "connectionManagerOrderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_55d0b7df-6243-40a4-84f8-f452a2dcb5ca"
+    }
+  }
+}
+[2025-08-18T14:34:58.325Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T14:34:58.325Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca",
+  "hasMetadata": true
+}
+[2025-08-18T14:34:58.368Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T14:34:58.369Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca",
+    "connectionManagerOrderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_623bef3f-54da-44bf-bf0a-d6006aba7eca"
+    }
+  }
+}
+[2025-08-18T14:39:58.414Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T14:39:58.414Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e",
+  "hasMetadata": true
+}
+[2025-08-18T14:39:58.469Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T14:39:58.469Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e",
+    "connectionManagerOrderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_62c6fb7d-5c29-4eeb-925d-52965a03b72e"
+    }
+  }
+}
+[2025-08-18T14:44:58.390Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T14:44:58.390Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5",
+  "hasMetadata": true
+}
+[2025-08-18T14:44:58.469Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T14:44:58.470Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5",
+    "connectionManagerOrderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_a6d41eac-fab0-4bee-a61d-72ad1ca0f3b5"
+    }
+  }
+}

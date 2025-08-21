@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo:*)",
+      "Bash(python:*)",
+      "Bash(md5sum:*)",
+      "Bash(node:*)",
+      "Bash(script execution_log_verification.txt)",
+      "Bash(kill:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

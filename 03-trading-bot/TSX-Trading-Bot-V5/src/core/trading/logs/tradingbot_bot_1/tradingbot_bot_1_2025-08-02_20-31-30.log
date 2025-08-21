@@ -1,0 +1,58 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-02T19:31:30.122Z
+================================================================================
+
+[2025-08-02T19:31:30.122Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "F.US.MGC",
+  "strategyType": "EMA_9_RETRACEMENT_SCALPING",
+  "testMode": true,
+  "enabled": true
+}
+[2025-08-02T19:31:30.123Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-02T19:31:30.132Z] [INFO] Strategy EMA_9_RETRACEMENT_SCALPING loaded successfully
+{
+  "config": {
+    "mode": "STANDARD",
+    "periods": {
+      "fast": 6,
+      "slow": 19
+    },
+    "dollarRiskPerTrade": 50,
+    "riskRewardRatio": 3,
+    "maxRiskPoints": 3,
+    "minEMASpread": 0.5,
+    "candleIntervalSeconds": 60,
+    "emaUpdateMode": "TICK_BASED",
+    "postWinCandleTimeout": 60,
+    "postLossCandleTimeout": 300,
+    "maxBarsSinceEMA": 5,
+    "stopLossOffset": 0,
+    "stopLossBuffer": 1,
+    "dollarPerPoint": 10
+  }
+}
+[2025-08-02T19:31:30.158Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-02T19:31:30.158Z] [INFO] Simulated market data initialized
+{
+  "instrument": "F.US.MGC",
+  "startPrice": 100,
+  "tickInterval": 2000
+}
+[2025-08-02T19:31:30.159Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}

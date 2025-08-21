@@ -1,0 +1,62 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-19T15:53:56.638Z
+================================================================================
+
+[2025-08-19T15:53:56.638Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "F.US.MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-19T15:53:56.639Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-19T15:53:56.658Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-19T15:53:56.776Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-19T15:53:56.777Z] [INFO] Initializing live market data connection
+{
+  "instrument": "F.US.MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-19T15:53:56.777Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "F.US.MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-19T15:53:56.777Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-19T15:53:56.777Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-19T15:53:56.783Z] [WARN] Aggregator disconnected
+{
+  "reason": "Client shutdown"
+}
+[2025-08-19T15:53:56.784Z] [INFO] TradingBot stopped
+{}

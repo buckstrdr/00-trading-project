@@ -1,0 +1,16 @@
+
+================================================================================
+ConnectionManager Log File
+Started: 2025-08-19T07:51:45.108Z
+================================================================================
+
+[2025-08-19T07:51:45.108Z] [INFO] Connection Manager starting up
+{
+  "config": {
+    "port": 7500,
+    "apiUrl": "https://api.topstepx.com",
+    "corsOrigins": [
+      "http://localhost:3000"
+    ]
+  }
+}

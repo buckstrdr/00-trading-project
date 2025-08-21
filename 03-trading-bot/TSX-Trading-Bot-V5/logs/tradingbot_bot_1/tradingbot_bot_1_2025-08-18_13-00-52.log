@@ -1,0 +1,229 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-18T12:00:52.740Z
+================================================================================
+
+[2025-08-18T12:00:52.740Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-18T12:00:52.741Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-18T12:00:52.757Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-18T12:00:52.783Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-18T12:00:52.783Z] [INFO] Initializing live market data connection
+{
+  "instrument": "MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-18T12:00:52.784Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-18T12:00:52.784Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-18T12:00:52.784Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-18T12:00:58.985Z] [INFO] Signal generated: SHORT TEST_TIME_STRATEGY
+{
+  "price": 3391.05,
+  "stopLoss": 3393.05,
+  "takeProfit": 3389.05,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T12:00:58.990Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_33df902b-deea-4264-afe2-806548bab1e6",
+  "aggregatorOrderId": "BOT_1_33df902b-deea-4264-afe2-806548bab1e6",
+  "queueId": "queue_1755518458990"
+}
+[2025-08-18T12:00:58.990Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_33df902b-deea-4264-afe2-806548bab1e6",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_33df902b-deea-4264-afe2-806548bab1e6"
+}
+[2025-08-18T12:03:59.323Z] [INFO] Signal generated: CLOSE TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST"
+}
+[2025-08-18T12:03:59.325Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_97a446ff-6492-4ebe-8c54-76b4110daaa2",
+  "aggregatorOrderId": "BOT_1_97a446ff-6492-4ebe-8c54-76b4110daaa2",
+  "queueId": "queue_1755518639325"
+}
+[2025-08-18T12:03:59.325Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_97a446ff-6492-4ebe-8c54-76b4110daaa2",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_97a446ff-6492-4ebe-8c54-76b4110daaa2"
+}
+[2025-08-18T12:04:58.869Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3392.6,
+  "stopLoss": 3390.6,
+  "takeProfit": 3394.6,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T12:04:58.870Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_6bae3335-3612-49d2-b897-c6ac2249c440",
+  "aggregatorOrderId": "BOT_1_6bae3335-3612-49d2-b897-c6ac2249c440",
+  "queueId": "queue_1755518698870"
+}
+[2025-08-18T12:04:58.870Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_6bae3335-3612-49d2-b897-c6ac2249c440",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_6bae3335-3612-49d2-b897-c6ac2249c440"
+}
+[2025-08-18T12:07:59.005Z] [INFO] Signal generated: CLOSE TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST"
+}
+[2025-08-18T12:07:59.006Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_a43159b1-c7db-4886-bae8-0c77f3832094",
+  "aggregatorOrderId": "BOT_1_a43159b1-c7db-4886-bae8-0c77f3832094",
+  "queueId": "queue_1755518879006"
+}
+[2025-08-18T12:07:59.006Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_a43159b1-c7db-4886-bae8-0c77f3832094",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_a43159b1-c7db-4886-bae8-0c77f3832094"
+}
+[2025-08-18T12:07:59.505Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3393,
+  "stopLoss": 3391,
+  "takeProfit": 3395,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T12:07:59.506Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_513ef209-12fb-469a-88c2-a277a0e99a07",
+  "aggregatorOrderId": "BOT_1_513ef209-12fb-469a-88c2-a277a0e99a07",
+  "queueId": "queue_1755518879506"
+}
+[2025-08-18T12:07:59.506Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_513ef209-12fb-469a-88c2-a277a0e99a07",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_513ef209-12fb-469a-88c2-a277a0e99a07"
+}
+[2025-08-18T12:10:59.651Z] [INFO] Signal generated: CLOSE TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST"
+}
+[2025-08-18T12:10:59.652Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_7628ba93-78c0-400c-80a3-1bfc8e307196",
+  "aggregatorOrderId": "BOT_1_7628ba93-78c0-400c-80a3-1bfc8e307196",
+  "queueId": "queue_1755519059652"
+}
+[2025-08-18T12:10:59.652Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_7628ba93-78c0-400c-80a3-1bfc8e307196",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_7628ba93-78c0-400c-80a3-1bfc8e307196"
+}
+[2025-08-18T12:10:59.703Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3393,
+  "stopLoss": 3391,
+  "takeProfit": 3395,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T12:10:59.704Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_20233118-ff9d-4098-b75f-e7e9e40c4fb8",
+  "aggregatorOrderId": "BOT_1_20233118-ff9d-4098-b75f-e7e9e40c4fb8",
+  "queueId": "queue_1755519059704"
+}
+[2025-08-18T12:10:59.704Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_20233118-ff9d-4098-b75f-e7e9e40c4fb8",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_20233118-ff9d-4098-b75f-e7e9e40c4fb8"
+}
+[2025-08-18T12:14:00.410Z] [INFO] Signal generated: CLOSE TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST"
+}
+[2025-08-18T12:14:00.411Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_bce638b5-cc16-40a0-991a-721355b08e30",
+  "aggregatorOrderId": "BOT_1_bce638b5-cc16-40a0-991a-721355b08e30",
+  "queueId": "queue_1755519240411"
+}
+[2025-08-18T12:14:00.411Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_bce638b5-cc16-40a0-991a-721355b08e30",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_bce638b5-cc16-40a0-991a-721355b08e30"
+}
+[2025-08-18T12:14:58.987Z] [INFO] Signal generated: SHORT TEST_TIME_STRATEGY
+{
+  "price": 3392.8,
+  "stopLoss": 3394.8,
+  "takeProfit": 3390.8,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T12:14:58.988Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_1da68e9c-84d3-4a1a-8d6e-d224c085e12e",
+  "aggregatorOrderId": "BOT_1_1da68e9c-84d3-4a1a-8d6e-d224c085e12e",
+  "queueId": "queue_1755519298988"
+}
+[2025-08-18T12:14:58.988Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_1da68e9c-84d3-4a1a-8d6e-d224c085e12e",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_1da68e9c-84d3-4a1a-8d6e-d224c085e12e"
+}

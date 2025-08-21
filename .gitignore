@@ -1,60 +1,33 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-.venv
-*.egg-info/
-dist/
-build/
-
-# Data files
-*.csv
-*.xlsx
-*.xls
-*.json
-*.pkl
-*.pickle
-
-# Logs
-*.log
-logs/
-
-# API Keys and Secrets
+# API Keys and Secrets ONLY
 .env
 config.ini
 secrets.txt
 credentials.json
 *.key
+*credentials*
+*secret*
+*api_key*
+*apikey*
+*token*
+
+# Virtual environments (should not be committed)
+venv/
+env/
+.venv/
+
+# Node modules (should not be committed)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-temp/
-tmp/
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Node (if using any JS)
-node_modules/
-package-lock.json
-yarn.lock

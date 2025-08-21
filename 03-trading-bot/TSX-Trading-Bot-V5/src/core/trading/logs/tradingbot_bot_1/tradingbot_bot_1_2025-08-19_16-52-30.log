@@ -1,0 +1,5253 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-19T15:52:30.094Z
+================================================================================
+
+[2025-08-19T15:52:30.095Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "F.US.MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-19T15:52:30.095Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-19T15:52:30.118Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-19T15:52:30.211Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-19T15:52:30.212Z] [INFO] Initializing live market data connection
+{
+  "instrument": "F.US.MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-19T15:52:30.212Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "F.US.MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-19T15:52:30.212Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-19T15:52:30.212Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-19T15:52:30.243Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:30.244Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:30.590Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:30.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:32.995Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:32.996Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:33.143Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:33.143Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:33.242Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1499999999996,
+  "bid": 3366.1,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:33.242Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1499999999996,
+  "bid": 3366.1,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:33.342Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:33.342Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:35.692Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:35.692Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:37.842Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1499999999996,
+  "bid": 3366.1,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:37.842Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1499999999996,
+  "bid": 3366.1,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:38.646Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1499999999996,
+  "bid": 3366.1,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:38.647Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1499999999996,
+  "bid": 3366.1,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:38.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:38.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:39.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:39.443Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:39.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:39.942Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:40.293Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:40.293Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.594Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.944Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.944Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.948Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.949Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.993Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.993Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.994Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.994Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.994Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3500000000004,
+  "bid": 3366.3,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:41.995Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3500000000004,
+  "bid": 3366.3,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.045Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.045Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.046Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.046Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.047Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.047Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.048Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.048Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.144Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.144Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.189Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.190Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.342Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.342Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.391Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.392Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.441Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.443Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.443Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.492Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.493Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.495Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.495Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.541Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.542Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.641Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.641Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.641Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:42.642Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.100Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.101Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.490Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.490Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.592Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.642Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.642Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.692Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.693Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.740Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.741Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.742Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:43.742Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.345Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.345Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.645Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.645Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.692Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.693Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.744Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:44.744Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:45.542Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:45.542Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:45.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:45.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:46.441Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:46.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.152Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.152Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.198Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.05,
+  "bid": 3367,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.199Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.05,
+  "bid": 3367,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.199Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.199Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.200Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.200Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.200Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.201Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.441Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.740Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.05,
+  "bid": 3367,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.740Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.05,
+  "bid": 3367,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.842Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "bid": 3366.9,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.842Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "bid": 3366.9,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:47.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.040Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.040Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.088Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.089Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.190Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.191Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.191Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 3,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.191Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 3,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.241Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.241Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.242Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.05,
+  "bid": 3367,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.242Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.05,
+  "bid": 3367,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.741Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "bid": 3367,
+  "ask": 3367.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.741Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "bid": 3367,
+  "ask": 3367.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.800Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.801Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.850Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.850Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.851Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "bid": 3367,
+  "ask": 3367.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.851Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367.1,
+  "bid": 3367,
+  "ask": 3367.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.890Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "bid": 3366.9,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.890Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "bid": 3366.9,
+  "ask": 3367.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.991Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:48.991Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:49.794Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:49.795Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:49.843Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.95,
+  "bid": 3366.9,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:49.844Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.95,
+  "bid": 3366.9,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:49.890Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:49.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.143Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.144Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.541Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.541Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.542Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.542Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.543Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.543Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.988Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:50.989Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:52.240Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:52.240Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3367,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:52.340Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:52.340Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:52.341Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:52.341Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.041Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.042Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.9,
+  "bid": 3366.8,
+  "ask": 3367,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.145Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.146Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8500000000004,
+  "bid": 3366.8,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.592Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.597Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.598Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.599Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.599Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.599Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.600Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.600Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.601Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.638Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.639Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.742Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:54.743Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.099Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.099Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.138Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.139Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.542Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.543Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.842Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.842Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.997Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:55.997Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.807Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.808Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.893Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.894Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.894Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.895Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.994Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:56.995Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:58.694Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:58.694Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:58.696Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:58.696Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:52:58.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:58.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.006Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.006Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.041Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.042Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.097Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.097Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.940Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:52:59.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.241Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.242Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.657Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.658Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.742Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.743Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.944Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:00.944Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:02.893Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:02.893Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:04.691Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:04.691Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:04.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:04.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.302Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.302Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.940Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.993Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:05.993Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.092Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.092Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.093Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.093Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.342Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.343Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.441Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.441Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.75,
+  "bid": 3366.7,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.544Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.544Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.594Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.841Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.841Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.892Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:07.892Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:08.194Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:08.194Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:08.491Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:08.491Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:09.496Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:09.496Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:10.091Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:10.091Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:12.202Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:12.202Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:13.392Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:13.392Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "bid": 3366.6,
+  "ask": 3366.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:13.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:13.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6499999999996,
+  "bid": 3366.6,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:13.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:13.941Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.8,
+  "bid": 3366.7,
+  "ask": 3366.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:14.651Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:14.651Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:14.660Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:14.661Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:14.795Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:14.795Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:15.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:15.442Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:15.639Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:15.640Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:17.198Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:17.199Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:17.640Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:17.641Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:17.642Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:17.642Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.100Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.101Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.554Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.554Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.592Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:18.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.090Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.091Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.145Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.145Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.146Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.147Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.791Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:19.791Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:20.219Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:20.220Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:20.339Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:20.340Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:21.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:21.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:22.141Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:22.141Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:22.300Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:22.300Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.4,
+  "bid": 3366.3,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:23.191Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:23.192Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:23.193Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:23.193Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:24.093Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:24.093Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:24.544Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:53:24.544Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:53:25.139Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:25.139Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:25.207Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:25.207Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.6,
+  "bid": 3366.5,
+  "ask": 3366.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:25.341Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:25.342Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:26.903Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:26.904Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:28.290Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:28.291Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.55,
+  "bid": 3366.5,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:28.838Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:28.838Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:28.839Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:28.839Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.444Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.445Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.446Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.446Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.5,
+  "bid": 3366.4,
+  "ask": 3366.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.747Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.748Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.45,
+  "bid": 3366.4,
+  "ask": 3366.5,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.840Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3500000000004,
+  "bid": 3366.3,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.840Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3500000000004,
+  "bid": 3366.3,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.892Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.893Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.894Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 3,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.894Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "volume": 3,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.895Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.896Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.939Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.25,
+  "bid": 3366.2,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:31.940Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.25,
+  "bid": 3366.2,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.390Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.390Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.390Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.391Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.391Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.392Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.538Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:32.539Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:33.338Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:33.338Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:34.143Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:34.143Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:34.791Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:34.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:35.892Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:35.894Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:36.540Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:36.541Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.3,
+  "bid": 3366.2,
+  "ask": 3366.4,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:36.742Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:36.742Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "bid": 3366.1,
+  "ask": 3366.3,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:36.946Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:36.947Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.193Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.193Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.1,
+  "bid": 3366,
+  "ask": 3366.2,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.408Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.409Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.590Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.593Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.839Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:39.839Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.138Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.139Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.190Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.190Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.440Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.440Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.838Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:43.839Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:44.296Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:44.296Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:45.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:45.592Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.689Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.690Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.790Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.791Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.792Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.891Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.938Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:46.938Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:47.237Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:47.238Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:47.292Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:47.292Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:48.990Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:48.991Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.500Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.500Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.500Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.501Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.501Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.501Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.638Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.638Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.739Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:49.739Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:50.289Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:50.290Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:50.639Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:53:50.639Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 2,
+  "status": "READY"
+}
+[2025-08-19T15:53:52.539Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:52.539Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:53.690Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:53.690Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:54.088Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:54.088Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:55.251Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:55.251Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:55.601Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:55.601Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:56.636Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:56.637Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:58.189Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:58.190Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:53:58.938Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:53:58.938Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.090Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.090Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.091Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.092Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.092Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.092Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.093Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.093Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.136Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.136Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.190Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.191Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.311Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.312Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.837Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:00.838Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:02.301Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:02.301Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.392Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.55,
+  "bid": 3365.5,
+  "ask": 3365.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.392Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.55,
+  "bid": 3365.5,
+  "ask": 3365.6,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.537Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.537Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.538Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.538Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.688Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:03.688Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.291Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.292Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.390Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.391Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.436Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.436Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.437Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.437Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.590Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:05.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:06.140Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:06.140Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:06.288Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:06.288Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:07.090Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.6,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:07.090Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.6,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:07.188Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:07.188Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:08.202Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:08.203Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:08.587Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:08.588Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:08.690Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:08.690Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:09.937Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:09.937Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.091Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.091Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.389Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.389Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.490Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.490Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.837Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:10.837Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:11.036Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:11.036Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:11.287Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:11.288Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:11.288Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:11.289Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.437Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.437Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.437Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.438Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.636Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.636Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.636Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:12.637Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:13.036Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:13.036Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:13.189Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:13.189Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8500000000004,
+  "bid": 3365.8,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:14.838Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:14.838Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:15.288Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:15.288Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:17.790Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:17.790Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:18.837Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:18.837Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:18.889Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:18.889Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:20.487Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:20.488Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:20.892Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:20.892Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:26.236Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:26.236Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:28.088Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:28.088Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:28.387Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:28.388Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6,
+  "bid": 3365.5,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:28.736Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:28.736Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.5,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:29.337Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:29.337Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:33.244Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:33.245Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:34.036Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:34.036Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:34.336Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:34.337Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:35.103Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:35.103Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:35.436Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:35.437Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.286Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.286Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.287Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.287Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.438Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.438Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.486Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:36.486Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.6499999999996,
+  "bid": 3365.6,
+  "ask": 3365.7,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:37.386Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:37.387Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:38.386Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:38.386Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:39.386Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:39.387Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.75,
+  "bid": 3365.7,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:39.439Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:39.439Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:40.886Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:40.887Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:43.233Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:43.234Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:43.286Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:43.286Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:44.201Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:44.202Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:44.686Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:44.686Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:46.638Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:46.638Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:46.942Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:46.942Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:47.044Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:47.045Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:47.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:47.591Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:48.085Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:48.086Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "READY"
+}
+[2025-08-19T15:54:48.645Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:48.646Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.7,
+  "bid": 3365.6,
+  "ask": 3365.8,
+  "volume": 1000,
+  "status": "READY"
+}
+[2025-08-19T15:54:49.113Z] [INFO] TradingBot started
+{}
+[2025-08-19T15:55:00.090Z] [INFO] Signal generated: SHORT TEST_TIME_STRATEGY
+{
+  "price": 3365.9,
+  "stopLoss": 3370.9,
+  "takeProfit": 3360.9,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "SHORT",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-19T15:55:00.100Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_d806038a-60a2-4020-b465-a1eba776e35c",
+  "aggregatorOrderId": "BOT_1_d806038a-60a2-4020-b465-a1eba776e35c",
+  "queueId": "queue_1755618900100"
+}
+[2025-08-19T15:55:00.101Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_d806038a-60a2-4020-b465-a1eba776e35c",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_d806038a-60a2-4020-b465-a1eba776e35c"
+}
+[2025-08-19T15:55:19.709Z] [WARN] Aggregator disconnected
+{
+  "reason": "Redis error"
+}
+[2025-08-19T15:55:50.172Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:50.172Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.2,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:51.921Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:51.921Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366.05,
+  "bid": 3366,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.105Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.106Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.163Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.164Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.605Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.605Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.663Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:52.664Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:53.967Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:53.967Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.95,
+  "bid": 3365.9,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:54.017Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:54.017Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:55.290Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:55.290Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:57.107Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:57.107Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.8,
+  "bid": 3365.7,
+  "ask": 3365.9,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:57.356Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:57.356Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3365.9,
+  "bid": 3365.8,
+  "ask": 3366,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.476Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.477Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.928Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.928Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "bid": 3365.9,
+  "ask": 3366.1,
+  "volume": 1000,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.929Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 3,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.929Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 3,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.930Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:55:59.930Z] [DEBUG] Market data received
+{
+  "instrument": "CON.F.US.MGC.Z25",
+  "price": 3366,
+  "volume": 1,
+  "status": "STOPPING"
+}
+[2025-08-19T15:56:00.747Z] [WARN] Aggregator disconnected
+{
+  "reason": "Client shutdown"
+}
+[2025-08-19T15:56:00.748Z] [INFO] TradingBot stopped
+{}

@@ -1,0 +1,31 @@
+
+================================================================================
+ConnectionManager Log File
+Started: 2025-08-19T07:53:48.354Z
+================================================================================
+
+[2025-08-19T07:53:48.354Z] [INFO] Connection Manager starting up
+{
+  "config": {
+    "port": 7500,
+    "apiUrl": "https://api.topstepx.com",
+    "corsOrigins": [
+      "http://localhost:3000"
+    ]
+  }
+}
+[2025-08-19T07:54:58.884Z] [SLTP] [SL/TP] Order Received from Instance
+{
+  "instanceId": "TRADING_AGGREGATOR",
+  "orderId": "config/bots/BOT_1.yaml_0178448f-2f84-46af-be25-4efcc655c603",
+  "orderType": "MARKET",
+  "instrument": "MGC",
+  "side": "BUY",
+  "quantity": 1,
+  "stopPrice": null,
+  "stopLossPoints": 5,
+  "takeProfitPoints": 5,
+  "accountId": 9627376,
+  "hasStopLoss": true,
+  "hasTakeProfit": true
+}

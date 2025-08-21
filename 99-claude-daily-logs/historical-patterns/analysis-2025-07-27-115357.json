@@ -1,0 +1,353 @@
+{
+    "ErrorPatterns":  {
+                          "Hook Error":  [
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:17:57.642Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:17:57.747Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Write\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:04.449Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Write\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:09.338Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:14.357Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:14.438Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:30.255Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:30.349Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:34.441Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:34.519Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:39.487Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:18:40.021Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:19.531Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:23.625Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:28.210Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:28.289Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:34.352Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:34.897Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:39.764Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:40.349Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Write\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:47.089Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Write\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:47.199Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:52.005Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:52.092Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:19:58.311Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:03.674Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:09.159Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:09.706Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:14.643Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:18.669Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:24.778Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:25.323Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:30.598Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:30.692Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:36.512Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:37.214Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:20:41.379Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:21:41.542Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:21:41.636Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:21:46.403Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:21:50.025Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:21:54.734Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:21:54.825Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Edit\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:05.295Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Edit\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:09.236Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Write\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:14.648Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Write\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:14.775Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:19.780Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:19.885Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:25.452Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Bash\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.bat] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.bat: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:22:25.992Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Grep\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:14:47.724Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Grep\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:14:47.916Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:14:53.243Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:15:01.075Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:15:21.557Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:LS\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:15:21.640Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Edit\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:15:32.339Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Edit\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:16:59.825Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:17:04.700Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:17:04.785Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPreToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\pre-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspre-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:17:12.574Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             },
+                                             {
+                                                 "Message":  "\u001b[1mPostToolUse:Read\u001b[22m [C:\\Users\\salte\\.claude\\hooks\\post-tool-use.sh] failed with non-blocking status code 127: /usr/bin/bash: line 1: C:Userssalte.claudehookspost-tool-use.sh: command not found\n",
+                                                 "Timestamp":  "2025-07-26T16:17:12.657Z",
+                                                 "Project":  "C--Users-salte-ClaudeProjects-github-repos"
+                                             }
+                                         ]
+                      },
+    "ProjectsAnalyzed":  10,
+    "Timestamp":  "2025-07-27-115357",
+    "SuccessCount":  41,
+    "ToolUsage":  {
+                      "WebSearch":  6,
+                      "Bash":  214,
+                      "Grep":  21,
+                      "Glob":  27,
+                      "TodoWrite":  55,
+                      "Write":  65,
+                      "ListMcpResourcesTool":  2,
+                      "LS":  39,
+                      "mcp__Context7__get-library-docs":  1,
+                      "Task":  18,
+                      "mcp__playwright__browser_close":  1,
+                      "mcp__playwright__browser_navigate":  5,
+                      "Edit":  47,
+                      "mcp__playwright__browser_take_screenshot":  1,
+                      "mcp__playwright__browser_click":  2,
+                      "MultiEdit":  2,
+                      "mcp__memory__retrieve_memory":  1,
+                      "Read":  198,
+                      "WebFetch":  1,
+                      "mcp__jupyter__get_notebook_info":  1,
+                      "mcp__Context7__resolve-library-id":  1,
+                      "mcp__playwright__browser_handle_dialog":  4
+                  },
+    "Recommendations":  [
+                            "Fix hook configuration issues",
+                            "Use Windows-compatible commands",
+                            "Optimize Bash usage"
+                        ]
+}

@@ -1,0 +1,193 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-18T13:03:15.777Z
+================================================================================
+
+[2025-08-18T13:03:15.777Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-18T13:03:15.778Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-18T13:03:15.797Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-18T13:03:15.828Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-18T13:03:15.828Z] [INFO] Initializing live market data connection
+{
+  "instrument": "MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-18T13:03:15.829Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-18T13:03:15.829Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-18T13:03:15.829Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-18T13:03:28.316Z] [INFO] TradingBot started
+{}
+[2025-08-18T13:04:58.670Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3388,
+  "stopLoss": 3386,
+  "takeProfit": 3390,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "LONG",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-18T13:04:58.678Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "aggregatorOrderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "queueId": "queue_1755522298678"
+}
+[2025-08-18T13:04:58.678Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_934f268b-1066-40d4-8c3c-15b21bb38a10"
+}
+[2025-08-18T13:07:58.809Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-18T13:07:58.809Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-18T13:07:59.184Z] [ERROR] Failed to submit signal to aggregator
+{
+  "error": "TopStep API Error 3: TopStep API error code 3",
+  "signal": {
+    "direction": "CLOSE_POSITION",
+    "confidence": "TEST",
+    "instrument": "MGC",
+    "positionSize": 1,
+    "reason": "Test strategy: Time-based closure after 3 minutes",
+    "timestamp": "2025-08-18T13:08:00.192Z",
+    "strategyName": "TEST_TIME_STRATEGY",
+    "strategyVersion": "1.0",
+    "closeType": "full",
+    "testData": {
+      "closeReason": "TIME_LIMIT",
+      "durationMinutes": 3,
+      "originalPosition": "LONG"
+    }
+  }
+}
+[2025-08-18T13:08:04.408Z] [INFO] Signal generated: SHORT TEST_TIME_STRATEGY
+{
+  "price": 3388.7,
+  "stopLoss": 3390.7,
+  "takeProfit": 3386.7,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "SHORT",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-18T13:08:04.409Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "aggregatorOrderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "queueId": "queue_1755522484409"
+}
+[2025-08-18T13:08:04.409Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_e42bea7f-c08f-444a-bf7e-a789096209ba"
+}
+[2025-08-18T13:11:04.553Z] [INFO] Signal generated: CLOSE_POSITION TEST_TIME_STRATEGY
+{
+  "positionSize": 1,
+  "confidence": "TEST",
+  "DEBUG_direction": "CLOSE_POSITION",
+  "DEBUG_isClosePosition": true
+}
+[2025-08-18T13:11:04.553Z] [INFO] Processing CLOSE_POSITION signal
+{
+  "instrument": "MGC",
+  "closeType": "full",
+  "reason": "Test strategy: Time-based closure after 3 minutes"
+}
+[2025-08-18T13:11:04.915Z] [ERROR] Failed to submit signal to aggregator
+{
+  "error": "TopStep API Error 3: TopStep API error code 3",
+  "signal": {
+    "direction": "CLOSE_POSITION",
+    "confidence": "TEST",
+    "instrument": "MGC",
+    "positionSize": 1,
+    "reason": "Test strategy: Time-based closure after 3 minutes",
+    "timestamp": "2025-08-18T13:11:05.912Z",
+    "strategyName": "TEST_TIME_STRATEGY",
+    "strategyVersion": "1.0",
+    "closeType": "full",
+    "testData": {
+      "closeReason": "TIME_LIMIT",
+      "durationMinutes": 3,
+      "originalPosition": "SHORT"
+    }
+  }
+}
+[2025-08-18T13:11:09.801Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3388.1,
+  "stopLoss": 3386.1,
+  "takeProfit": 3390.1,
+  "positionSize": 1,
+  "dollarRisk": 50,
+  "confidence": "TEST",
+  "DEBUG_direction": "LONG",
+  "DEBUG_isClosePosition": false
+}
+[2025-08-18T13:11:09.802Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "aggregatorOrderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "queueId": "queue_1755522669802"
+}
+[2025-08-18T13:11:09.802Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_e0e01284-424b-4d2c-900b-cf024889ff36"
+}

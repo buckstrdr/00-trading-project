@@ -1,0 +1,70 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-18T11:49:09.901Z
+================================================================================
+
+[2025-08-18T11:49:09.902Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-18T11:49:09.902Z"
+}
+[2025-08-18T11:49:10.037Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-18T11:49:10.063Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T11:49:10.063Z"
+}
+[2025-08-18T11:49:10.064Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-18T11:49:10.098Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-18T11:49:10.098Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-18T11:49:10.110Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T11:49:10.110Z"
+}
+[2025-08-18T11:49:59.915Z] [INFO] Starting order submission
+{
+  "orderId": "NO_ID",
+  "hasOrder": true,
+  "orderKeys": [
+    "type",
+    "payload",
+    "requestId",
+    "timestamp",
+    "source"
+  ]
+}
+[2025-08-18T11:49:59.915Z] [INFO] Order normalized successfully
+{
+  "orderId": "AGG_1755517799915_e0cxdllwa",
+  "hasMetadata": true
+}
+[2025-08-18T11:49:59.934Z] [WARN] Order BLOCKED by risk controls
+{
+  "orderId": "AGG_1755517799915_e0cxdllwa",
+  "violations": [
+    {
+      "type": "MIN_ORDER_SIZE",
+      "message": "Order size 0 below minimum 1",
+      "severity": "HIGH"
+    }
+  ]
+}

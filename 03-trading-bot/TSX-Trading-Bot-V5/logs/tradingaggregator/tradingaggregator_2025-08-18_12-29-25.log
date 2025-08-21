@@ -1,0 +1,54 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-18T11:29:25.598Z
+================================================================================
+
+[2025-08-18T11:29:25.598Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-18T11:29:25.598Z"
+}
+[2025-08-18T11:29:25.741Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-18T11:29:25.758Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T11:29:25.758Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-18T11:29:25.781Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-18T11:29:25.781Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-18T11:29:25.790Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T11:29:30.767Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T11:29:40.775Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T11:30:00.795Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-18T11:30:40.827Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}

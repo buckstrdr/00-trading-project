@@ -1,0 +1,47 @@
+[ConfigLoad] Loaded runtime configuration: { microOnly: true, timestamp: '2025-08-20T16:16:52.632Z' }
+[ConfigLoad] Starting Connection Manager: {
+  port: 7500,
+  urls: {
+    api: 'https://api.topstepx.com',
+    marketHub: 'https://rtc.topstepx.com/hubs/market',
+    userHub: 'https://rtc.topstepx.com/hubs/user'
+  },
+  corsOrigins: [ 'http://localhost:3000' ],
+  username: '***',
+  apiKey: '***',
+  startTradingAggregator: false,
+  microOnly: true
+}
+[36m[11:52:49.664] [ConnectionManager] Connection Manager starting up[0m
+{
+  "config": {
+    "port": 7500,
+    "apiUrl": "https://api.topstepx.com",
+    "corsOrigins": [
+      "http://localhost:3000"
+    ]
+  }
+}
+🌐 Connection Manager Initializing...
+   API URL: https://api.topstepx.com
+   Monitoring Port: 7500
+🚀 Starting Connection Manager...
+🔐 [CONNECTION_MANAGER] Auth module initialized
+   Base URL: https://api.topstepx.com
+   Auto-refresh: enabled
+   Refresh buffer: 300s before expiry
+🤖 Bot Connection Tracker initialized for 6 fixed bots
+📋 Fixed Bot Registry initialized for BOT_1 through BOT_6
+❤️ HeartbeatLogger initialized for EventBroadcaster (30000ms interval)
+✅ HeartbeatLogger started for EventBroadcaster
+📢 Event Broadcaster initialized
+✅ Redis publisher ready
+✅ Redis subscriber ready
+✅ Redis connections established
+✅ Subscribed to channel: instance:control
+✅ Subscribed to channel: order:management
+✅ Subscribed to channel: market:data
+✅ Subscribed to channel: system:events
+✅ Subscribed to channel: account-request
+✅ Subscribed to channel: connection-manager:requests
+🏥 Health Monitor initialized

@@ -1,0 +1,91 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-19T09:17:10.982Z
+================================================================================
+
+[2025-08-19T09:17:10.982Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-19T09:17:10.982Z"
+}
+[2025-08-19T09:17:11.129Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-19T09:17:11.150Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T09:17:11.150Z"
+}
+[2025-08-19T09:17:11.150Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-19T09:17:11.176Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-19T09:17:11.176Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-19T09:17:11.192Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T09:17:11.192Z"
+}
+[2025-08-19T09:35:04.264Z] [INFO] Starting order submission
+{
+  "orderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-19T09:35:04.264Z] [INFO] Order normalized successfully
+{
+  "orderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f",
+  "hasMetadata": true
+}
+[2025-08-19T09:35:04.377Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f",
+  "instrument": "MGC",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-19T09:35:04.378Z] [INFO] Order sent successfully
+{
+  "orderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f",
+  "result": {
+    "success": true,
+    "orderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f",
+    "connectionManagerOrderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f",
+    "response": {
+      "success": true,
+      "orderId": "BOT_1_a20d5a9d-5744-4363-b207-fe090adc9c5f"
+    }
+  }
+}

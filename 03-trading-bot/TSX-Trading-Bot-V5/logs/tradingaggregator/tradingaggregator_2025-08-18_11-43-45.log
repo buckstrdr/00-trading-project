@@ -1,0 +1,189 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-18T10:43:45.336Z
+================================================================================
+
+[2025-08-18T10:43:45.336Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-18T10:43:45.336Z"
+}
+[2025-08-18T10:43:45.467Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-18T10:43:45.485Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T10:43:45.485Z"
+}
+[2025-08-18T10:43:45.486Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-18T10:43:45.515Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-18T10:43:45.515Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-18T10:43:45.526Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-18T10:43:45.526Z"
+}
+[2025-08-18T10:46:19.319Z] [INFO] Starting order submission
+{
+  "orderId": "manual-1755513979313-f31vz4oe2",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T10:46:19.319Z] [INFO] Order normalized successfully
+{
+  "orderId": "manual-1755513979313-f31vz4oe2",
+  "hasMetadata": true
+}
+[2025-08-18T10:46:19.436Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "manual-1755513979313-f31vz4oe2",
+  "instrument": "CON.F.US.MGC.Z25",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T10:46:19.437Z] [INFO] Order sent successfully
+{
+  "orderId": "manual-1755513979313-f31vz4oe2",
+  "result": {
+    "success": true,
+    "orderId": "manual-1755513979313-f31vz4oe2",
+    "connectionManagerOrderId": "manual-1755513979313-f31vz4oe2",
+    "response": {
+      "success": true,
+      "orderId": "manual-1755513979313-f31vz4oe2"
+    }
+  }
+}
+[2025-08-18T10:47:37.930Z] [INFO] Starting order submission
+{
+  "orderId": "manual-1755514057926-bunzr3wk5",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T10:47:37.931Z] [INFO] Order normalized successfully
+{
+  "orderId": "manual-1755514057926-bunzr3wk5",
+  "hasMetadata": true
+}
+[2025-08-18T10:47:38.014Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "manual-1755514057926-bunzr3wk5",
+  "instrument": "CON.F.US.MGC.Z25",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T10:47:38.015Z] [INFO] Order sent successfully
+{
+  "orderId": "manual-1755514057926-bunzr3wk5",
+  "result": {
+    "success": true,
+    "orderId": "manual-1755514057926-bunzr3wk5",
+    "connectionManagerOrderId": "manual-1755514057926-bunzr3wk5",
+    "response": {
+      "success": true,
+      "orderId": "manual-1755514057926-bunzr3wk5"
+    }
+  }
+}
+[2025-08-18T10:50:27.123Z] [INFO] Starting order submission
+{
+  "orderId": "manual-1755514227120-jysqy3lre",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-18T10:50:27.124Z] [INFO] Order normalized successfully
+{
+  "orderId": "manual-1755514227120-jysqy3lre",
+  "hasMetadata": true
+}
+[2025-08-18T10:50:27.125Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "manual-1755514227120-jysqy3lre",
+  "instrument": "CON.F.US.MGC.Z25",
+  "action": "BUY",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-18T10:50:27.126Z] [INFO] Order sent successfully
+{
+  "orderId": "manual-1755514227120-jysqy3lre",
+  "result": {
+    "success": true,
+    "orderId": "manual-1755514227120-jysqy3lre",
+    "connectionManagerOrderId": "manual-1755514227120-jysqy3lre",
+    "response": {
+      "success": true,
+      "orderId": "manual-1755514227120-jysqy3lre"
+    }
+  }
+}

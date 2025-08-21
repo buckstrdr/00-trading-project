@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(dir:*)",
+      "Bash(ls:*)",
+      "Bash(node:*)",
+      "Bash(curl:*)",
+      "Bash(taskkill:*)",
+      "Bash(start /B node:*)",
+      "Bash(cmd //c:*)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(find:*)",
+      "Bash(redis-cli:*)",
+      "Bash(grep:*)",
+      "Bash(wmic process where ProcessId=14924 delete:*)",
+      "Bash(npm start)",
+      "Bash(start http://localhost:4675)",
+      "Bash(wmic process where:*)",
+      "Bash(start test-chart-connection.html)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": []
+  }
+}

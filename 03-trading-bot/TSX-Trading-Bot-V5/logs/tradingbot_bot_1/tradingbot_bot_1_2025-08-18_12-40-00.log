@@ -1,0 +1,1163 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-18T11:40:00.694Z
+================================================================================
+
+[2025-08-18T11:40:00.694Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-18T11:40:00.695Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-18T11:40:00.711Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-18T11:40:00.737Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-18T11:40:00.738Z] [INFO] Initializing live market data connection
+{
+  "instrument": "MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-18T11:40:00.738Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-18T11:40:00.738Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-18T11:40:00.738Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-18T11:40:01.053Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3394,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:02.168+00:00"
+      }
+    },
+    "timestamp": 1755517201057
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.105Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.9,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:02.168+00:00"
+      }
+    },
+    "timestamp": 1755517201109
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.105Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.8,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:02.172+00:00"
+      }
+    },
+    "timestamp": 1755517201109
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.105Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.8,
+        "ask": 3393.9,
+        "timestamp": "2025-08-18T11:40:02.168+00:00"
+      }
+    },
+    "timestamp": 1755517201109
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.155Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.8,
+        "ask": 3394,
+        "timestamp": "2025-08-18T11:40:02.18+00:00"
+      }
+    },
+    "timestamp": 1755517201159
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.305Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3394,
+        "timestamp": "2025-08-18T11:40:02.356+00:00"
+      }
+    },
+    "timestamp": 1755517201309
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.504Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.8,
+        "ask": 3393.9,
+        "timestamp": "2025-08-18T11:40:02.576+00:00"
+      }
+    },
+    "timestamp": 1755517201509
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:01.555Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.9,
+        "timestamp": "2025-08-18T11:40:02.576+00:00"
+      }
+    },
+    "timestamp": 1755517201559
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:02.504Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "timestamp": "2025-08-18T11:40:03.612+00:00"
+      }
+    },
+    "timestamp": 1755517202509
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:02.605Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.9,
+        "timestamp": "2025-08-18T11:40:03.636+00:00"
+      }
+    },
+    "timestamp": 1755517202609
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:03.404Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.9,
+        "timestamp": "2025-08-18T11:40:04.444+00:00"
+      }
+    },
+    "timestamp": 1755517203409
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:04.605Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:05.708+00:00"
+      }
+    },
+    "timestamp": 1755517204609
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:04.652Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "timestamp": "2025-08-18T11:40:05.716+00:00"
+      }
+    },
+    "timestamp": 1755517204656
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:06.362Z] [INFO] TradingBot started
+{}
+[2025-08-18T11:40:06.554Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "timestamp": "2025-08-18T11:40:07.6903434+00:00"
+      }
+    },
+    "timestamp": 1755517206558
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:06.604Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:07.684+00:00"
+      }
+    },
+    "timestamp": 1755517206608
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:06.752Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:07.748+00:00"
+      }
+    },
+    "timestamp": 1755517206757
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:10.654Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.8,
+        "size": 1,
+        "side": "BUY",
+        "timestamp": "2025-08-18T11:40:11.696+00:00"
+      }
+    },
+    "timestamp": 1755517210658
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:10.654Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:11.696+00:00"
+      }
+    },
+    "timestamp": 1755517210658
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:10.952Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:12.06+00:00"
+      }
+    },
+    "timestamp": 1755517210956
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.054Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:12.144+00:00"
+      }
+    },
+    "timestamp": 1755517211058
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.054Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.7,
+        "size": 1,
+        "side": "BUY",
+        "timestamp": "2025-08-18T11:40:12.14+00:00"
+      }
+    },
+    "timestamp": 1755517211058
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.554Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:12.592+00:00"
+      }
+    },
+    "timestamp": 1755517211558
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.604Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.7,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:12.712+00:00"
+      }
+    },
+    "timestamp": 1755517211608
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.604Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:12.708+00:00"
+      }
+    },
+    "timestamp": 1755517211609
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.654Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:12.724+00:00"
+      }
+    },
+    "timestamp": 1755517211658
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.706Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:12.8+00:00"
+      }
+    },
+    "timestamp": 1755517211710
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:11.904Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "timestamp": "2025-08-18T11:40:13.0408613+00:00"
+      }
+    },
+    "timestamp": 1755517211909
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:12.203Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:13.26+00:00"
+      }
+    },
+    "timestamp": 1755517212208
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:13.452Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:14.548+00:00"
+      }
+    },
+    "timestamp": 1755517213456
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:13.504Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:14.552+00:00"
+      }
+    },
+    "timestamp": 1755517213508
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:13.803Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:14.872+00:00"
+      }
+    },
+    "timestamp": 1755517213808
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:19.404Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.6,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:20.456+00:00"
+      }
+    },
+    "timestamp": 1755517219408
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:19.404Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:20.456+00:00"
+      }
+    },
+    "timestamp": 1755517219408
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:19.603Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:20.604+00:00"
+      }
+    },
+    "timestamp": 1755517219607
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:19.904Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:21.012+00:00"
+      }
+    },
+    "timestamp": 1755517219908
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:22.453Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:23.548+00:00"
+      }
+    },
+    "timestamp": 1755517222458
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:22.503Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "timestamp": "2025-08-18T11:40:23.548+00:00"
+      }
+    },
+    "timestamp": 1755517222508
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:23.154Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:24.224+00:00"
+      }
+    },
+    "timestamp": 1755517223158
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:24.551Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "timestamp": "2025-08-18T11:40:25.588+00:00"
+      }
+    },
+    "timestamp": 1755517224555
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:24.853Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:25.916+00:00"
+      }
+    },
+    "timestamp": 1755517224857
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:26.403Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:27.472+00:00"
+      }
+    },
+    "timestamp": 1755517226407
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:28.053Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:29.12+00:00"
+      }
+    },
+    "timestamp": 1755517228057
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:28.453Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:29.52+00:00"
+      }
+    },
+    "timestamp": 1755517228457
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:29.303Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:30.308+00:00"
+      }
+    },
+    "timestamp": 1755517229307
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:30.403Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:31.5+00:00"
+      }
+    },
+    "timestamp": 1755517230408
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:30.703Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:31.792+00:00"
+      }
+    },
+    "timestamp": 1755517230707
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:32.053Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:33.156+00:00"
+      }
+    },
+    "timestamp": 1755517232057
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:32.250Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:33.344+00:00"
+      }
+    },
+    "timestamp": 1755517232254
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:32.303Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "timestamp": "2025-08-18T11:40:33.392+00:00"
+      }
+    },
+    "timestamp": 1755517232307
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:32.402Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:33.448+00:00"
+      }
+    },
+    "timestamp": 1755517232407
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:32.503Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.7,
+        "timestamp": "2025-08-18T11:40:33.604+00:00"
+      }
+    },
+    "timestamp": 1755517232507
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:33.952Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:35.02+00:00"
+      }
+    },
+    "timestamp": 1755517233957
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:34.252Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.8,
+        "timestamp": "2025-08-18T11:40:35.312+00:00"
+      }
+    },
+    "timestamp": 1755517234257
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:37.902Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "timestamp": "2025-08-18T11:40:38.988+00:00"
+      }
+    },
+    "timestamp": 1755517237906
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:41.302Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:42.42+00:00"
+      }
+    },
+    "timestamp": 1755517241306
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:41.353Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.7,
+        "size": 1,
+        "side": "BUY",
+        "timestamp": "2025-08-18T11:40:42.424+00:00"
+      }
+    },
+    "timestamp": 1755517241357
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:41.552Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:42.608+00:00"
+      }
+    },
+    "timestamp": 1755517241557
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.002Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.6,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:45.108+00:00"
+      }
+    },
+    "timestamp": 1755517244007
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.049Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.6,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:45.116+00:00"
+      }
+    },
+    "timestamp": 1755517244054
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.050Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.5,
+        "ask": 3393.6,
+        "timestamp": "2025-08-18T11:40:45.116+00:00"
+      }
+    },
+    "timestamp": 1755517244054
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.102Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.6,
+        "size": 1,
+        "side": "BUY",
+        "timestamp": "2025-08-18T11:40:45.12+00:00"
+      }
+    },
+    "timestamp": 1755517244106
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.102Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:45.12+00:00"
+      }
+    },
+    "timestamp": 1755517244106
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.252Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.5,
+        "ask": 3393.7,
+        "timestamp": "2025-08-18T11:40:45.352+00:00"
+      }
+    },
+    "timestamp": 1755517244257
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.352Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "TRADE",
+      "data": {
+        "price": 3393.5,
+        "size": 1,
+        "side": "SELL",
+        "timestamp": "2025-08-18T11:40:45.444+00:00"
+      }
+    },
+    "timestamp": 1755517244356
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.352Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "bid": 3393.4,
+        "ask": 3393.6,
+        "timestamp": "2025-08-18T11:40:45.448+00:00"
+      }
+    },
+    "timestamp": 1755517244356
+  },
+  "instrument": "MGC"
+}
+[2025-08-18T11:40:44.402Z] [INFO] Received live market data
+{
+  "data": {
+    "type": "MARKET_DATA",
+    "payload": {
+      "instrument": "CON.F.US.MGC.Z25",
+      "type": "QUOTE",
+      "data": {
+        "ask": 3393.6,
+        "timestamp": "2025-08-18T11:40:45.456+00:00"
+      }
+    },
+    "timestamp": 1755517244407
+  },
+  "instrument": "MGC"
+}

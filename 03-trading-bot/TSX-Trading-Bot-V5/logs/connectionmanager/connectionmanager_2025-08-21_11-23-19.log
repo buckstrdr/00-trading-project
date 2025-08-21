@@ -1,0 +1,26 @@
+
+================================================================================
+ConnectionManager Log File
+Started: 2025-08-21T10:23:19.105Z
+================================================================================
+
+[2025-08-21T10:23:19.105Z] [INFO] Connection Manager starting up
+{
+  "config": {
+    "port": 7500,
+    "apiUrl": "https://api.topstepx.com",
+    "corsOrigins": [
+      "http://localhost:3000"
+    ]
+  }
+}
+[2025-08-21T10:51:02.383Z] [ERROR] Unhandled Rejection
+{
+  "reason": "this.eventBroadcaster.publishEvent is not a function",
+  "stack": "TypeError: this.eventBroadcaster.publishEvent is not a function\n    at ConnectionManager.handleSLTPUpdateRequest (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\core\\ConnectionManager.js:4553:41)\n    at EventBroadcaster.<anonymous> (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\core\\ConnectionManager.js:391:28)\n    at EventBroadcaster.emit (node:events:530:35)\n    at EventBroadcaster.handleConnectionManagerRequest (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\services\\EventBroadcaster.js:260:14)\n    at C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\services\\EventBroadcaster.js:220:17\n    at PubSub._PubSub_emitPubSubMessage (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\pub-sub.js:304:9)\n    at PubSub.handleMessageReply (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\pub-sub.js:233:93)\n    at Object.onReply (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\commands-queue.js:40:87)\n    at RESP2Decoder.write (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\RESP2\\decoder.js:119:26)\n    at RedisCommandsQueue.onReplyChunk (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\commands-queue.js:154:72)"
+}
+[2025-08-21T10:57:01.558Z] [ERROR] Unhandled Rejection
+{
+  "reason": "this.eventBroadcaster.publishEvent is not a function",
+  "stack": "TypeError: this.eventBroadcaster.publishEvent is not a function\n    at ConnectionManager.handleSLTPUpdateRequest (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\core\\ConnectionManager.js:4553:41)\n    at EventBroadcaster.<anonymous> (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\core\\ConnectionManager.js:391:28)\n    at EventBroadcaster.emit (node:events:530:35)\n    at EventBroadcaster.handleConnectionManagerRequest (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\services\\EventBroadcaster.js:260:14)\n    at C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\services\\EventBroadcaster.js:220:17\n    at PubSub._PubSub_emitPubSubMessage (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\pub-sub.js:304:9)\n    at PubSub.handleMessageReply (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\pub-sub.js:233:93)\n    at Object.onReply (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\commands-queue.js:40:87)\n    at RESP2Decoder.write (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\RESP2\\decoder.js:119:26)\n    at RedisCommandsQueue.onReplyChunk (C:\\Users\\salte\\ClaudeProjects\\github-repos\\TSX-Trading-Bot-V5\\connection-manager\\node_modules\\@redis\\client\\dist\\lib\\client\\commands-queue.js:154:72)"
+}

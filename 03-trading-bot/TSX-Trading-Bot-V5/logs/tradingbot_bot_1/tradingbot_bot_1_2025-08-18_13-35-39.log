@@ -1,0 +1,77 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-18T12:35:39.989Z
+================================================================================
+
+[2025-08-18T12:35:39.989Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": false,
+  "enabled": true
+}
+[2025-08-18T12:35:39.990Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-18T12:35:40.009Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-18T12:35:40.042Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-18T12:35:40.043Z] [INFO] Initializing live market data connection
+{
+  "instrument": "MGC",
+  "aggregatorEnabled": true
+}
+[2025-08-18T12:35:40.043Z] [INFO] Live trading mode - subscribing to market data feed
+{
+  "instrument": "MGC",
+  "note": "Market data will be received from Connection Manager via aggregator"
+}
+[2025-08-18T12:35:40.043Z] [INFO] Subscribed to live market data feed via aggregator
+{}
+[2025-08-18T12:35:40.043Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-18T12:35:58.859Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 3392.7,
+  "stopLoss": 3392.58,
+  "takeProfit": 3392.8199999999997,
+  "positionSize": 1,
+  "dollarRisk": 51,
+  "confidence": "TEST"
+}
+[2025-08-18T12:35:58.867Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_2306051f-13be-43b1-81a4-7ffcc0d31248",
+  "aggregatorOrderId": "BOT_1_2306051f-13be-43b1-81a4-7ffcc0d31248",
+  "queueId": "queue_1755520558867"
+}
+[2025-08-18T12:35:58.868Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_2306051f-13be-43b1-81a4-7ffcc0d31248",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_2306051f-13be-43b1-81a4-7ffcc0d31248"
+}

@@ -1,0 +1,142 @@
+
+================================================================================
+TradingBot_BOT_1 Log File
+Started: 2025-08-18T11:11:37.961Z
+================================================================================
+
+[2025-08-18T11:11:37.962Z] [INFO] TradingBot TradingBot_BOT_1 configuration loaded
+{
+  "botId": "BOT_1",
+  "instrument": "F.US.MGC",
+  "strategyType": "TEST_TIME_STRATEGY",
+  "testMode": true,
+  "enabled": true
+}
+[2025-08-18T11:11:37.963Z] [INFO] Risk manager initialized
+{
+  "maxDailyLoss": 800,
+  "maxDailyProfit": 600,
+  "maxOpenPositions": 1,
+  "dollarRiskPerTrade": 50
+}
+[2025-08-18T11:11:37.981Z] [INFO] Strategy TEST_TIME_STRATEGY loaded successfully
+{
+  "config": {
+    "intervalMinutes": 5,
+    "tradeDurationMinutes": 3,
+    "candleLookbackMinutes": 1,
+    "dollarRiskPerTrade": 50,
+    "maxRiskPoints": 3,
+    "riskRewardRatio": 1,
+    "positionSize": 1,
+    "dollarPerPoint": 10,
+    "enableLogging": true
+  }
+}
+[2025-08-18T11:11:38.007Z] [INFO] Aggregator client connected successfully
+{}
+[2025-08-18T11:11:38.008Z] [INFO] Simulated market data initialized
+{
+  "instrument": "F.US.MGC",
+  "startPrice": 100,
+  "tickInterval": 2000
+}
+[2025-08-18T11:11:38.008Z] [INFO] TradingBot initialized successfully
+{
+  "botId": "BOT_1",
+  "strategy": "loaded",
+  "aggregator": "connected",
+  "riskManager": "active"
+}
+[2025-08-18T11:11:55.055Z] [INFO] Simulated market data feed started
+{}
+[2025-08-18T11:11:55.055Z] [INFO] TradingBot started
+{}
+[2025-08-18T11:15:01.555Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 95.6464689294587,
+  "stopLoss": 93.6464689294587,
+  "takeProfit": 97.6464689294587,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T11:15:01.561Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_6a473fff-2695-467d-816d-b23f0185f210",
+  "aggregatorOrderId": "BOT_1_6a473fff-2695-467d-816d-b23f0185f210",
+  "queueId": "queue_1755515701560"
+}
+[2025-08-18T11:15:01.561Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_6a473fff-2695-467d-816d-b23f0185f210",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_6a473fff-2695-467d-816d-b23f0185f210"
+}
+[2025-08-18T11:15:15.604Z] [INFO] Periodic update
+{
+  "ticks": 100,
+  "price": "94.64",
+  "signals": 1,
+  "trades": 0,
+  "winRate": "0.0%",
+  "dailyPnL": "0.00",
+  "currentPosition": "NONE",
+  "strategyReady": true,
+  "strategyState": "N/A"
+}
+[2025-08-18T11:18:01.911Z] [INFO] Signal generated: CLOSE TEST_TIME_STRATEGY
+{
+  "confidence": "TEST"
+}
+[2025-08-18T11:18:01.912Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_88d6c5f6-de51-44e4-85ae-ac891506b21d",
+  "aggregatorOrderId": "BOT_1_88d6c5f6-de51-44e4-85ae-ac891506b21d",
+  "queueId": "queue_1755515881912"
+}
+[2025-08-18T11:18:01.912Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_88d6c5f6-de51-44e4-85ae-ac891506b21d",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_88d6c5f6-de51-44e4-85ae-ac891506b21d"
+}
+[2025-08-18T11:18:03.912Z] [INFO] Signal generated: LONG TEST_TIME_STRATEGY
+{
+  "price": 99.08656624869148,
+  "stopLoss": 97.08656624869148,
+  "takeProfit": 101.08656624869148,
+  "positionSize": 1,
+  "dollarRisk": 20,
+  "confidence": "TEST"
+}
+[2025-08-18T11:18:03.913Z] [INFO] Order accepted by aggregator
+{
+  "orderId": "BOT_1_c07fb87f-0989-41ce-aab3-6f970b4dae2e",
+  "aggregatorOrderId": "BOT_1_c07fb87f-0989-41ce-aab3-6f970b4dae2e",
+  "queueId": "queue_1755515883913"
+}
+[2025-08-18T11:18:03.913Z] [INFO] Signal submitted to aggregator
+{
+  "orderId": "BOT_1_c07fb87f-0989-41ce-aab3-6f970b4dae2e",
+  "success": true,
+  "aggregatorOrderId": "BOT_1_c07fb87f-0989-41ce-aab3-6f970b4dae2e"
+}
+[2025-08-18T11:18:35.955Z] [INFO] Periodic update
+{
+  "ticks": 200,
+  "price": "103.05",
+  "signals": 3,
+  "trades": 0,
+  "winRate": "0.0%",
+  "dailyPnL": "0.00",
+  "currentPosition": "NONE",
+  "strategyReady": true,
+  "strategyState": "N/A"
+}
+[2025-08-18T11:18:52.969Z] [WARN] Aggregator disconnected
+{
+  "reason": "Client shutdown"
+}
+[2025-08-18T11:18:52.969Z] [INFO] TradingBot stopped
+{}

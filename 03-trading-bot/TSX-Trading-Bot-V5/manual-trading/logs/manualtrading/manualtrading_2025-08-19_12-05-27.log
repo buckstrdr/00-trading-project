@@ -1,0 +1,300 @@
+
+================================================================================
+ManualTrading Log File
+Started: 2025-08-19T11:05:27.415Z
+================================================================================
+
+[2025-08-19T11:05:27.416Z] [INFO] Manual Trading Server v2 starting up
+{
+  "port": 3003,
+  "connectionManager": "http://localhost:7500"
+}
+[2025-08-19T11:05:27.417Z] [INFO] 🚀 Starting Enhanced Manual Trading Server v2
+[2025-08-19T11:05:27.418Z] [INFO] Current directory: C:\Users\salte\ClaudeProjects\github-repos\TSX-Trading-Bot-V5\manual-trading
+[2025-08-19T11:05:27.418Z] [INFO] Node version: v22.17.0
+[2025-08-19T11:05:27.418Z] [INFO] 🧹 Clearing all data maps to prevent stale data...
+[2025-08-19T11:05:27.419Z] [INFO] ✅ All data maps cleared
+[2025-08-19T11:05:27.419Z] [INFO] Setting up Express...
+[2025-08-19T11:05:27.421Z] [INFO] ✅ Express setup complete
+[2025-08-19T11:05:27.421Z] [INFO] Setting up Redis connection...
+[2025-08-19T11:05:27.421Z] [INFO] Connecting to Redis...
+[2025-08-19T11:05:27.421Z] [INFO] Creating Redis publisher client...
+[2025-08-19T11:05:27.425Z] [INFO] Creating Redis subscriber client...
+[2025-08-19T11:05:27.426Z] [INFO] Connecting to Redis publisher...
+[2025-08-19T11:05:27.491Z] [INFO] ✅ Redis publisher connected and ready
+[2025-08-19T11:05:27.491Z] [INFO] ✅ Connected to Redis publisher
+[2025-08-19T11:05:27.491Z] [INFO] Connecting to Redis subscriber...
+[2025-08-19T11:05:27.494Z] [INFO] ✅ Redis subscriber connected and ready
+[2025-08-19T11:05:27.494Z] [INFO] ✅ Connected to Redis subscriber
+[2025-08-19T11:05:27.494Z] [INFO] ✅ Connected to Redis (publisher and subscriber)
+[2025-08-19T11:05:27.495Z] [INFO] Loading accounts through Aggregator... (forcing fresh data)
+[2025-08-19T11:05:27.899Z] [INFO] ✅ Loaded 2 accounts via Redis. Selected: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-19T11:05:27.899Z] [INFO] ✅ Account 7988358 registered for order event subscriptions
+[2025-08-19T11:05:27.900Z] [INFO]   Account 1: EXPRESSMAY2114064450 - Balance: $1855.36 - CanTrade: true
+[2025-08-19T11:05:27.900Z] [INFO]   Account 2: PRACTICEJUL1615111535 - Balance: $149894.12 - CanTrade: true
+[2025-08-19T11:05:27.900Z] [INFO] Loading available contracts through Aggregator...
+[2025-08-19T11:05:27.992Z] [INFO] ✅ Loaded 15 contracts via Aggregator
+[2025-08-19T11:05:27.992Z] [INFO] 🧹 Cleared both validInstruments and instruments maps
+[2025-08-19T11:05:27.993Z] [INFO] 🔍 First contract structure: {"contractId":"CON.F.US.GMET.Q25","symbol":"F.US.GMET","name":"METQ5","tickSize":0.5,"pointValue":0.1,"isActive":true,"description":"Micro Ether: August 2025"}
+[2025-08-19T11:05:27.993Z] [INFO]   ✅ F.US.GMET: CON.F.US.GMET.Q25 (tick: 0.5, point: 0.1)
+[2025-08-19T11:05:27.993Z] [INFO]   ✅ F.US.M2K: CON.F.US.M2K.U25 (tick: 0.1, point: 5)
+[2025-08-19T11:05:27.993Z] [INFO]   ✅ F.US.M6A: CON.F.US.M6A.U25 (tick: 0.0001, point: 10000)
+[2025-08-19T11:05:27.993Z] [INFO]   ✅ F.US.M6B: CON.F.US.M6B.U25 (tick: 0.0001, point: 6250)
+[2025-08-19T11:05:27.993Z] [INFO]   ✅ F.US.M6E: CON.F.US.M6E.U25 (tick: 0.0001, point: 12500)
+[2025-08-19T11:05:27.994Z] [INFO]   ✅ F.US.MBT: CON.F.US.MBT.Q25 (tick: 5, point: 0.1)
+[2025-08-19T11:05:27.994Z] [INFO]   ✅ F.US.MCLE: CON.F.US.MCLE.V25 (tick: 0.01, point: 100)
+[2025-08-19T11:05:27.994Z] [INFO]   ✅ F.US.MES: CON.F.US.MES.U25 (tick: 0.25, point: 5)
+[2025-08-19T11:05:27.994Z] [INFO]   ✅ F.US.MGC: CON.F.US.MGC.Z25 (tick: 0.1, point: 10)
+[2025-08-19T11:05:27.994Z] [INFO]   ✅ F.US.MHG: CON.F.US.MHG.U25 (tick: 0.0005, point: 2500)
+[2025-08-19T11:05:27.995Z] [INFO]   ✅ F.US.MNG: CON.F.US.MNG.U25 (tick: 0.001, point: 1000)
+[2025-08-19T11:05:27.995Z] [INFO]   ✅ F.US.MNQ: CON.F.US.MNQ.U25 (tick: 0.25, point: 2)
+[2025-08-19T11:05:27.995Z] [INFO]   ✅ F.US.MX6: CON.F.US.MX6.U25 (tick: 0.00001, point: 499999.99999999994)
+[2025-08-19T11:05:27.995Z] [INFO]   ✅ F.US.MYM: CON.F.US.MYM.U25 (tick: 1, point: 0.5)
+[2025-08-19T11:05:27.995Z] [INFO]   ✅ F.US.SIL: CON.F.US.SIL.U25 (tick: 0.005, point: 1000)
+[2025-08-19T11:05:27.995Z] [INFO] ✅ Final validInstruments size: 15
+[2025-08-19T11:05:27.995Z] [INFO] ✅ Final instruments size: 15
+[2025-08-19T11:05:27.997Z] [INFO] 📡 Broadcasted account list change notification
+[2025-08-19T11:05:27.997Z] [INFO] 📊 Starting periodic account refresh (every 30 seconds)...
+[2025-08-19T11:05:27.997Z] [INFO] ✅ Account refresh interval started
+[2025-08-19T11:05:27.997Z] [INFO] 💓 Starting Connection Manager heartbeat (every 30 seconds)...
+[2025-08-19T11:05:27.998Z] [INFO] ✅ Connection Manager heartbeat started
+[2025-08-19T11:05:27.998Z] [INFO] Loading existing positions from Connection Manager...
+[2025-08-19T11:05:27.998Z] [INFO] 🔍 [DEBUG] Cleared all existing positions
+[2025-08-19T11:05:27.998Z] [INFO] 🚨 [CRITICAL] Starting to load positions for 2 accounts: 7988358, 9627376
+[2025-08-19T11:05:27.999Z] [INFO] 🔍 [DEBUG] Loading positions for account 1/2: EXPRESSMAY2114064450 (7988358)
+[2025-08-19T11:05:27.999Z] [{
+  "ID": 7988358,
+  "NAME": "EXPRESSMAY2114064450",
+  "BALANCE": 1855.36,
+  "CANTRADE": TRUE,
+  "ISVISIBLE": TRUE,
+  "SIMULATED": TRUE
+}] 🔍 [DEBUG] Account details:
+[2025-08-19T11:05:27.999Z] [INFO] 🔍 [DEBUG] Account ID being used: 7988358
+[2025-08-19T11:05:27.999Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-7988358-1755601527999",
+  "ACCOUNTID": 7988358,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1755601527999
+}] 📤 Publishing position request:
+[2025-08-19T11:05:28.000Z] [INFO] 📤 Published position request with ID: manual-pos-7988358-1755601527999, waiting for response...
+[2025-08-19T11:05:28.369Z] [{
+  "REQUESTID": "MANUAL-POS-7988358-1755601527999",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 7988358,
+  "TIMESTAMP": 1755601528368
+}] 📨 Raw position response received:
+[2025-08-19T11:05:28.370Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-19T11:05:28.370Z] [INFO] ✅ [DEBUG] Completed loading positions for account 1/2: 7988358
+[2025-08-19T11:05:28.472Z] [INFO] 🔍 [DEBUG] Loading positions for account 2/2: PRACTICEJUL1615111535 (9627376)
+[2025-08-19T11:05:28.472Z] [{
+  "ID": 9627376,
+  "NAME": "PRACTICEJUL1615111535",
+  "BALANCE": 149894.12,
+  "CANTRADE": TRUE,
+  "ISVISIBLE": TRUE,
+  "SIMULATED": TRUE
+}] 🔍 [DEBUG] Account details:
+[2025-08-19T11:05:28.472Z] [INFO] 🔍 [DEBUG] Account ID being used: 9627376
+[2025-08-19T11:05:28.473Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-9627376-1755601528472",
+  "ACCOUNTID": 9627376,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1755601528473
+}] 📤 Publishing position request:
+[2025-08-19T11:05:28.474Z] [INFO] 📤 Published position request with ID: manual-pos-9627376-1755601528472, waiting for response...
+[2025-08-19T11:05:28.562Z] [{
+  "REQUESTID": "MANUAL-POS-9627376-1755601528472",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [
+    {
+      "ID": 337805842,
+      "SYMBOLID": "F.US.MGC",
+      "SYMBOLNAME": "/MGC",
+      "POSITIONSIZE": 1,
+      "STOPLOSS": 3384.1,
+      "TAKEPROFIT": NULL,
+      "TOMAKE": NULL,
+      "RISK": 42,
+      "AVERAGEPRICE": 3388.3,
+      "PROFITANDLOSS": 1,
+      "ENTRYTIME": "2025-08-19T10:16:08.47099+00:00",
+      "ACCOUNTID": 9627376,
+      "STOPLOSSORDERID": 1487713345,
+      "TAKEPROFITORDERID": NULL,
+      "CONTRACTID": "CON.F.US.MGC.Z25"
+    }
+  ],
+  "ACCOUNTID": 9627376,
+  "TIMESTAMP": 1755601528561
+}] 📨 Raw position response received:
+[2025-08-19T11:05:28.563Z] [INFO] ✅ Position request successful, received 1 positions
+[2025-08-19T11:05:28.563Z] [INFO] 📊 Found 1 existing positions from Connection Manager
+[2025-08-19T11:05:28.563Z] [INFO] 🧹 Cleared local positions before loading fresh data
+[2025-08-19T11:05:28.563Z] [{
+  "ID": 337805842,
+  "SYMBOLID": "F.US.MGC",
+  "SYMBOLNAME": "/MGC",
+  "POSITIONSIZE": 1,
+  "STOPLOSS": 3384.1,
+  "TAKEPROFIT": NULL,
+  "TOMAKE": NULL,
+  "RISK": 42,
+  "AVERAGEPRICE": 3388.3,
+  "PROFITANDLOSS": 1,
+  "ENTRYTIME": "2025-08-19T10:16:08.47099+00:00",
+  "ACCOUNTID": 9627376,
+  "STOPLOSSORDERID": 1487713345,
+  "TAKEPROFITORDERID": NULL,
+  "CONTRACTID": "CON.F.US.MGC.Z25"
+}] 🔍 [DEBUG] Processing position 1:
+[2025-08-19T11:05:28.564Z] [ID: 337805842, SYMBOLID: F.US.MGC, SYMBOLNAME: /MGC, POSITIONSIZE: 1, STOPLOSS: 3384.1, TAKEPROFIT: NULL, TOMAKE: NULL, RISK: 42, AVERAGEPRICE: 3388.3, PROFITANDLOSS: 1, ENTRYTIME: 2025-08-19T10:16:08.47099+00:00, ACCOUNTID: 9627376, STOPLOSSORDERID: 1487713345, TAKEPROFITORDERID: NULL, CONTRACTID: CON.F.US.MGC.Z25] 🔍 [DEBUG] ALL FIELDS:
+[2025-08-19T11:05:28.564Z] [INFO] 🔍 [DEBUG] Field analysis: positionSize=1, size=undefined, type=undefined, side=undefined
+[2025-08-19T11:05:28.564Z] [INFO] ⚠️ [DEBUG] No side field, using positionSize: 1 → LONG
+[2025-08-19T11:05:28.564Z] [INFO] 🔍 [DEBUG] Position determined: LONG 1 @ 3388.3
+[2025-08-19T11:05:28.564Z] [INFO] 📊 Loaded position: CON.F.US.MGC.Z25 LONG 1 @ 3388.3 SL:3384.1 TP:null
+[2025-08-19T11:05:28.564Z] [INFO] ✅ Loaded 1 positions from Connection Manager
+[2025-08-19T11:05:28.564Z] [INFO] ✅ [DEBUG] Completed loading positions for account 2/2: 9627376
+[2025-08-19T11:05:28.565Z] [INFO] 🚨 [CRITICAL] FINISHED loading positions: 1 total positions across 2 accounts
+[2025-08-19T11:05:28.565Z] [INFO] 🔍 [DEBUG] Total positions in memory: 1
+[2025-08-19T11:05:28.565Z] [INFO] Loading existing orders...
+[2025-08-19T11:05:28.566Z] [INFO] 📝 Requesting working orders through Trading Aggregator...
+[2025-08-19T11:05:28.568Z] [INFO] 📝 Received 0 working orders
+[2025-08-19T11:05:28.568Z] [INFO] 📝 Order tracking initialized - listening for order updates
+[2025-08-19T11:05:28.569Z] [INFO] ℹ️ Note: Working orders will be loaded as Connection Manager sends updates
+[2025-08-19T11:05:28.569Z] [INFO] Setting up order tracking...
+[2025-08-19T11:05:28.570Z] [INFO] ✅ Order tracking setup complete
+[2025-08-19T11:05:28.570Z] [INFO] Setting up market data subscription...
+[2025-08-19T11:05:28.570Z] [INFO] 📊 Market data heartbeat will log once per minute per instrument
+[2025-08-19T11:05:28.571Z] [INFO] ✅ Market data subscription setup complete
+[2025-08-19T11:05:28.742Z] [INFO] 📊 Market data heartbeat - F.US.MYM: $44994.00
+[2025-08-19T11:05:29.741Z] [INFO] 📊 Market data heartbeat - F.US.MCLE: $61.90
+[2025-08-19T11:05:30.042Z] [INFO] 📊 Market data heartbeat - F.US.MNQ: $23759.25
+[2025-08-19T11:05:31.093Z] [INFO] 📊 Market data heartbeat - F.US.MGC: $3388.40
+[2025-08-19T11:05:33.741Z] [INFO] 📊 Market data heartbeat - F.US.MES: $6461.50
+[2025-08-19T11:05:34.242Z] [INFO] 📊 Market data heartbeat - F.US.M6E: $1.17
+[2025-08-19T11:05:36.194Z] [INFO] 📊 Market data heartbeat - F.US.GMET: $4301.50
+[2025-08-19T11:05:37.593Z] [INFO] 📊 Market data heartbeat - F.US.M2K: $2297.50
+[2025-08-19T11:05:37.742Z] [INFO] 📊 Market data heartbeat - F.US.MBT: $115800.00
+[2025-08-19T11:05:41.741Z] [INFO] 📊 Market data heartbeat - F.US.SIL: $38.13
+[2025-08-19T11:05:48.577Z] [INFO] Starting price fetch interval for stale data...
+[2025-08-19T11:05:48.581Z] [INFO] ✅ Enhanced Manual Trading Server running on http://localhost:3003
+[2025-08-19T11:05:48.582Z] [INFO] 📊 Features: Order tracking, position management, SL/TP, real-time P&L, instrument validation
+[2025-08-19T11:05:48.867Z] [INFO] 📊 /api/accounts requested. Total accounts in memory: 2
+[2025-08-19T11:05:48.867Z] [INFO]   Account 1: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-19T11:05:48.868Z] [INFO]   Account 2: PRACTICEJUL1615111535 (ID: 9627376)
+[2025-08-19T11:05:48.970Z] [INFO] 🔍 Checking account: name="EXPRESSMAY2114064450", lowercase="expressmay2114064450", isPractice=false
+[2025-08-19T11:05:48.970Z] [INFO] 🔍 Checking account: name="PRACTICEJUL1615111535", lowercase="practicejul1615111535", isPractice=true
+[2025-08-19T11:05:48.971Z] [INFO] 🛡️ Demo mode active: Filtered to 1 practice accounts out of 2 total accounts
+[2025-08-19T11:05:48.976Z] [INFO] 🔍 /api/instruments/active requested
+[2025-08-19T11:05:48.976Z] [INFO] 📊 Available instruments: validInstruments=15, instruments=15
+[2025-08-19T11:05:48.977Z] [INFO]   ✅ F.US.GMET: 1 contracts, default: CON.F.US.GMET.Q25
+[2025-08-19T11:05:48.977Z] [INFO]   ✅ F.US.M2K: 1 contracts, default: CON.F.US.M2K.U25
+[2025-08-19T11:05:48.977Z] [INFO]   ✅ F.US.M6A: 1 contracts, default: CON.F.US.M6A.U25
+[2025-08-19T11:05:48.978Z] [INFO]   ✅ F.US.M6B: 1 contracts, default: CON.F.US.M6B.U25
+[2025-08-19T11:05:48.978Z] [INFO]   ✅ F.US.M6E: 1 contracts, default: CON.F.US.M6E.U25
+[2025-08-19T11:05:48.978Z] [INFO]   ✅ F.US.MBT: 1 contracts, default: CON.F.US.MBT.Q25
+[2025-08-19T11:05:48.978Z] [INFO]   ✅ F.US.MCLE: 1 contracts, default: CON.F.US.MCLE.V25
+[2025-08-19T11:05:48.978Z] [INFO]   ✅ F.US.MES: 1 contracts, default: CON.F.US.MES.U25
+[2025-08-19T11:05:48.979Z] [INFO]   ✅ F.US.MGC: 1 contracts, default: CON.F.US.MGC.Z25
+[2025-08-19T11:05:48.979Z] [INFO]   ✅ F.US.MHG: 1 contracts, default: CON.F.US.MHG.U25
+[2025-08-19T11:05:48.979Z] [INFO]   ✅ F.US.MNG: 1 contracts, default: CON.F.US.MNG.U25
+[2025-08-19T11:05:48.979Z] [INFO]   ✅ F.US.MNQ: 1 contracts, default: CON.F.US.MNQ.U25
+[2025-08-19T11:05:48.979Z] [INFO]   ✅ F.US.MX6: 1 contracts, default: CON.F.US.MX6.U25
+[2025-08-19T11:05:48.980Z] [INFO]   ✅ F.US.MYM: 1 contracts, default: CON.F.US.MYM.U25
+[2025-08-19T11:05:48.980Z] [INFO]   ✅ F.US.SIL: 1 contracts, default: CON.F.US.SIL.U25
+[2025-08-19T11:05:48.980Z] [INFO] 📤 Returning 15 instruments to UI
+[2025-08-19T11:05:48.985Z] [INFO] 📤 Sending 1 positions to client
+[2025-08-19T11:05:48.985Z] [INFO]   Position 1: instrument=CON.F.US.MGC.Z25, side=LONG, accountId=9627376, quantity=1
+[2025-08-19T11:05:58.008Z] [INFO] Loading accounts through Aggregator... 
+[2025-08-19T11:05:58.011Z] [INFO] ✅ Loaded 2 accounts via Redis. Selected: EXPRESSMAY2114064450 (ID: 7988358)
+[2025-08-19T11:05:58.011Z] [INFO] ✅ Account 7988358 registered for order event subscriptions
+[2025-08-19T11:05:58.011Z] [INFO]   Account 1: EXPRESSMAY2114064450 - Balance: $1855.36 - CanTrade: true
+[2025-08-19T11:05:58.012Z] [INFO]   Account 2: PRACTICEJUL1615111535 - Balance: $149894.12 - CanTrade: true
+[2025-08-19T11:05:58.580Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-7988358-1755601558580",
+  "ACCOUNTID": 7988358,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1755601558580
+}] 📤 Publishing position request:
+[2025-08-19T11:05:58.581Z] [INFO] 📤 Published position request with ID: manual-pos-7988358-1755601558580, waiting for response...
+[2025-08-19T11:05:58.859Z] [{
+  "REQUESTID": "MANUAL-POS-7988358-1755601558580",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [],
+  "ACCOUNTID": 7988358,
+  "TIMESTAMP": 1755601558857
+}] 📨 Raw position response received:
+[2025-08-19T11:05:58.859Z] [INFO] ✅ Position request successful, received 0 positions
+[2025-08-19T11:05:58.859Z] [INFO] ✅ [DEBUG] Completed loading positions for account 1/2: 7988358
+[2025-08-19T11:05:58.967Z] [{
+  "TYPE": "GET_POSITIONS",
+  "REQUESTID": "MANUAL-POS-9627376-1755601558966",
+  "ACCOUNTID": 9627376,
+  "RESPONSECHANNEL": "POSITION-RESPONSE",
+  "TIMESTAMP": 1755601558967
+}] 📤 Publishing position request:
+[2025-08-19T11:05:58.968Z] [INFO] 📤 Published position request with ID: manual-pos-9627376-1755601558966, waiting for response...
+[2025-08-19T11:05:59.059Z] [{
+  "REQUESTID": "MANUAL-POS-9627376-1755601558966",
+  "TYPE": "GET_POSITIONS",
+  "SUCCESS": TRUE,
+  "POSITIONS": [
+    {
+      "ID": 337805842,
+      "SYMBOLID": "F.US.MGC",
+      "SYMBOLNAME": "/MGC",
+      "POSITIONSIZE": 1,
+      "STOPLOSS": 3384.1,
+      "TAKEPROFIT": NULL,
+      "TOMAKE": NULL,
+      "RISK": 42,
+      "AVERAGEPRICE": 3388.3,
+      "PROFITANDLOSS": 3,
+      "ENTRYTIME": "2025-08-19T10:16:08.47099+00:00",
+      "ACCOUNTID": 9627376,
+      "STOPLOSSORDERID": 1487713345,
+      "TAKEPROFITORDERID": NULL,
+      "CONTRACTID": "CON.F.US.MGC.Z25"
+    }
+  ],
+  "ACCOUNTID": 9627376,
+  "TIMESTAMP": 1755601559057
+}] 📨 Raw position response received:
+[2025-08-19T11:05:59.059Z] [INFO] ✅ Position request successful, received 1 positions
+[2025-08-19T11:05:59.059Z] [INFO] 📊 Found 1 existing positions from Connection Manager
+[2025-08-19T11:05:59.060Z] [INFO] 🧹 Cleared local positions before loading fresh data
+[2025-08-19T11:05:59.060Z] [{
+  "ID": 337805842,
+  "SYMBOLID": "F.US.MGC",
+  "SYMBOLNAME": "/MGC",
+  "POSITIONSIZE": 1,
+  "STOPLOSS": 3384.1,
+  "TAKEPROFIT": NULL,
+  "TOMAKE": NULL,
+  "RISK": 42,
+  "AVERAGEPRICE": 3388.3,
+  "PROFITANDLOSS": 3,
+  "ENTRYTIME": "2025-08-19T10:16:08.47099+00:00",
+  "ACCOUNTID": 9627376,
+  "STOPLOSSORDERID": 1487713345,
+  "TAKEPROFITORDERID": NULL,
+  "CONTRACTID": "CON.F.US.MGC.Z25"
+}] 🔍 [DEBUG] Processing position 1:
+[2025-08-19T11:05:59.060Z] [ID: 337805842, SYMBOLID: F.US.MGC, SYMBOLNAME: /MGC, POSITIONSIZE: 1, STOPLOSS: 3384.1, TAKEPROFIT: NULL, TOMAKE: NULL, RISK: 42, AVERAGEPRICE: 3388.3, PROFITANDLOSS: 3, ENTRYTIME: 2025-08-19T10:16:08.47099+00:00, ACCOUNTID: 9627376, STOPLOSSORDERID: 1487713345, TAKEPROFITORDERID: NULL, CONTRACTID: CON.F.US.MGC.Z25] 🔍 [DEBUG] ALL FIELDS:
+[2025-08-19T11:05:59.060Z] [INFO] 🔍 [DEBUG] Field analysis: positionSize=1, size=undefined, type=undefined, side=undefined
+[2025-08-19T11:05:59.061Z] [INFO] ⚠️ [DEBUG] No side field, using positionSize: 1 → LONG
+[2025-08-19T11:05:59.061Z] [INFO] 🔍 [DEBUG] Position determined: LONG 1 @ 3388.3
+[2025-08-19T11:05:59.061Z] [INFO] 📊 Loaded position: CON.F.US.MGC.Z25 LONG 1 @ 3388.3 SL:3384.1 TP:null
+[2025-08-19T11:05:59.061Z] [INFO] ✅ Loaded 1 positions from Connection Manager
+[2025-08-19T11:05:59.061Z] [INFO] ✅ [DEBUG] Completed loading positions for account 2/2: 9627376
+[2025-08-19T11:05:59.061Z] [INFO] 🚨 [CRITICAL] FINISHED loading positions: 1 total positions across 2 accounts
+[2025-08-19T11:05:59.062Z] [INFO] 🔍 [DEBUG] Total positions in memory: 1
+[2025-08-19T11:06:00.992Z] [INFO] 📊 Market data heartbeat - F.US.MX6: $0.05

@@ -1,0 +1,97 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-19T17:49:07.145Z
+================================================================================
+
+[2025-08-19T17:49:07.145Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-19T17:49:07.145Z"
+}
+[2025-08-19T17:49:07.269Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-19T17:49:07.286Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T17:49:07.286Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-19T17:49:07.312Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-19T17:49:07.312Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-19T17:49:07.320Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T17:49:12.292Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T17:49:22.303Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T17:49:42.312Z] [ERROR] Connection Manager connection error
+{
+  "error": ""
+}
+[2025-08-19T17:50:00.664Z] [INFO] Starting order submission
+{
+  "orderId": "config/bots/BOT_1.yaml_154d1cb8-3986-4c62-a8f5-f980a6417e0d",
+  "hasOrder": true,
+  "orderKeys": [
+    "instanceId",
+    "orderId",
+    "accountId",
+    "instrument",
+    "side",
+    "quantity",
+    "orderType",
+    "timestamp",
+    "stopLossPoints",
+    "takeProfitPoints",
+    "source",
+    "id",
+    "action",
+    "type",
+    "price",
+    "stopPrice"
+  ]
+}
+[2025-08-19T17:50:00.664Z] [INFO] Order normalized successfully
+{
+  "orderId": "config/bots/BOT_1.yaml_154d1cb8-3986-4c62-a8f5-f980a6417e0d",
+  "hasMetadata": true
+}
+[2025-08-19T17:50:00.712Z] [INFO] Executing order through Connection Manager
+{
+  "orderId": "config/bots/BOT_1.yaml_154d1cb8-3986-4c62-a8f5-f980a6417e0d",
+  "instrument": "MGC",
+  "action": "SELL",
+  "quantity": 1,
+  "type": "MARKET"
+}
+[2025-08-19T17:50:00.712Z] [ERROR] Order execution failed
+{
+  "orderId": "config/bots/BOT_1.yaml_154d1cb8-3986-4c62-a8f5-f980a6417e0d",
+  "error": "Order execution failed: NOT_CONNECTED"
+}
+[2025-08-19T17:50:22.315Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T17:50:22.315Z"
+}

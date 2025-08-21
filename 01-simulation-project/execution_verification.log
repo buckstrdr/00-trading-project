@@ -1,0 +1,47 @@
+=== REAL EXECUTION TEST ===
+import sys
+import os
+import json
+sys.path.insert(0, '.')
+
+print(f"Python path: {sys.executable}")
+print(f"Working dir: {os.getcwd()}")
+print(f"Test timestamp: {__import__('datetime').datetime.now()}")
+
+# Import the adapter
+try:
+    from shared.js_strategy_adapter_simple import JSStrategyAdapter
+    print("✓ Adapter imported successfully")
+except Exception as e:
+    print(f"✗ Import failed: {e}")
+    sys.exit(1)
+
+# Create adapter instance
+try:
+    adapter = JSStrategyAdapter('strategies/test_js_strategy.js')
+    print(f"✓ Adapter created: {adapter.name}")
+    print(f"✓ Process running: PID={adapter.process.pid if adapter.process else 'None'}")
+except Exception as e:
+    print(f"✗ Adapter creation failed: {e}")
+    sys.exit(1)
+
+# Test price data sending
+try:
+    for i in range(30):
+        price = 100 + i * 0.5
+        price_data = {
+            'close': price,
+            'volume': 1000 + i * 10
+        }
+        signal = adapter.analyze(price_data)
+        print(f"Price {i}: {price:.2f} → Signal: {signal}")
+        if signal != 'HOLD':
+            print(f"!!! SIGNAL DETECTED: {signal} at price {price:.2f}")
+    
+    adapter.cleanup()
+    print("✓ Test completed successfully")
+except Exception as e:
+    print(f"✗ Test failed: {e}")
+    if adapter:
+        adapter.cleanup()
+    sys.exit(1)

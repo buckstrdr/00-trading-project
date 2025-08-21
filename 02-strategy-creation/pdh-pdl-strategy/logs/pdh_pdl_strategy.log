@@ -1,0 +1,12 @@
+2025-08-20 13:24:01 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:24:05 | INFO     | pdh_pdl_strategy     | test_logging_system:157  | Test message
+2025-08-20 13:24:05 | ERROR    | pdh_pdl_strategy     | test_logging_system:158  | Test error message
+2025-08-20 13:24:31 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:25:17 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:25:25 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:25:32 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:25:46 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:37:24 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:48:50 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 13:54:34 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True
+2025-08-20 14:06:39 | INFO     | pdh_pdl_strategy     | setup_logging  :114  | Logging configured - Level: INFO, Console: True, File: True

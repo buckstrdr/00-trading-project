@@ -1,0 +1,42 @@
+
+================================================================================
+TradingAggregator Log File
+Started: 2025-08-19T08:12:52.857Z
+================================================================================
+
+[2025-08-19T08:12:52.857Z] [INFO] Trading Aggregator starting up
+{
+  "timestamp": "2025-08-19T08:12:52.857Z"
+}
+[2025-08-19T08:12:52.994Z] [INFO] Using externally provided Connection Manager adapter
+{}
+[2025-08-19T08:12:53.013Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T08:12:53.013Z"
+}
+[2025-08-19T08:12:53.013Z] [INFO] Connection Manager adapter initialized
+{}
+[2025-08-19T08:12:53.037Z] [INFO] Monitoring components initialized
+{
+  "metricsCollector": "started",
+  "monitoringServer": "http://localhost:7701",
+  "redisMetricsPublisher": "disabled"
+}
+[2025-08-19T08:12:53.037Z] [INFO] Trading Aggregator initialized
+{
+  "riskEnforced": true,
+  "components": {
+    "riskManager": "initialized",
+    "queueManager": "initialized",
+    "sltpCalculator": "initialized",
+    "botRegistry": "initialized"
+  }
+}
+[2025-08-19T08:12:53.049Z] [INFO] Connection Manager adapter connected
+{
+  "url": "http://localhost:7500",
+  "webSocketEnabled": false,
+  "timestamp": "2025-08-19T08:12:53.049Z"
+}

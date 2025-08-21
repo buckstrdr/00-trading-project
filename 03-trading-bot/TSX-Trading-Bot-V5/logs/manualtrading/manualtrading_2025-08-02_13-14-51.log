@@ -1,0 +1,30 @@
+
+================================================================================
+ManualTrading Log File
+Started: 2025-08-02T12:14:51.493Z
+================================================================================
+
+[2025-08-02T12:14:51.493Z] [INFO] Manual Trading Server v2 starting up
+{
+  "port": 3003,
+  "connectionManager": "http://localhost:7500"
+}
+[2025-08-02T12:14:51.494Z] [INFO] 🚀 Starting Enhanced Manual Trading Server v2
+[2025-08-02T12:14:51.495Z] [INFO] Current directory: C:\Users\salte\ClaudeProjects\github-repos\TSX-Trading-Bot-V5
+[2025-08-02T12:14:51.495Z] [INFO] Node version: v22.17.0
+[2025-08-02T12:14:51.495Z] [INFO] 🧹 Clearing all data maps to prevent stale data...
+[2025-08-02T12:14:51.495Z] [INFO] ✅ All data maps cleared
+[2025-08-02T12:14:51.496Z] [INFO] Setting up Express...
+[2025-08-02T12:14:51.497Z] [INFO] ✅ Express setup complete
+[2025-08-02T12:14:51.497Z] [INFO] Setting up Redis connection...
+[2025-08-02T12:14:51.497Z] [INFO] Connecting to Redis...
+[2025-08-02T12:14:51.497Z] [INFO] Creating Redis publisher client...
+[2025-08-02T12:14:51.500Z] [INFO] Creating Redis subscriber client...
+[2025-08-02T12:14:51.501Z] [INFO] Connecting to Redis publisher...
+[2025-08-02T12:14:51.522Z] [INFO] ✅ Redis publisher connected and ready
+[2025-08-02T12:14:51.522Z] [INFO] ✅ Connected to Redis publisher
+[2025-08-02T12:14:51.523Z] [INFO] Connecting to Redis subscriber...
+[2025-08-02T12:14:51.524Z] [INFO] ✅ Redis subscriber connected and ready
+[2025-08-02T12:14:51.524Z] [INFO] ✅ Connected to Redis subscriber
+[2025-08-02T12:14:51.525Z] [INFO] ✅ Connected to Redis (publisher and subscriber)
+[2025-08-02T12:14:51.525Z] [INFO] Loading accounts through Aggregator... (forcing fresh data)
