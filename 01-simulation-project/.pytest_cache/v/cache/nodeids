@@ -1,0 +1,10 @@
+[
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_01_service_health_checks",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_02_data_service_functionality",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_03_portfolio_service_functionality",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_04_backtest_service_functionality",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_05_end_to_end_backtest_integration",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_06_error_handling_and_resilience",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_07_service_statistics_and_monitoring",
+  "test_integration_comprehensive.py::IntegrationTestSuite::test_08_concurrent_operations"
+]

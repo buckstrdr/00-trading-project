@@ -1,0 +1,35 @@
+=== EXECUTION VERIFICATION TEST - 2025-08-20 19:20:38.557535900 ===
+=== Testing Phase 1 CommonJS Loader 19:24:21.493238000 ===
+{"ready":true,"pid":9852,"loader":"CommonJSStrategyLoader","version":"1.0"}
+=== Testing Phase 2.1 JSStrategyAdapterV2 Import 19:28:42.082948700 ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from shared.js_strategy_adapter_v2 import JSStrategyAdapterV2, JSStrategyConfigV2; print('\u2713 Phase 2.1 Import Success: JSStrategyAdapterV2 and JSStrategyConfigV2')
+                                                                                       ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>
+=== Testing Phase 2.1 JSStrategyAdapterV2 Import FIXED 19:32:30.839700200 ===
+SUCCESS: Phase 2.1 Import OK - JSStrategyAdapterV2 and JSStrategyConfigV2 available
+Exit code: 0
+=== Testing Phase 2.2 BacktestService JavaScript endpoint 19:35:03.436975900 ===
+2025-08-20 19:35:09,112 - BacktestService - INFO - Loaded strategy: SimpleMAStrategy
+2025-08-20 19:35:09,118 - BacktestService - INFO - Backtest Service initialized with 1 strategies
+SUCCESS: Phase 2.2 BacktestService imports OK with JS endpoint
+Checking for /api/backtest/js endpoint...
+Discovering strategies in: C:\Users\salte\ClaudeProjects\github-repos\01-simulation-project\strategies
+Registered strategy: SimpleMAStrategy
+Registered strategy: SimpleMAStrategy
+JS-related methods: []
+Exit code: 0
+=== Verifying /api/backtest/js endpoint exists in source ===
+                raise HTTPException(status_code=500, detail=str(e))
+        
+        @self.app.post("/api/backtest/js")
+        async def run_js_backtest(
+            js_strategy_path: str = Query(..., description="Path to JavaScript strategy file"),
+            symbol: str = Query(..., description="Symbol to backtest"),
+            start_date: Optional[str] = Query(None, description="Start date (YYYY-MM-DD)"),
+            end_date: Optional[str] = Query(None, description="End date (YYYY-MM-DD)"),
+Exit code: 0

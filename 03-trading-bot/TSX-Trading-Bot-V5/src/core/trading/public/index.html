@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Bot Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="stylesheet" href="/shared/premium-dark-theme.css">
+    <link rel="stylesheet" href="/shared/components.css">
+    <style>
+        /* Bot Dashboard Specific Styles */
+        .dashboard-container {
+            padding: var(--spacing-xl);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .dashboard-header {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bot-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .bot-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .status-badge {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .status-badge.running,
+        .status-badge.trading {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-success);
+            border: 1px solid var(--accent-success);
+        }
+
+        .status-badge.stopped {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-danger);
+            border: 1px solid var(--accent-danger);
+        }
+
+        .status-badge.paused {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent-warning);
+            border: 1px solid var(--accent-warning);
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .strategy-footer {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .strategy-footer .card-title {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .strategy-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            font-size: 0.95rem;
+        }
+
+        .strategy-line {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .strategy-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            min-width: 80px;
+        }
+
+        .strategy-value {
+            color: var(--text-primary);
+        }
+
+        .practice-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--accent-warning);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .practice-warning-icon {
+            color: var(--accent-warning);
+            margin-right: var(--spacing-xs);
+        }
+
+        .practice-warning-text {
+            color: var(--text-secondary);
+        }
+
+        .dashboard-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .metric-item {
+            background: var(--bg-tertiary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .metric-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .metric-value.positive {
+            color: var(--accent-success);
+        }
+
+        .metric-value.negative {
+            color: var(--accent-danger);
+        }
+
+        /* Position Display */
+        .position-display {
+            background: var(--bg-tertiary);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .position-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .position-side {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .position-side.long {
+            color: var(--accent-success);
+        }
+
+        .position-side.short {
+            color: var(--accent-danger);
+        }
+
+        /* Trade Table */
+        .trade-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .trade-table th,
+        .trade-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .trade-table th {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .trade-table td {
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        /* Logs */
+        .logs-container {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.875rem;
+        }
+
+        .log-entry {
+            margin-bottom: var(--spacing-xs);
+            padding: var(--spacing-xs);
+        }
+
+        .log-entry.error {
+            color: var(--accent-danger);
+        }
+
+        .log-entry.warn {
+            color: var(--accent-warning);
+        }
+
+        .log-entry.info {
+            color: var(--text-secondary);
+        }
+
+        /* Real-time indicators */
+        .live-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-success);
+            border-radius: 50%;
+            margin-left: var(--spacing-sm);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Market Data */
+        .market-data {
+            display: flex;
+            justify-content: space-around;
+            padding: var(--spacing-lg);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+        }
+
+        .market-item {
+            text-align: center;
+        }
+
+        .market-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .market-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Signal Strength Display */
+        .signal-strength-section {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .signal-strength-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .signal-strength-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .alert-level {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .alert-level.low {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-success);
+            border: 1px solid var(--accent-success);
+        }
+
+        .alert-level.medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent-warning);
+            border: 1px solid var(--accent-warning);
+        }
+
+        .alert-level.high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-danger);
+            border: 1px solid var(--accent-danger);
+        }
+
+        .signal-strength-grid {
+            display: grid;
+            gap: var(--spacing-sm);
+        }
+
+        .signal-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-sm);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            gap: var(--spacing-md);
+        }
+
+        .signal-item.overall {
+            border: 1px solid var(--border-default);
+            background: var(--bg-primary);
+        }
+
+        .signal-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            min-width: 60px;
+        }
+
+        .signal-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 35px;
+            text-align: center;
+        }
+
+        .signal-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin: 0 var(--spacing-sm);
+        }
+
+        .signal-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-success) 0%, var(--accent-warning) 60%, var(--accent-danger) 100%);
+            border-radius: var(--radius-sm);
+            transition: width 0.3s ease;
+        }
+
+        .signal-alerts {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--border-default);
+            font-size: 0.875rem;
+        }
+
+        .signal-alert {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+            border-radius: var(--radius-sm);
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--accent-warning);
+            color: var(--text-secondary);
+        }
+
+        .signal-alert:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="bot-info">
+                <span class="bot-name" id="botName">Loading...</span>
+                <span class="status-badge stopped" id="statusBadge">Stopped</span>
+                <span class="live-indicator" id="liveIndicator" style="display: none;"></span>
+            </div>
+            <div class="control-buttons">
+                <button class="btn btn-success" id="startBtn" onclick="startBot()">Start</button>
+                <button class="btn btn-danger" id="stopBtn" onclick="stopBot()" disabled>Stop</button>
+                <button class="btn btn-warning" id="pauseBtn" onclick="pauseBot()" disabled>Pause</button>
+                <button class="btn btn-primary" id="configBtn" onclick="openConfig()">Config</button>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="dashboard-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Position & Market Data -->
+                <div class="dashboard-card">
+                    <h3 class="card-title">📊 Position & Market</h3>
+                    
+                    <div class="position-display" id="positionDisplay">
+                        <div class="position-info">
+                            <div>
+                                <div class="position-side" id="positionSide">No Position</div>
+                                <div class="text-secondary" id="positionDetails">--</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="metric-value" id="positionPnL">$0.00</div>
+                                <div class="text-secondary">P&L</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="market-data">
+                        <div class="market-item">
+                            <div class="market-label">Entry Price</div>
+                            <div class="market-value" id="entryPrice">--</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-label">Stop Loss</div>
+                            <div class="market-value" id="stopLoss">--</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-label">Take Profit</div>
+                            <div class="market-value" id="takeProfit">--</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-label">Contracts</div>
+                            <div class="market-value" id="contracts">--</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Performance Metrics -->
+                <div class="dashboard-card">
+                    <h3 class="card-title">📈 Performance Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-label">Total Trades</div>
+                            <div class="metric-value" id="totalTrades">0</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Win Rate</div>
+                            <div class="metric-value" id="winRate">0%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Total P&L</div>
+                            <div class="metric-value" id="totalPnL">$0</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Profit Factor</div>
+                            <div class="metric-value" id="profitFactor">0.0</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Avg Win</div>
+                            <div class="metric-value positive" id="avgWin">$0</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Avg Loss</div>
+                            <div class="metric-value negative" id="avgLoss">$0</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Practice Account Warning -->
+                    <div class="practice-warning" id="practiceWarning">
+                        <span class="practice-warning-icon">⚠️</span>
+                        <span class="practice-warning-text">Practice Account - Statistics show zeros until funded account</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Strategy & Activity Footer -->
+        <div class="strategy-footer">
+            <h3 class="card-title">🎯 Strategy & Activity</h3>
+            <div class="strategy-info">
+                <div class="strategy-line">
+                    <span class="strategy-label">Strategy:</span>
+                    <span class="strategy-value" id="strategyType">Loading...</span>
+                </div>
+                <div class="strategy-line">
+                    <span class="strategy-label">Last:</span>
+                    <span class="strategy-value" id="lastActivity">No recent activity</span>
+                </div>
+                <div class="strategy-line">
+                    <span class="strategy-label">Status:</span>
+                    <span class="strategy-value" id="strategyStatus">Monitoring market conditions...</span>
+                </div>
+                
+                <!-- Signal Strength Section -->
+                <div class="signal-strength-section" id="signalStrengthSection" style="display: none;">
+                    <div class="signal-strength-header">
+                        <span class="signal-strength-title">📊 Signal Strength</span>
+                        <span class="alert-level" id="alertLevel">LOW</span>
+                    </div>
+                    <div class="signal-strength-grid">
+                        <div class="signal-item">
+                            <span class="signal-label">Breakout:</span>
+                            <span class="signal-value" id="breakoutStrength">0/10</span>
+                            <div class="signal-bar">
+                                <div class="signal-bar-fill" id="breakoutBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="signal-item">
+                            <span class="signal-label">Fade:</span>
+                            <span class="signal-value" id="fadeStrength">0/10</span>
+                            <div class="signal-bar">
+                                <div class="signal-bar-fill" id="fadeBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="signal-item">
+                            <span class="signal-label">Sweep:</span>
+                            <span class="signal-value" id="sweepStrength">0/10</span>
+                            <div class="signal-bar">
+                                <div class="signal-bar-fill" id="sweepBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="signal-item overall">
+                            <span class="signal-label">Overall:</span>
+                            <span class="signal-value" id="overallStrength">0/10</span>
+                            <div class="signal-bar">
+                                <div class="signal-bar-fill" id="overallBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signal-alerts" id="signalAlerts"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // WebSocket connection
+        const socket = io();
+        let botState = null;
+
+        // Connect to bot
+        socket.on('connect', () => {
+            console.log('Connected to bot');
+        });
+
+        // Handle state updates
+        socket.on('state', (state) => {
+            console.log('[UI] Received state update:', state);
+            botState = state;
+            updateUI(state);
+        });
+
+        // Handle status changes
+        socket.on('status', (status) => {
+            console.log('[UI] Received status update:', status);
+            updateStatus(status);
+        });
+
+        // Handle market data (for real-time price updates)
+        socket.on('market-data', (data) => {
+            console.log('[UI] Received market-data:', data);
+            updateMarketData(data);
+        });
+        
+        socket.on('marketData', (data) => {
+            console.log('[UI] Received marketData:', data);
+            updateMarketData(data);
+        });
+
+        // Handle trades
+        socket.on('trade', (trade) => {
+            console.log('[UI] Received trade:', trade);
+            handleTradeEvent(trade);
+        });
+
+        // Handle position updates
+        socket.on('position', (position) => {
+            console.log('[UI] Received position update:', position);
+            updatePosition(position);
+        });
+
+        // Handle metrics updates
+        socket.on('metrics', (metrics) => {
+            updateMetrics(metrics);
+        });
+
+        // Handle logs (reduced functionality - no longer displayed)
+        socket.on('log', (log) => {
+            // Logs no longer displayed in UI, but still logged to console for debugging
+            if (log.level === 'error') {
+                console.error('[BOT LOG]', log.message);
+            }
+        });
+
+        // Update entire UI
+        function updateUI(state) {
+            document.getElementById('botName').textContent = state.botId;
+            updateStatus(state.status);
+            updatePosition(state.position);
+            updateMetrics(state.metrics);
+            updateMarketData(state.marketData);
+            updateStrategyFooter(state);
+        }
+
+        // Update status
+        function updateStatus(status) {
+            const badge = document.getElementById('statusBadge');
+            const indicator = document.getElementById('liveIndicator');
+            const startBtn = document.getElementById('startBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            
+            badge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            badge.className = `status-badge ${status}`;
+            
+            if (status === 'trading' || status === 'running') {
+                indicator.style.display = 'inline-block';
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                pauseBtn.disabled = false;
+                pauseBtn.textContent = 'Pause';
+            } else if (status === 'paused') {
+                indicator.style.display = 'none';
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                pauseBtn.disabled = false;
+                pauseBtn.textContent = 'Resume';
+            } else {
+                indicator.style.display = 'none';
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+                pauseBtn.disabled = true;
+            }
+        }
+
+        // Update market data (for real-time price monitoring - optional display)
+        function updateMarketData(data) {
+            if (!data) return;
+            
+            // Market data is still received but no longer displayed in the main UI
+            // This could be used for price alerts, strategy decisions, etc.
+            console.log('[UI] Market data received:', data);
+            
+            // Optional: Could update a separate price ticker or use for real-time calculations
+            // For now, just log the data as position data comes from userapi
+        }
+
+        // Update position with rich userapi data
+        function updatePosition(position) {
+            const sideEl = document.getElementById('positionSide');
+            const detailsEl = document.getElementById('positionDetails');
+            const pnlEl = document.getElementById('positionPnL');
+            
+            // Update position fields from rich userapi data
+            const entryPriceEl = document.getElementById('entryPrice');
+            const stopLossEl = document.getElementById('stopLoss');
+            const takeProfitEl = document.getElementById('takeProfit');
+            const contractsEl = document.getElementById('contracts');
+            
+            if (position) {
+                // Main position display
+                sideEl.textContent = position.side.toUpperCase();
+                sideEl.className = `position-side ${position.side}`;
+                
+                // Extract rich data from userapi
+                const averagePrice = position.averagePrice || position.entryPrice || 0;
+                const positionSize = position.positionSize || position.quantity || position.size || 0;
+                const profitAndLoss = position.profitAndLoss || position.unrealizedPnL || 0;
+                const stopLoss = position.stopLoss || null;
+                const takeProfit = position.takeProfit || null;
+                
+                // Update position details (instrument info)
+                detailsEl.textContent = position.instrument || position.contractId || position.symbol || 'Unknown';
+                
+                // Update P&L with rich userapi profitAndLoss field
+                pnlEl.textContent = `$${(typeof profitAndLoss === 'number' ? profitAndLoss.toFixed(2) : '0.00')}`;
+                pnlEl.className = `metric-value ${profitAndLoss >= 0 ? 'positive' : 'negative'}`;
+                
+                // Update position fields with userapi rich data
+                entryPriceEl.textContent = (averagePrice && typeof averagePrice === 'number') ? `$${averagePrice.toFixed(1)}` : '--';
+                contractsEl.textContent = positionSize || '--';
+                
+                // Stop Loss and Take Profit from userapi
+                stopLossEl.textContent = (stopLoss && typeof stopLoss === 'number') ? `$${stopLoss.toFixed(1)}` : '--';
+                takeProfitEl.textContent = (takeProfit && typeof takeProfit === 'number') ? `$${takeProfit.toFixed(1)}` : '--';
+                
+                console.log('[UI] Position update with rich data:', {
+                    averagePrice, positionSize, profitAndLoss, stopLoss, takeProfit,
+                    originalPosition: position
+                });
+                
+            } else {
+                // No position - clear all fields
+                sideEl.textContent = 'No Position';
+                sideEl.className = 'position-side';
+                detailsEl.textContent = '--';
+                pnlEl.textContent = '$0.00';
+                pnlEl.className = 'metric-value';
+                
+                // Clear position fields
+                entryPriceEl.textContent = '--';
+                stopLossEl.textContent = '--';
+                takeProfitEl.textContent = '--';
+                contractsEl.textContent = '--';
+            }
+        }
+
+        // Update metrics with live TopStepX statistics
+        function updateMetrics(metrics) {
+            if (!metrics) {
+                // Load live statistics from TopStepX API
+                loadLiveStatistics();
+                return;
+            }
+            
+            document.getElementById('totalTrades').textContent = metrics.totalTrades || 0;
+            document.getElementById('winRate').textContent = `${(metrics.winRate || 0).toFixed(1)}%`;
+            document.getElementById('totalPnL').textContent = `$${(metrics.totalPnL || 0).toFixed(2)}`;
+            document.getElementById('totalPnL').className = `metric-value ${(metrics.totalPnL || 0) >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('profitFactor').textContent = (metrics.profitFactor || 0).toFixed(2);
+            document.getElementById('avgWin').textContent = `$${(metrics.averageWin || 0).toFixed(2)}`;
+            document.getElementById('avgLoss').textContent = `$${(metrics.averageLoss || 0).toFixed(2)}`;
+        }
+
+        // Load live statistics from TopStepX via aggregator -> connection manager
+        async function loadLiveStatistics() {
+            try {
+                console.log('[STATS] Loading live statistics from TopStepX API...');
+                const response = await fetch('/api/statistics');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const statistics = await response.json();
+                console.log('[STATS] Received live statistics:', statistics);
+                
+                // Update the UI with live statistics
+                document.getElementById('totalTrades').textContent = statistics.totalTrades || 0;
+                document.getElementById('winRate').textContent = `${(statistics.winRate || 0).toFixed(1)}%`;
+                
+                const totalPnL = statistics.totalPnL || 0;
+                document.getElementById('totalPnL').textContent = `$${totalPnL.toFixed(2)}`;
+                document.getElementById('totalPnL').className = `metric-value ${totalPnL >= 0 ? 'positive' : 'negative'}`;
+                
+                document.getElementById('profitFactor').textContent = (statistics.profitFactor || 0).toFixed(2);
+                document.getElementById('avgWin').textContent = `$${(statistics.averageWin || 0).toFixed(2)}`;
+                document.getElementById('avgLoss').textContent = `$${(statistics.averageLoss || 0).toFixed(2)}`;
+                
+                console.log('[STATS] ✅ Performance metrics updated with live TopStepX data');
+                
+            } catch (error) {
+                console.error('[STATS] ❌ Failed to load live statistics:', error);
+                // Keep the existing local metrics if API fails
+                console.log('[STATS] Using local bot metrics as fallback');
+            }
+        }
+
+        // Update strategy footer with dynamic information
+        function updateStrategyFooter(state) {
+            const strategyTypeEl = document.getElementById('strategyType');
+            const lastActivityEl = document.getElementById('lastActivity');
+            const strategyStatusEl = document.getElementById('strategyStatus');
+            
+            // Update strategy type
+            if (state.strategy && state.strategy.type) {
+                const strategy = state.strategy;
+                let strategyDisplay = strategy.type;
+                
+                // Add strategy-specific parameters
+                if (strategy.type === 'TEST_TIME' && strategy.parameters) {
+                    strategyDisplay += ` (${strategy.parameters.intervalMinutes || 5}min intervals)`;
+                } else if (strategy.type === 'EMA_CROSSOVER' && strategy.parameters) {
+                    strategyDisplay += ` (EMA${strategy.parameters.emaFast || 6}/${strategy.parameters.emaSlow || 19})`;
+                } else if (strategy.type === 'ORB_RUBBER_BAND' && strategy.parameters) {
+                    strategyDisplay += ` (${strategy.parameters.session || 'NY'} session)`;
+                } else if (strategy.type === 'PDHPDLStrategy' && strategy.parameters) {
+                    strategyDisplay = 'PDH/PDL Daily Flip';
+                    if (strategy.parameters.enableBreakoutStrategy && strategy.parameters.enableFadeStrategy) {
+                        strategyDisplay += ' (Breakout + Fade)';
+                    } else if (strategy.parameters.enableBreakoutStrategy) {
+                        strategyDisplay += ' (Breakout Only)';
+                    } else if (strategy.parameters.enableFadeStrategy) {
+                        strategyDisplay += ' (Fade Only)';
+                    }
+                }
+                
+                strategyTypeEl.textContent = strategyDisplay;
+            } else {
+                strategyTypeEl.textContent = 'Unknown Strategy';
+            }
+            
+            // Update last activity
+            if (state.trades && state.trades.length > 0) {
+                const lastTrade = state.trades[state.trades.length - 1];
+                const time = new Date(lastTrade.timestamp).toLocaleTimeString();
+                lastActivityEl.textContent = `${time} - ${lastTrade.side} ${lastTrade.quantity} ${lastTrade.instrument || 'MGC'} @${lastTrade.price.toFixed(1)}`;
+            } else if (state.position) {
+                // Show current position if no completed trades
+                const position = state.position;
+                lastActivityEl.textContent = `Position: ${position.side} ${position.positionSize || 1} ${position.instrument || 'MGC'} @${(position.averagePrice || position.entryPrice || 0).toFixed(1)}`;
+            } else {
+                lastActivityEl.textContent = 'No recent activity';
+            }
+            
+            // Update strategy status based on bot state
+            let statusText = 'Monitoring market conditions...';
+            if (state.status === 'trading') {
+                if (state.position) {
+                    if (state.strategy && state.strategy.type === 'TEST_TIME') {
+                        // Calculate exit time for TEST_TIME strategy
+                        const holdMinutes = state.strategy.parameters?.holdTimeMinutes || 3;
+                        statusText = `Position active, monitoring for ${holdMinutes}min hold period`;
+                    } else {
+                        statusText = 'Position active, monitoring exit conditions';
+                    }
+                } else {
+                    if (state.strategy && state.strategy.type === 'TEST_TIME') {
+                        const now = new Date();
+                        const currentMinutes = now.getMinutes();
+                        const intervalMinutes = state.strategy.parameters?.intervalMinutes || 5;
+                        const nextInterval = Math.ceil((currentMinutes + 1) / intervalMinutes) * intervalMinutes;
+                        const nextTime = nextInterval >= 60 ? `${now.getHours() + 1}:00` : `${now.getHours()}:${nextInterval.toString().padStart(2, '0')}`;
+                        statusText = `Waiting for next signal window at ${nextTime}`;
+                    } else {
+                        statusText = 'Monitoring for entry signals';
+                    }
+                }
+            } else if (state.status === 'stopped') {
+                statusText = 'Trading stopped';
+            } else if (state.status === 'paused') {
+                statusText = 'Trading paused';
+            }
+            
+            strategyStatusEl.textContent = statusText;
+
+            // Update signal strength display if strategy supports it
+            updateSignalStrength(state);
+        }
+
+        // Update signal strength display for PDH/PDL strategy
+        function updateSignalStrength(state) {
+            const signalSection = document.getElementById('signalStrengthSection');
+            
+            // Show signal strength only for PDH/PDL strategy
+            if (state.strategy && state.strategy.type === 'PDHPDLStrategy') {
+                signalSection.style.display = 'block';
+                
+                // Get signal strength data from strategy state if available
+                const signalStrength = state.strategy.signalStrength || {};
+                
+                // Update individual signal values
+                const breakoutStrength = signalStrength.breakout || 0;
+                const fadeStrength = signalStrength.fade || 0;
+                const sweepStrength = signalStrength.sweep || 0;
+                const overallStrength = signalStrength.overall || 0;
+                
+                // Update signal values and bars
+                document.getElementById('breakoutStrength').textContent = `${breakoutStrength}/10`;
+                document.getElementById('breakoutBar').style.width = `${(breakoutStrength / 10) * 100}%`;
+                
+                document.getElementById('fadeStrength').textContent = `${fadeStrength}/10`;
+                document.getElementById('fadeBar').style.width = `${(fadeStrength / 10) * 100}%`;
+                
+                document.getElementById('sweepStrength').textContent = `${sweepStrength}/10`;
+                document.getElementById('sweepBar').style.width = `${(sweepStrength / 10) * 100}%`;
+                
+                document.getElementById('overallStrength').textContent = `${overallStrength}/10`;
+                document.getElementById('overallBar').style.width = `${(overallStrength / 10) * 100}%`;
+                
+                // Update alert level based on overall strength
+                const alertLevel = document.getElementById('alertLevel');
+                if (overallStrength >= 8) {
+                    alertLevel.textContent = 'HIGH';
+                    alertLevel.className = 'alert-level high';
+                } else if (overallStrength >= 5) {
+                    alertLevel.textContent = 'MEDIUM';
+                    alertLevel.className = 'alert-level medium';
+                } else {
+                    alertLevel.textContent = 'LOW';
+                    alertLevel.className = 'alert-level low';
+                }
+                
+                // Update signal alerts if available
+                const alertsContainer = document.getElementById('signalAlerts');
+                const alerts = signalStrength.alerts || [];
+                
+                if (alerts.length > 0) {
+                    alertsContainer.innerHTML = alerts.map(alert => 
+                        `<div class="signal-alert">${alert}</div>`
+                    ).join('');
+                } else {
+                    alertsContainer.innerHTML = '';
+                }
+            } else {
+                signalSection.style.display = 'none';
+            }
+        }
+
+        // Handle trade events for strategy footer updates
+        function handleTradeEvent(trade) {
+            console.log('[UI] Trade event received:', trade);
+            // Trade events will trigger a state update which updates the strategy footer
+            // No need for separate trade table management
+        }
+
+        // Control functions
+        async function startBot() {
+            try {
+                const response = await fetch('/api/start', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    alert(`Error: ${error.error}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        async function stopBot() {
+            if (!confirm('Are you sure you want to stop the bot?')) return;
+            
+            try {
+                const response = await fetch('/api/stop', { method: 'POST' });
+                if (!response.ok) {
+                    const error = await response.json();
+                    alert(`Error: ${error.error}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        async function pauseBot() {
+            const isPaused = botState?.status === 'paused';
+            const endpoint = isPaused ? '/api/resume' : '/api/pause';
+            
+            try {
+                const response = await fetch(endpoint, { method: 'POST' });
+                if (!response.ok) {
+                    const error = await response.json();
+                    alert(`Error: ${error.error}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        function openConfig() {
+            // Open the bot's own configuration page
+            // Use window.open to open in same window but ensure proper navigation
+            const configUrl = `/config.html?bot=${botState?.botId || 'BOT_1'}`;
+            console.log('Opening config:', configUrl);
+            window.location.assign(configUrl);
+        }
+
+        // Load initial state and statistics
+        fetch('/api/state')
+            .then(res => res.json())
+            .then(state => {
+                updateUI(state);
+                // Load live statistics after initial state
+                loadLiveStatistics();
+            })
+            .catch(console.error);
+            
+        // Refresh statistics periodically (every 30 seconds)
+        setInterval(() => {
+            loadLiveStatistics();
+        }, 30000);
+    </script>
+</body>
+</html>

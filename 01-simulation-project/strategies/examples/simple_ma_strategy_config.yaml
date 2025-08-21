@@ -1,0 +1,28 @@
+# Simple Moving Average Strategy Configuration
+strategy:
+  # Risk Management
+  dollar_risk_per_trade: 100
+  dollar_per_point: 10  # ES futures
+  max_risk_points: 3.0
+  risk_reward_ratio: 2.0
+  
+  # Position Management
+  one_trade_at_time: true
+  max_trade_duration_minutes: 480  # 8 hours
+  signal_cooldown_minutes: 5
+  
+  # Strategy-specific parameters
+  parameters:
+    fast_period: 10
+    slow_period: 20
+    min_candles_required: 25
+    instrument: "ES"
+    
+  # Optional: Trading sessions
+  active_sessions:
+    - "US_REGULAR"  # 9:30 AM - 4:00 PM EST
+    
+  # Optional: Debug settings
+  debug:
+    verbose_logging: false
+    save_signals_to_file: true

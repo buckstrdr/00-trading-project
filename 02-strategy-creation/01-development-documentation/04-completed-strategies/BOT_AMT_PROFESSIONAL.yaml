@@ -1,0 +1,155 @@
+# TSX Trading Bot V5 Configuration
+# Auction Market Theory Professional Strategy
+# Based on Market Auction Theory principles with statistical validation
+
+bot:
+  name: "BOT_AMT_PROFESSIONAL"
+  strategy: "AMTProfessionalStrategy"
+  enabled: true
+  description: "Professional Auction Market Theory strategy with POC, HVN, LVN analysis"
+
+# Strategy-specific configuration parameters
+strategy:
+  # Core Settings
+  contracts: ["MES", "MNQ", "M2K", "MYM"]  # Micro E-mini futures
+  
+  # Risk Management
+  dollarRiskPerTrade: 100         # Maximum $ risk per trade
+  dollarPerPoint: 5               # MES = $5 per point, adjust for other contracts
+  maxRiskPoints: 15.0             # Maximum points at risk
+  riskRewardRatio: 2.0            # Minimum risk:reward ratio
+  maxPositionsPerDay: 8           # Maximum trades per day
+  maxConsecutiveLosses: 3         # Stop after consecutive losses
+  
+  # Point of Control (POC) Settings
+  pocStrengthThreshold: 0.15      # 15% minimum volume for significant POC
+  nakedPocMaxAge: 5               # Days to track untested POCs
+  pocMagnetDistance: 5            # Ticks for POC approach signals
+  
+  # High Volume Node (HVN) / Low Volume Node (LVN) Settings
+  hvnVolumeThreshold: 0.70        # 70% of POC volume for HVN classification
+  lvnVolumeThreshold: 0.30        # 30% of average volume for LVN classification
+  hvnClusterDistance: 3           # Ticks to group HVN levels into zones
+  lvnMinGapSize: 5                # Minimum tick gap for LVN significance
+  
+  # Value Area Settings
+  valueAreaPercentage: 70         # Standard 70% value area calculation
+  valueAreaMigrationThreshold: 50 # % overlap threshold for unchanged value
+  
+  # Day Type Classification Settings
+  normalDayIBThreshold: 1.25      # Initial Balance ratio for normal day
+  trendDayIBThreshold: 0.75       # Initial Balance ratio for trend day
+  trendDayVolumeMultiplier: 2.0   # Volume multiplier for trend confirmation
+  
+  # Session Settings
+  rthStart: "09:30"               # Regular trading hours start (ET)
+  rthEnd: "16:00"                 # Regular trading hours end (ET)
+  initialBalanceMinutes: 60       # First hour = Initial Balance period
+  
+  # Entry Settings
+  maxChaseDistance: 3             # Maximum ticks to chase entry
+  volumeConfirmationPeriod: 5     # Bars for volume confirmation
+  minimumVolume: 1000             # Minimum volume for signal validity
+  
+  # Exit Settings
+  responsiveTradeTimeout: 90      # Minutes max hold for range trades
+  initiativeTradeTimeout: 240     # Minutes max hold for breakout trades
+  breakEvenTrigger: 1.0           # R:R ratio to move stop to breakeven
+  trailStopDistance: 8            # Ticks for trailing stop distance
+
+# Trading session configuration
+session:
+  timezone: "America/New_York"    # Eastern Time for US markets
+  preMarketStart: "04:00"         # Pre-market data collection start
+  marketOpen: "09:30"             # Regular market open
+  marketClose: "16:00"            # Regular market close
+  afterHoursEnd: "20:00"          # After hours data collection end
+
+# Data requirements
+data:
+  minimumTickData: true           # Requires tick-by-tick data
+  volumeRequired: true            # Volume data is mandatory
+  timeAndSales: true              # Order flow data preferred
+  historicalProfiles: 20          # Days of historical profile data
+
+# Performance targets
+performance:
+  expectedWinRate: 0.67           # Target 67% win rate
+  expectedRiskReward: 2.3         # Target 1:2.3 risk:reward
+  maxDrawdown: 0.15               # Maximum 15% drawdown
+  targetSharpe: 1.8               # Target Sharpe ratio
+  profitFactor: 2.0               # Target profit factor
+
+# Signal generation priorities
+signals:
+  nakedPocTest:
+    priority: 1
+    expectedWinRate: 0.68
+    expectedRR: 2.5
+    
+  eightyPercentRule:
+    priority: 2
+    expectedWinRate: 0.71
+    expectedRR: 3.5
+    
+  hvnRangeTrade:
+    priority: 3
+    expectedWinRate: 0.71
+    expectedRR: 1.5
+    
+  lvnBreakout:
+    priority: 4
+    expectedWinRate: 0.69
+    expectedRR: 3.2
+    
+  pocRejectionFade:
+    priority: 5
+    expectedWinRate: 0.64
+    expectedRR: 1.8
+
+# Logging and monitoring
+logging:
+  level: "INFO"
+  profileUpdates: true            # Log profile calculations
+  signalGeneration: true          # Log signal details
+  volumeAnalysis: true            # Log HVN/LVN analysis
+  performanceTracking: true       # Log trade performance
+
+# Risk management overrides
+risk:
+  emergencyStop: true             # Enable emergency stop functionality
+  dailyLossLimit: 0.03            # 3% daily loss limit
+  weeklyLossLimit: 0.06           # 6% weekly loss limit
+  monthlyLossLimit: 0.10          # 10% monthly loss limit
+  
+# Market condition adjustments
+conditions:
+  trendDay:
+    positionSizeMultiplier: 1.0   # Full size on trend days
+    timeoutMultiplier: 2.0        # Longer holds on trend days
+    
+  normalDay:
+    positionSizeMultiplier: 0.75  # Reduced size on normal days
+    timeoutMultiplier: 1.0        # Standard timeout
+    
+  neutralDay:
+    positionSizeMultiplier: 0.5   # Half size on neutral days
+    maxTrades: 2                  # Limit trades on neutral days
+    
+  doubleDistribution:
+    positionSizeMultiplier: 0.75  # Moderate size
+    focusOnExtremes: true         # Trade distribution extremes
+
+# Integration settings
+integration:
+  redis: false                    # Strategy does not access Redis directly
+  database: false                 # Strategy does not access database directly
+  positionManagement: false       # Bot handles position management
+  riskManagement: false           # Bot handles account-level risk
+  
+# Development and testing
+development:
+  paperTrading: true              # Enable paper trading mode
+  backtesting: true               # Enable backtesting capabilities
+  performanceLogging: true        # Detailed performance logs
+  debugMode: false                # Disable debug mode for production
