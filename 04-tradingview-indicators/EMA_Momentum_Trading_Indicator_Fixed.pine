@@ -1,0 +1,693 @@
+//@version=5
+indicator(title="EMA Momentum Trading Indicator (Fixed)", overlay=true)
+
+// Input parameters
+fastLength = input.int(9, "Fast EMA Period", minval=1)
+slowLength = input.int(21, "Slow EMA Period", minval=1)
+
+// Stop Loss & Risk Management
+slBufferTicks = input.float(4.0, "Stop Loss Buffer (Ticks)", minval=0.1, group="Stop Loss & Risk")
+stopLossMethod = input.string("Previous Candle", "Stop Loss Method", options=["Previous Candle", "Fixed Amount"], group="Stop Loss & Risk")
+fixedSLTicks = input.float(20.0, "Fixed SL Amount (Ticks)", minval=1.0, group="Stop Loss & Risk")
+riskReward = input.float(1.5, "Risk:Reward Ratio", minval=0.1, group="Stop Loss & Risk")
+minRRForTP = input.float(0.8, "Minimum RR Before TP", minval=0.1, maxval=2.0)
+
+// Position Sizing
+dollarPerPoint = input.float(25.0, "Dollar Value Per Point Per Contract", minval=0.01, group="Position Sizing")
+ticksPerPoint = input.float(10.0, "Ticks Per Point", minval=0.25, group="Position Sizing")
+targetRiskDollars = input.float(100.0, "Target Risk Per Trade ($)", minval=1.0, group="Position Sizing")
+startingBalance = input.float(10000.0, "Starting Account Balance ($)", minval=100.0, group="Position Sizing")
+
+// Cooldown Settings
+winCooldown = input.int(2, "Cooldown After Win", minval=0, group="Cooldowns")
+lossCooldown = input.int(5, "Cooldown After Loss", minval=0, group="Cooldowns")
+
+// Momentum Settings
+momentumLookbackBars = input.int(5, "Momentum Lookback Bars", minval=2, group="Momentum")
+entryMomentumThreshold = input.float(3.0, "EMA Momentum Entry Threshold", minval=0.1, maxval=25.0, group="Momentum", tooltip="For EMA-based momentum methods (Current/Previous Bar EMA)")
+exitMomentumThreshold = input.float(1.0, "EMA Momentum Exit Threshold", minval=0.1, maxval=10.0, group="Momentum", tooltip="For EMA-based momentum methods (Current/Previous Bar EMA)")
+momentumMinHoldBars = input.int(2, "Momentum Min Hold (Bars)", minval=0, maxval=10, group="Momentum")
+momentumEMA = input.string("Fast", "Entry Momentum EMA", options=["Fast", "Slow"], group="Momentum")
+exitMomentumEMA = input.string("Fast", "Exit Momentum EMA", options=["Fast", "Slow", "TP"], group="Momentum")
+momentumMethod = input.string("Current", "Momentum Calculation Method", options=["Current", "Previous Bar EMA", "Price Based", "Previous Price"], group="Momentum")
+priceMomentumThreshold = input.float(0.5, "Price Momentum Threshold (%)", minval=0.1, maxval=5.0, group="Momentum", tooltip="For price-based momentum methods. 0.5 = 0.5% price change required")
+
+// Reversal Detection Settings
+enableReversalMode = input.bool(true, "Enable Reversal Detection", group="Reversal", tooltip="Detect momentum breakouts that reverse against the current trend")
+reversalMomentumMultiplier = input.float(1.8, "Reversal Momentum Multiplier", minval=1.0, maxval=3.0, step=0.1, group="Reversal", tooltip="Multiplier for momentum threshold on reversal trades (higher = more selective)")
+swingLookback = input.int(8, "Swing High/Low Lookback", minval=3, maxval=20, group="Reversal", tooltip="Bars to look back for swing highs/lows")
+minCandleBodyPercent = input.float(50.0, "Min Reversal Candle Body %", minval=20.0, maxval=80.0, group="Reversal", tooltip="Minimum candle body size as % of total range for reversal signals")
+volumeConfirmation = input.bool(false, "Require Volume Confirmation", group="Reversal", tooltip="Require above-average volume for reversal signals")
+volumeMultiplier = input.float(1.5, "Volume Spike Multiplier", minval=1.0, maxval=3.0, step=0.1, group="Reversal", tooltip="Required volume vs average for confirmation")
+volumeLookback = input.int(20, "Volume Average Lookback", minval=10, maxval=50, group="Reversal", tooltip="Bars for volume average calculation")
+
+// Anti-Repainting Settings
+strictAntiRepaint = input.bool(true, "Strict Anti-Repaint Mode", group="Anti-Repainting", tooltip="When enabled, all signals wait for bar confirmation. Eliminates repainting but adds 1-bar delay. When disabled, allows real-time signals with potential repainting.")
+showRepaintWarnings = input.bool(true, "Show Repaint Warnings", group="Anti-Repainting", tooltip="Shows warnings when real-time mode might cause repainting issues")
+
+// Display Settings
+showEntryLabels = input.bool(true, "Show Entry Labels", group="Display")
+showExitLabels = input.bool(true, "Show Exit Labels", group="Display")
+showMomentumPlot = input.bool(false, "Show Momentum Plot", group="Display")
+showMomentumLabels = input.bool(false, "Show Momentum Value Labels", group="Display")
+momentumLabelsFrequency = input.int(10, "Momentum Labels Every N Bars", minval=1, group="Display")
+// Removed ATR and ADX plot options for simplicity
+
+// Removed ADX filter settings for simplicity
+
+// Session inputs
+asianSession = input.session("2300-0800:1234567", "Asian Session", group="Trading Sessions")
+enableAsian = input.bool(true, "Enable Asian Session", group="Trading Sessions")
+londonSession = input.session("0800-1630:1234567", "London Session", group="Trading Sessions")
+enableLondon = input.bool(true, "Enable London Session", group="Trading Sessions")
+nySession = input.session("1430-2200:1234567", "NY Session", group="Trading Sessions")
+enableNY = input.bool(true, "Enable NY Session", group="Trading Sessions")
+enableOverlap = input.bool(true, "Enable Overlap Session", group="Trading Sessions")
+timezoneOffset = input.int(9, "Timezone Offset Hours", minval=-12, maxval=12, group="Trading Sessions")
+showSessionStats = input.bool(true, "Show Session Statistics", group="Trading Sessions")
+showSessionEquity = input.bool(false, "Show Session Filtered Equity Curve", group="Trading Sessions")
+
+// Calculate EMAs
+fastEMA = ta.ema(close, fastLength)
+slowEMA = ta.ema(close, slowLength)
+
+// Removed ATR and ADX calculations for simplicity
+
+// Plot EMAs
+plot(fastEMA, "Fast EMA", color=color.blue, linewidth=2)
+plot(slowEMA, "Slow EMA", color=color.red, linewidth=2)
+
+// Calculate spread
+tickSize = syminfo.mintick
+
+// Session detection - Improved reliability with error handling
+currentHour = hour(time)
+currentMinute = minute(time)
+
+// Use configurable timezone offset with bounds checking
+safeTimezoneOffset = math.max(-12, math.min(12, timezoneOffset))
+adjustedHour = (currentHour + safeTimezoneOffset) % 24
+currentTimeDecimal = adjustedHour + (currentMinute / 60.0)
+
+// Define sessions based on London timezone with improved logic
+inAsianSession = enableAsian and ((currentTimeDecimal >= 23.0) or (currentTimeDecimal < 8.0))
+inLondonSession = enableLondon and (currentTimeDecimal >= 8.0) and (currentTimeDecimal < 16.5)
+inNYSession = enableNY and (currentTimeDecimal >= 14.5) and (currentTimeDecimal < 22.0)
+inOverlapSession = enableOverlap and inLondonSession and inNYSession
+
+// Debug: Show what each session check returns
+debugAsian = inAsianSession ? 1 : 0
+debugLondon = inLondonSession ? 1 : 0
+debugNY = inNYSession ? 1 : 0
+
+// Determine current session - 4 distinct sessions
+currentSession = inOverlapSession ? "Overlap" : inLondonSession ? "London" : inNYSession ? "NY" : inAsianSession ? "Asian" : "Other"
+
+// Simplified momentum calculations with error handling
+entryMomentumEMAValue = momentumEMA == "Fast" ? fastEMA : slowEMA
+exitMomentumEMAValue = exitMomentumEMA == "Fast" ? fastEMA : exitMomentumEMA == "Slow" ? slowEMA : fastEMA
+
+// Calculate momentum changes with safe division
+entryMomentumEMAChange = entryMomentumEMAValue - entryMomentumEMAValue[momentumLookbackBars]
+exitMomentumEMAChange = exitMomentumEMAValue - exitMomentumEMAValue[momentumLookbackBars]
+
+// Previous bar calculations (anti-repainting)
+entryMomentumEMAValuePrev = momentumEMA == "Fast" ? fastEMA[1] : slowEMA[1]
+exitMomentumEMAValuePrev = exitMomentumEMA == "Fast" ? fastEMA[1] : exitMomentumEMA == "Slow" ? slowEMA[1] : fastEMA[1]
+
+entryMomentumEMAChangePrev = entryMomentumEMAValuePrev - entryMomentumEMAValuePrev[momentumLookbackBars]
+exitMomentumEMAChangePrev = exitMomentumEMAValuePrev - exitMomentumEMAValuePrev[momentumLookbackBars]
+
+// Price-based momentum calculations
+priceChange = close - close[momentumLookbackBars]
+priceChangePrev = close[1] - close[1 + momentumLookbackBars]
+
+// Momentum calculations with appropriate scaling for each method
+// EMA-based momentum: Measures rate of change in moving average (use 5000 scale)
+entryMomentumCurrent = entryMomentumEMAValue != 0 ? math.abs(entryMomentumEMAChange / entryMomentumEMAValue) * 5000 : 0
+entryMomentumPrev = entryMomentumEMAValuePrev != 0 ? math.abs(entryMomentumEMAChangePrev / entryMomentumEMAValuePrev) * 5000 : 0
+
+// Price-based momentum: Measures raw price change percentage (use 100 scale for more practical values)
+entryMomentumPrice = close != 0 ? math.abs(priceChange / close) * 100 : 0  // Returns values like 0.5, 1.2, 2.3 etc.
+entryMomentumPricePrev = close[1] != 0 ? math.abs(priceChangePrev / close[1]) * 100 : 0  // Much more practical range
+
+// Entry momentum selection with anti-repainting consideration
+// In strict mode: Use previous bar data for Current/Price methods to prevent repainting
+entryMomentumForSignal = strictAntiRepaint ? (momentumMethod == "Current" ? entryMomentumPrev : momentumMethod == "Previous Bar EMA" ? entryMomentumPrev : momentumMethod == "Price Based" ? entryMomentumPricePrev : entryMomentumPricePrev) : (momentumMethod == "Current" ? entryMomentumCurrent : momentumMethod == "Previous Bar EMA" ? entryMomentumPrev : momentumMethod == "Price Based" ? entryMomentumPrice : entryMomentumPricePrev)
+
+// Keep original for display purposes
+entryMomentum = momentumMethod == "Current" ? entryMomentumCurrent : momentumMethod == "Previous Bar EMA" ? entryMomentumPrev : momentumMethod == "Price Based" ? entryMomentumPrice : entryMomentumPricePrev
+
+// Calculate exit momentum with proper scaling for each method
+exitMomentumCurrent = exitMomentumEMA == "TP" ? 0 : exitMomentumEMAValue != 0 ? math.abs(exitMomentumEMAChange / exitMomentumEMAValue) * 5000 : 0
+exitMomentumPrev = exitMomentumEMA == "TP" ? 0 : exitMomentumEMAValuePrev != 0 ? math.abs(exitMomentumEMAChangePrev / exitMomentumEMAValuePrev) * 5000 : 0
+exitMomentumPrice = exitMomentumEMA == "TP" ? 0 : close != 0 ? math.abs(priceChange / close) * 100 : 0  // Price-based uses 100 scale
+exitMomentumPricePrev = exitMomentumEMA == "TP" ? 0 : close[1] != 0 ? math.abs(priceChangePrev / close[1]) * 100 : 0  // Price-based uses 100 scale
+
+// Exit momentum selection with anti-repainting consideration
+exitMomentumForSignal = strictAntiRepaint ? (momentumMethod == "Current" ? exitMomentumPrev : momentumMethod == "Previous Bar EMA" ? exitMomentumPrev : momentumMethod == "Price Based" ? exitMomentumPricePrev : exitMomentumPricePrev) : (momentumMethod == "Current" ? exitMomentumCurrent : momentumMethod == "Previous Bar EMA" ? exitMomentumPrev : momentumMethod == "Price Based" ? exitMomentumPrice : exitMomentumPricePrev)
+
+// Keep original for display purposes
+exitMomentum = momentumMethod == "Current" ? exitMomentumCurrent : momentumMethod == "Previous Bar EMA" ? exitMomentumPrev : momentumMethod == "Price Based" ? exitMomentumPrice : exitMomentumPricePrev
+
+// Direction calculations with safe comparisons
+entryMomentumDirectionCurrent = entryMomentumEMAChange > 0 ? 1 : entryMomentumEMAChange < 0 ? -1 : 0
+entryMomentumDirectionPrev = entryMomentumEMAChangePrev > 0 ? 1 : entryMomentumEMAChangePrev < 0 ? -1 : 0
+entryMomentumDirectionPrice = priceChange > 0 ? 1 : priceChange < 0 ? -1 : 0
+entryMomentumDirectionPricePrev = priceChangePrev > 0 ? 1 : priceChangePrev < 0 ? -1 : 0
+
+entryMomentumDirection = momentumMethod == "Current" ? entryMomentumDirectionCurrent : momentumMethod == "Previous Bar EMA" ? entryMomentumDirectionPrev : momentumMethod == "Price Based" ? entryMomentumDirectionPrice : entryMomentumDirectionPricePrev
+
+exitMomentumDirectionCurrent = exitMomentumEMA == "TP" ? 0 : exitMomentumEMAChange > 0 ? 1 : exitMomentumEMAChange < 0 ? -1 : 0
+exitMomentumDirectionPrev = exitMomentumEMA == "TP" ? 0 : exitMomentumEMAChangePrev > 0 ? 1 : exitMomentumEMAChangePrev < 0 ? -1 : 0
+exitMomentumDirectionPrice = exitMomentumEMA == "TP" ? 0 : priceChange > 0 ? 1 : priceChange < 0 ? -1 : 0
+exitMomentumDirectionPricePrev = exitMomentumEMA == "TP" ? 0 : priceChangePrev > 0 ? 1 : priceChangePrev < 0 ? -1 : 0
+
+exitMomentumDirection = momentumMethod == "Current" ? exitMomentumDirectionCurrent : momentumMethod == "Previous Bar EMA" ? exitMomentumDirectionPrev : momentumMethod == "Price Based" ? exitMomentumDirectionPrice : exitMomentumDirectionPricePrev
+
+// Use entry momentum for current display
+currentMomentum = entryMomentum
+momentumDirection = entryMomentumDirection
+
+// Trading state variables
+var inTrade = false
+var isLong = false
+var entryPrice = 0.0
+var entrySession = ""  // Track session when trade was entered
+var stopLoss = 0.0
+var takeProfit = 0.0
+// Removed trailing stop variables for simplicity
+var cooldownBarsRemaining = 0
+
+// Critical: Snapshot variables to prevent SL repainting
+// Captures exact low[1]/high[1] values at entry time for Previous Candle SL method
+var float entrySnapshotPrevLow = 0.0
+var float entrySnapshotPrevHigh = 0.0
+var totalWins = 0
+var totalLosses = 0
+var totalRR = 0.0
+var totalTrades = 0
+var winningRR = 0.0
+
+// Trade type statistics (Trend vs Reversal)
+var int trendWins = 0
+var int trendLosses = 0
+var float trendRR = 0.0
+var int reversalWins = 0
+var int reversalLosses = 0
+var float reversalRR = 0.0
+// REMOVED: Price-based P&L variables (replaced with dollar-based system)
+var runningDollarPnL = 0.0
+var peakDollarPnL = 0.0
+var maxDollarDrawdown = 0.0
+var currentAccountBalance = startingBalance
+var firstTradeTime = 0
+var barsInTrade = 0
+var tableNeedsUpdate = true
+var lastTradeTime = 0
+var sessionFilteredEquity = 0.0
+
+// Session-specific variables
+var asianWins = 0
+var asianLosses = 0
+var asianRR = 0.0
+var asianDollarPnL = 0.0
+var asianMaxDD = 0.0
+var londonWins = 0
+var londonLosses = 0
+var londonRR = 0.0
+var londonDollarPnL = 0.0
+var londonMaxDD = 0.0
+var nyWins = 0
+var nyLosses = 0
+var nyRR = 0.0
+var nyDollarPnL = 0.0
+var nyMaxDD = 0.0
+var overlapWins = 0
+var overlapLosses = 0
+var overlapRR = 0.0
+var overlapDollarPnL = 0.0
+var overlapMaxDD = 0.0
+
+// Update cooldown counter
+cooldownBarsRemaining := cooldownBarsRemaining > 0 ? cooldownBarsRemaining - 1 : 0
+
+// Simplified trading conditions (removed ADX filter)
+anySessionActive = inAsianSession or inLondonSession or inNYSession or inOverlapSession
+canTrade = not inTrade and cooldownBarsRemaining == 0 and anySessionActive
+
+// Trend direction with anti-repainting protection
+// Use confirmed previous bar values to prevent repainting
+uptrend = strictAntiRepaint ? fastEMA[1] > slowEMA[1] : fastEMA > slowEMA
+downtrend = strictAntiRepaint ? fastEMA[1] < slowEMA[1] : fastEMA < slowEMA
+sideways = not uptrend and not downtrend
+
+// Reversal Detection: Swing levels and breakouts
+if enableReversalMode
+    // Calculate swing highs and lows for breakout detection
+    recentHigh = ta.highest(high, swingLookback)
+    recentLow = ta.lowest(low, swingLookback)
+    
+    // Volume analysis (if enabled)
+    avgVolume = volumeConfirmation ? ta.sma(volume, volumeLookback) : 0
+    volumeSpike = volumeConfirmation ? volume > (avgVolume * volumeMultiplier) : true
+    
+    // Candle body analysis for reversal strength
+    candleRange = high - low
+    candleBody = math.abs(close - open)
+    bodyPercent = candleRange > 0 ? (candleBody / candleRange) * 100 : 0
+    strongCandle = bodyPercent >= minCandleBodyPercent
+    
+    // Breakout detection with momentum confirmation
+    // Bullish breakout: Break above recent high with upward momentum
+    bullishBreakout = close > recentHigh[1] and close > open and strongCandle and volumeSpike
+    
+    // Bearish breakout: Break below recent low with downward momentum  
+    bearishBreakout = close < recentLow[1] and close < open and strongCandle and volumeSpike
+    
+    // Calculate reversal momentum thresholds (higher than trend continuation)
+    reversalEntryThreshold = momentumMethod == "Price Based" or momentumMethod == "Previous Price" ? 
+        priceMomentumThreshold * reversalMomentumMultiplier : 
+        entryMomentumThreshold * reversalMomentumMultiplier
+    
+    // Reversal signals: Strong momentum breakouts
+    // Can occur during trends (early reversal) or sideways (breakout continuation)
+    reversalLongSignal = bullishBreakout and entryMomentumForSignal > reversalEntryThreshold and entryMomentumDirection > 0
+    reversalShortSignal = bearishBreakout and entryMomentumForSignal > reversalEntryThreshold and entryMomentumDirection < 0
+else
+    reversalLongSignal = false
+    reversalShortSignal = false
+
+// Momentum-based signals with method-appropriate thresholds
+// EMA methods: Use entryMomentumThreshold (typically 3.0) with 5000x scaling  
+// Price methods: Use priceMomentumThreshold (typically 0.5) with 100x scaling
+currentEntryThreshold = momentumMethod == "Price Based" or momentumMethod == "Previous Price" ? priceMomentumThreshold : entryMomentumThreshold
+currentExitThreshold = momentumMethod == "Price Based" or momentumMethod == "Previous Price" ? priceMomentumThreshold : exitMomentumThreshold
+
+// Use anti-repaint momentum values for signal generation
+// Traditional trend-following signals
+longMomentum = canTrade and uptrend and entryMomentumForSignal > currentEntryThreshold and entryMomentumDirection > 0
+shortMomentum = canTrade and downtrend and entryMomentumForSignal > currentEntryThreshold and entryMomentumDirection < 0
+
+// Reversal momentum signals
+longReversalMomentum = enableReversalMode and canTrade and reversalLongSignal
+shortReversalMomentum = enableReversalMode and canTrade and reversalShortSignal
+
+// Entry signals with comprehensive anti-repainting protection
+// In strict mode: All signals wait for bar confirmation (recommended for backtesting accuracy)
+// In real-time mode: Current/Price methods allow intrabar signals (may cause repainting)
+useRealTimeSignals = not strictAntiRepaint and (momentumMethod == "Current" or momentumMethod == "Price Based")
+
+// Combined entry logic: Trend following OR Reversal
+trendLongEntry = longMomentum and not longMomentum[1] and (useRealTimeSignals or barstate.isconfirmed)
+trendShortEntry = shortMomentum and not shortMomentum[1] and (useRealTimeSignals or barstate.isconfirmed)
+reversalLongEntry = longReversalMomentum and not longReversalMomentum[1] and (useRealTimeSignals or barstate.isconfirmed)
+reversalShortEntry = shortReversalMomentum and not shortReversalMomentum[1] and (useRealTimeSignals or barstate.isconfirmed)
+
+// Final entry signals
+longEntry = trendLongEntry or reversalLongEntry
+shortEntry = trendShortEntry or reversalShortEntry
+
+// Track entry type for labeling
+var string entryType = ""
+entryType := trendLongEntry or trendShortEntry ? "TREND" : reversalLongEntry or reversalShortEntry ? "REVERSAL" : entryType
+
+// Calculate emergency stop distance first (needed for edge case protection)
+emergencyStopDistance = targetRiskDollars > 0 and dollarPerPoint > 0 and ticksPerPoint > 0 ? (targetRiskDollars / dollarPerPoint) * ticksPerPoint * tickSize : fixedSLTicks * tickSize
+
+// Update trade state with anti-repainting logic
+// Use confirmed entry prices to prevent repainting in backtesting vs live trading
+entryPriceForSL = longEntry or shortEntry ? (barstate.isconfirmed ? close : open) : 0
+
+// CRITICAL: Snapshot previous bar high/low at exact entry time
+// This prevents SL repainting where backtest uses different low[1]/high[1] than live trading
+// Edge case protection: Use emergency fallback if previous bar data is invalid
+safePrevLow = na(low[1]) ? (close - emergencyStopDistance) : low[1]
+safePrevHigh = na(high[1]) ? (close + emergencyStopDistance) : high[1]
+entrySnapshotPrevLow := longEntry ? safePrevLow : entrySnapshotPrevLow
+entrySnapshotPrevHigh := shortEntry ? safePrevHigh : entrySnapshotPrevHigh
+
+inTrade := longEntry or shortEntry ? true : inTrade
+isLong := longEntry ? true : shortEntry ? false : isLong
+entryPrice := longEntry or shortEntry ? entryPriceForSL : entryPrice
+entrySession := longEntry or shortEntry ? currentSession : entrySession  // Capture entry session
+firstTradeTime := (longEntry or shortEntry) and firstTradeTime == 0 ? time : firstTradeTime
+barsInTrade := longEntry or shortEntry ? 0 : inTrade ? barsInTrade + 1 : 0
+
+// Calculate stops and targets with improved SL methods and risk-based emergency fallback
+// Emergency fallback distance already calculated above
+
+// CRITICAL FIX: Use snapshot values for Previous Candle SL to prevent repainting
+// This ensures backtest uses same low[1]/high[1] values that were available at entry time in live trading
+stopLossPreviousCandle = longEntry ? math.max(entrySnapshotPrevLow - (slBufferTicks * tickSize), entryPriceForSL - emergencyStopDistance) : shortEntry ? math.min(entrySnapshotPrevHigh + (slBufferTicks * tickSize), entryPriceForSL + emergencyStopDistance) : stopLoss
+    
+// Fixed SL method is already safe (no repainting risk)
+stopLossFixed = longEntry ? entryPrice - (fixedSLTicks * tickSize) : shortEntry ? entryPrice + (fixedSLTicks * tickSize) : stopLoss
+
+stopLoss := stopLossMethod == "Previous Candle" ? stopLossPreviousCandle : stopLossFixed
+takeProfit := longEntry ? entryPrice + ((entryPrice - stopLoss) * riskReward) : shortEntry ? entryPrice - ((stopLoss - entryPrice) * riskReward) : takeProfit
+
+// Removed trailing stop functionality - simplified for better reliability
+
+// Exit conditions with anti-repainting protection
+actualStopLevel = stopLoss
+// Use confirmed previous bar high/low to prevent repainting in strict mode
+hitSL = strictAntiRepaint ? (inTrade and (isLong ? low[1] <= actualStopLevel : high[1] >= actualStopLevel)) : (inTrade and (isLong ? low <= actualStopLevel : high >= actualStopLevel))
+
+// Calculate current RR for TP eligibility using TP level, not current high/low
+currentRisk = inTrade and entryPrice != actualStopLevel ? math.abs(entryPrice - actualStopLevel) : 0
+tpProfit = inTrade and isLong ? takeProfit - entryPrice : inTrade and not isLong ? entryPrice - takeProfit : 0
+tpRR = inTrade and currentRisk > 0 ? tpProfit / currentRisk : 0
+
+// TP triggers if price hits TP level AND we've configured minimum RR threshold
+// Use confirmed previous bar high/low to prevent repainting in strict mode
+priceHitTP = strictAntiRepaint ? (inTrade and (isLong ? high[1] >= takeProfit : low[1] <= takeProfit)) : (inTrade and (isLong ? high >= takeProfit : low <= takeProfit))
+hitTP = priceHitTP and tpRR >= minRRForTP
+
+// Improved momentum exit logic with anti-repainting protection
+// Use confirmed momentum values and add one more bar of confirmation to prevent flickering
+momentumExitCondition = exitMomentumForSignal < currentExitThreshold and exitMomentumForSignal[1] < currentExitThreshold
+momentumExit = exitMomentumEMA != "TP" and inTrade and barsInTrade >= momentumMinHoldBars and momentumExitCondition
+
+exitTrade = hitSL or hitTP or momentumExit
+
+// Calculate results with safe arithmetic
+originalRisk = exitTrade and entryPrice != actualStopLevel ? math.abs(entryPrice - actualStopLevel) : 0
+
+// Ensure exit prices are aligned to tick boundaries
+actualExitStop = stopLoss
+actualExit = exitTrade ? (hitTP ? takeProfit : hitSL ? actualExitStop : math.round(close / tickSize) * tickSize) : 0
+
+// Calculate position sizing FIRST based on original risk at entry
+riskTicks = exitTrade and tickSize > 0 ? originalRisk / tickSize : 0
+riskPoints = exitTrade and ticksPerPoint > 0 ? riskTicks / ticksPerPoint : 0
+positionSizeCalc = exitTrade and riskPoints > 0 and dollarPerPoint > 0 ? targetRiskDollars / (riskPoints * dollarPerPoint) : 0
+
+// Position size validation with bounds checking
+maxPositionByBalance = currentAccountBalance > 0 ? math.floor(currentAccountBalance * 0.1 / targetRiskDollars) : 1  // Max 10% account risk
+maxPositionAbsolute = 100  // Absolute maximum position size
+validatedPositionSize = exitTrade and positionSizeCalc > 0 ? math.min(positionSizeCalc, maxPositionByBalance, maxPositionAbsolute) : 0
+positionSize = exitTrade ? math.max(1, math.round(validatedPositionSize)) : 0
+
+// Now calculate actual profit and RR based on position size
+actualProfit = exitTrade ? (isLong ? actualExit - entryPrice : entryPrice - actualExit) : 0
+profitTicks = exitTrade and tickSize > 0 ? actualProfit / tickSize : 0
+profitPoints = exitTrade and ticksPerPoint > 0 ? profitTicks / ticksPerPoint : 0
+
+// Calculate dollar amounts based on actual position size
+dollarRisk = exitTrade and positionSize > 0 and dollarPerPoint > 0 and riskPoints > 0 ? riskPoints * dollarPerPoint * positionSize : 0
+dollarProfit = exitTrade and positionSize > 0 and dollarPerPoint > 0 ? profitPoints * dollarPerPoint * positionSize : 0
+
+// Calculate RR based on INTENDED risk vs actual profit (should never be negative)
+tradeRR = exitTrade and dollarRisk > 0 ? dollarProfit / dollarRisk : 0
+tradeWin = exitTrade and dollarProfit > 0
+
+// Calculate account balance properly (starting balance + total P&L)
+currentAccountBalance := startingBalance + runningDollarPnL
+
+// Update statistics
+totalWins := tradeWin ? totalWins + 1 : totalWins
+totalLosses := exitTrade and not tradeWin ? totalLosses + 1 : totalLosses
+totalTrades := exitTrade ? totalTrades + 1 : totalTrades
+totalRR := exitTrade ? totalRR + tradeRR : totalRR
+winningRR := tradeWin ? winningRR + tradeRR : winningRR
+
+// Update trade type statistics (Trend vs Reversal)
+if exitTrade
+    if entryType == "TREND"
+        trendWins := tradeWin ? trendWins + 1 : trendWins
+        trendLosses := not tradeWin ? trendLosses + 1 : trendLosses
+        trendRR := trendRR + tradeRR
+    else if entryType == "REVERSAL"
+        reversalWins := tradeWin ? reversalWins + 1 : reversalWins
+        reversalLosses := not tradeWin ? reversalLosses + 1 : reversalLosses
+        reversalRR := reversalRR + tradeRR
+
+// REMOVED: Price-based P&L tracking (inconsistent with position sizing)
+// All P&L tracking now uses dollar-based system for accuracy
+
+// Update dollar P&L and drawdown
+runningDollarPnL := exitTrade ? runningDollarPnL + dollarProfit : runningDollarPnL
+peakDollarPnL := runningDollarPnL > peakDollarPnL ? runningDollarPnL : peakDollarPnL
+currentDollarDrawdown = peakDollarPnL - runningDollarPnL
+maxDollarDrawdown := currentDollarDrawdown > maxDollarDrawdown ? currentDollarDrawdown : maxDollarDrawdown
+
+// Calculate session-filtered equity (P&L from enabled sessions only)
+sessionFilteredPnL = (enableAsian ? asianDollarPnL : 0) + (enableLondon ? londonDollarPnL : 0) + (enableNY ? nyDollarPnL : 0) + (enableOverlap ? overlapDollarPnL : 0)
+sessionFilteredEquity := sessionFilteredPnL
+
+// Update session-specific statistics using ENTRY session (not exit session)
+asianWins := exitTrade and tradeWin and entrySession == "Asian" ? asianWins + 1 : asianWins
+asianLosses := exitTrade and not tradeWin and entrySession == "Asian" ? asianLosses + 1 : asianLosses
+asianRR := exitTrade and entrySession == "Asian" ? asianRR + tradeRR : asianRR
+asianDollarPnL := exitTrade and entrySession == "Asian" ? asianDollarPnL + dollarProfit : asianDollarPnL
+// Track session-specific peak P&L for proper drawdown calculation
+var asianPeakPnL = 0.0
+var londonPeakPnL = 0.0
+var nyPeakPnL = 0.0  
+var overlapPeakPnL = 0.0
+
+// Update peaks when trades from each session close profitably
+asianPeakPnL := exitTrade and entrySession == "Asian" and asianDollarPnL > asianPeakPnL ? asianDollarPnL : asianPeakPnL
+londonPeakPnL := exitTrade and entrySession == "London" and londonDollarPnL > londonPeakPnL ? londonDollarPnL : londonPeakPnL
+nyPeakPnL := exitTrade and entrySession == "NY" and nyDollarPnL > nyPeakPnL ? nyDollarPnL : nyPeakPnL
+overlapPeakPnL := exitTrade and entrySession == "Overlap" and overlapDollarPnL > overlapPeakPnL ? overlapDollarPnL : overlapPeakPnL
+
+// Calculate session drawdowns properly (peak - current)
+asianDrawdown = asianPeakPnL - asianDollarPnL
+londonDrawdown = londonPeakPnL - londonDollarPnL
+nyDrawdown = nyPeakPnL - nyDollarPnL
+overlapDrawdown = overlapPeakPnL - overlapDollarPnL
+
+// Update max drawdowns (continuous tracking, not session-dependent)
+asianMaxDD := asianDrawdown > asianMaxDD ? asianDrawdown : asianMaxDD
+
+londonWins := exitTrade and tradeWin and entrySession == "London" ? londonWins + 1 : londonWins
+londonLosses := exitTrade and not tradeWin and entrySession == "London" ? londonLosses + 1 : londonLosses
+londonRR := exitTrade and entrySession == "London" ? londonRR + tradeRR : londonRR
+londonDollarPnL := exitTrade and entrySession == "London" ? londonDollarPnL + dollarProfit : londonDollarPnL
+londonMaxDD := londonDrawdown > londonMaxDD ? londonDrawdown : londonMaxDD
+
+nyWins := exitTrade and tradeWin and entrySession == "NY" ? nyWins + 1 : nyWins
+nyLosses := exitTrade and not tradeWin and entrySession == "NY" ? nyLosses + 1 : nyLosses
+nyRR := exitTrade and entrySession == "NY" ? nyRR + tradeRR : nyRR
+nyDollarPnL := exitTrade and entrySession == "NY" ? nyDollarPnL + dollarProfit : nyDollarPnL
+nyMaxDD := nyDrawdown > nyMaxDD ? nyDrawdown : nyMaxDD
+
+overlapWins := exitTrade and tradeWin and entrySession == "Overlap" ? overlapWins + 1 : overlapWins
+overlapLosses := exitTrade and not tradeWin and entrySession == "Overlap" ? overlapLosses + 1 : overlapLosses
+overlapRR := exitTrade and entrySession == "Overlap" ? overlapRR + tradeRR : overlapRR
+overlapDollarPnL := exitTrade and entrySession == "Overlap" ? overlapDollarPnL + dollarProfit : overlapDollarPnL
+overlapMaxDD := overlapDrawdown > overlapMaxDD ? overlapDrawdown : overlapMaxDD
+
+// Optimized table update logic
+tableNeedsUpdate := exitTrade or barstate.islast or (barstate.isconfirmed and bar_index % 10 == 0)
+lastTradeTime := exitTrade ? time : lastTradeTime
+
+// Reset trade state on exit
+inTrade := exitTrade ? false : inTrade
+cooldownBarsRemaining := exitTrade ? (tradeWin ? winCooldown : lossCooldown) : cooldownBarsRemaining
+entryPrice := exitTrade ? 0.0 : entryPrice
+entrySession := exitTrade ? "" : entrySession  // Reset entry session
+stopLoss := exitTrade ? 0.0 : stopLoss
+takeProfit := exitTrade ? 0.0 : takeProfit
+barsInTrade := exitTrade ? 0 : barsInTrade
+
+// Reset snapshot values on exit
+entrySnapshotPrevLow := exitTrade ? 0.0 : entrySnapshotPrevLow
+entrySnapshotPrevHigh := exitTrade ? 0.0 : entrySnapshotPrevHigh
+
+// Anti-repaint warning system
+repaintWarning = showRepaintWarnings and not strictAntiRepaint and (longEntry or shortEntry)
+warningLabel = repaintWarning ? label.new(bar_index, high + (high * 0.02), "⚠️ REPAINT RISK\nReal-time mode active", style=label.style_label_down, color=color.red, textcolor=color.white, size=size.small) : na
+
+// Entry labels with prices, anti-repaint status, entry type, and SL snapshot info
+entryModeText = strictAntiRepaint ? "[CONFIRMED]" : "[REALTIME]"
+entryTypeText = entryType == "TREND" ? "MOM" : entryType == "REVERSAL" ? "REV" : "MOM"
+slMethodText = stopLossMethod == "Previous Candle" ? "PC-SL" : "FX-SL"
+slSnapshotText = stopLossMethod == "Previous Candle" ? "\nSL-Snap: " + str.tostring(longEntry ? entrySnapshotPrevLow : entrySnapshotPrevHigh, "#.##") : ""
+
+// Color coding: Trend=Purple/Green, Reversal=Orange/Blue
+trendColor = strictAntiRepaint ? color.green : color.purple
+reversalColor = strictAntiRepaint ? color.blue : color.orange
+longEntryColor = entryType == "REVERSAL" ? reversalColor : trendColor
+shortTrendColor = strictAntiRepaint ? color.red : color.yellow  
+shortReversalColor = strictAntiRepaint ? color.maroon : color.fuchsia
+shortEntryColor = entryType == "REVERSAL" ? shortReversalColor : shortTrendColor
+
+entryLabelMomLong = showEntryLabels and longEntry ? label.new(bar_index, low, entryTypeText + " " + entryModeText + "\nEntry: " + str.tostring(entryPrice, "#.##") + "\n" + slMethodText + slSnapshotText, style=label.style_label_up, color=longEntryColor, textcolor=color.white, size=size.normal) : na
+        
+entryLabelMomShort = showEntryLabels and shortEntry ? label.new(bar_index, high, entryTypeText + " " + entryModeText + "\nEntry: " + str.tostring(entryPrice, "#.##") + "\n" + slMethodText + slSnapshotText, style=label.style_label_down, color=shortEntryColor, textcolor=color.white, size=size.normal) : na
+
+// Exit label conditions
+momWinTP = showExitLabels and exitTrade and hitTP and tradeWin
+momLossTP = showExitLabels and exitTrade and hitTP and not tradeWin
+momWinSL = showExitLabels and exitTrade and hitSL and tradeWin
+momLossSL = showExitLabels and exitTrade and hitSL and not tradeWin
+momWinMom = showExitLabels and exitTrade and momentumExit and tradeWin
+momLossMom = showExitLabels and exitTrade and momentumExit and not tradeWin
+
+// Create exit labels with detailed information
+exitLabelTPWin = momWinTP and isLong ? label.new(bar_index, high, "TP WIN\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_down, color=color.lime, textcolor=color.black, size=size.normal) : momWinTP and not isLong ? label.new(bar_index, low, "TP WIN\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_up, color=color.lime, textcolor=color.black, size=size.normal) : na
+
+exitLabelTPLoss = momLossTP and isLong ? label.new(bar_index, high, "TP LOSS\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_down, color=color.orange, textcolor=color.white, size=size.normal) : momLossTP and not isLong ? label.new(bar_index, low, "TP LOSS\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_up, color=color.orange, textcolor=color.white, size=size.normal) : na
+
+exitLabelSLWin = momWinSL and isLong ? label.new(bar_index, high, "SL WIN\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_down, color=color.lime, textcolor=color.black, size=size.normal) : momWinSL and not isLong ? label.new(bar_index, low, "SL WIN\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_up, color=color.lime, textcolor=color.black, size=size.normal) : na
+
+exitLabelSLLoss = momLossSL and isLong ? label.new(bar_index, high, "SL LOSS\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_down, color=color.red, textcolor=color.white, size=size.normal) : momLossSL and not isLong ? label.new(bar_index, low, "SL LOSS\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_up, color=color.red, textcolor=color.white, size=size.normal) : na
+
+exitLabelMomWin = momWinMom and isLong ? label.new(bar_index, high, "MOM WIN\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_down, color=color.lime, textcolor=color.black, size=size.normal) : momWinMom and not isLong ? label.new(bar_index, low, "MOM WIN\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_up, color=color.lime, textcolor=color.black, size=size.normal) : na
+
+exitLabelMomLoss = momLossMom and isLong ? label.new(bar_index, high, "MOM LOSS\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_down, color=color.red, textcolor=color.white, size=size.normal) : momLossMom and not isLong ? label.new(bar_index, low, "MOM LOSS\nExit:" + str.tostring(actualExit, "#.##") + "\nRR:" + str.tostring(tradeRR, "#.##") + "\nRisk:$" + str.tostring(dollarRisk, "#") + "\nProfit:$" + str.tostring(dollarProfit, "#") + "\nSize:" + str.tostring(positionSize, "#"), style=label.style_label_up, color=color.red, textcolor=color.white, size=size.normal) : na
+
+// Plot lines
+plot(inTrade ? stopLoss : na, "Stop Loss", color=color.red, linewidth=2, style=plot.style_linebr)
+plot(inTrade ? takeProfit : na, "Take Profit", color=color.green, linewidth=2, style=plot.style_linebr)
+
+// Plot momentum values (optional)
+plot(showMomentumPlot ? entryMomentum : na, "Entry Momentum", color=color.purple, linewidth=1)
+plot(showMomentumPlot ? exitMomentum : na, "Exit Momentum", color=color.orange, linewidth=1)
+hline(showMomentumPlot ? entryMomentumThreshold : na, "Entry Threshold", color=color.gray, linestyle=hline.style_dashed)
+hline(showMomentumPlot ? exitMomentumThreshold : na, "Exit Threshold", color=color.red, linestyle=hline.style_dashed)
+
+// Removed ATR and ADX plotting for simplicity
+
+// Plot session equity curves (optional)
+plot(showSessionEquity ? sessionFilteredEquity : na, "Session Filtered Equity", color=color.white, linewidth=2, display=display.pane)
+hline(showSessionEquity ? 0 : na, "Break Even", color=color.gray, linestyle=hline.style_dotted)
+
+// Anti-repaint information panel (only show if warnings enabled)
+if showRepaintWarnings and not strictAntiRepaint and barstate.islast
+    repaintInfoLabel = label.new(bar_index - 20, high + (high * 0.05), "🚨 REPAINTING MODE ACTIVE\n• Signals may appear/disappear in real-time\n• Backtest results may differ from live trading\n• Enable 'Strict Anti-Repaint Mode' for reliable backtesting\n• In strict mode, signals delayed by 1 bar but guaranteed consistent", style=label.style_label_down, color=color.red, textcolor=color.white, size=size.normal)
+else if showRepaintWarnings and strictAntiRepaint and barstate.islast
+    slMethodInfo = stopLossMethod == "Previous Candle" ? "\n• SL snapshots prevent Previous Candle repainting" : "\n• Fixed SL method is naturally anti-repaint"
+    antiRepaintInfoLabel = label.new(bar_index - 20, high + (high * 0.05), "✅ STRICT ANTI-REPAINT MODE\n• All signals confirmed before triggering\n• Entry/SL calculations match live trading exactly\n• Signals delayed by 1 bar for consistency" + slMethodInfo + "\n• Reliable for strategy development and backtesting", style=label.style_label_down, color=color.green, textcolor=color.white, size=size.normal)
+
+// Momentum value labels with safe display
+var int lastLabelBar = 0
+shouldShowLabel = showMomentumLabels and (bar_index - lastLabelBar >= momentumLabelsFrequency)
+momentumLabel = shouldShowLabel ? label.new(bar_index, high + (high * 0.01), str.tostring(entryMomentum, "#.#"), style=label.style_label_down, color=color.purple, textcolor=color.white, size=size.small) : na
+lastLabelBar := shouldShowLabel ? bar_index : lastLabelBar
+
+// Calculate statistics with safe arithmetic
+winRateCalc = totalWins + totalLosses > 0 ? totalWins / (totalWins + totalLosses) * 100 : 0
+avgRRAllTrades = totalTrades > 0 ? totalRR / totalTrades : 0
+avgRRWinningTrades = totalWins > 0 ? winningRR / totalWins : 0  // This is correct: winningRR only includes winning trades
+daysTradedCalc = firstTradeTime > 0 ? math.round((time - firstTradeTime) / (1000 * 60 * 60 * 24)) + 1 : 0
+
+// Trade type statistics (Trend vs Reversal)
+trendWinRate = trendWins + trendLosses > 0 ? trendWins / (trendWins + trendLosses) * 100 : 0
+reversalWinRate = reversalWins + reversalLosses > 0 ? reversalWins / (reversalWins + reversalLosses) * 100 : 0
+trendTotalTrades = trendWins + trendLosses
+reversalTotalTrades = reversalWins + reversalLosses
+
+// Session statistics with safe arithmetic
+asianWinRate = asianWins + asianLosses > 0 ? asianWins / (asianWins + asianLosses) * 100 : 0
+londonWinRate = londonWins + londonLosses > 0 ? londonWins / (londonWins + londonLosses) * 100 : 0
+nyWinRate = nyWins + nyLosses > 0 ? nyWins / (nyWins + nyLosses) * 100 : 0
+overlapWinRate = overlapWins + overlapLosses > 0 ? overlapWins / (overlapWins + overlapLosses) * 100 : 0
+
+// Create optimized stats table - 8 columns, 9 rows (added Trend/Reversal columns)
+var table statsTable = table.new(position.top_right, columns=8, rows=9, bgcolor=color.white, border_width=1)
+
+// Optimized table updates - only when necessary
+if tableNeedsUpdate and showSessionStats
+    // Calculate values once for efficiency (removed redundant pureNYWinRate - use nyWinRate)
+    firstTradeDate = firstTradeTime > 0 ? str.format_time(firstTradeTime, "yyyy-MM-dd HH:mm") : "No trades"
+    
+    // Clear and populate table efficiently
+    table.clear(statsTable, 0, 0, 7, 8)
+    
+    // Row 0: Headers with enabled/disabled indicators
+    table.cell(statsTable, 0, 0, "", text_color=color.white, text_size=size.small, bgcolor=color.navy)
+    table.cell(statsTable, 1, 0, "Overall", text_color=color.white, text_size=size.small, bgcolor=color.navy)
+    table.cell(statsTable, 2, 0, "TREND", text_color=color.white, text_size=size.small, bgcolor=color.blue)
+    table.cell(statsTable, 3, 0, "REV", text_color=color.white, text_size=size.small, bgcolor=color.purple)
+    table.cell(statsTable, 4, 0, enableAsian ? "Asia" : "Asia OFF", text_color=color.white, text_size=size.small, bgcolor=enableAsian ? color.navy : color.gray)
+    table.cell(statsTable, 5, 0, enableLondon ? "London" : "London OFF", text_color=color.white, text_size=size.small, bgcolor=enableLondon ? color.navy : color.gray)
+    table.cell(statsTable, 6, 0, enableOverlap ? "Overlap" : "Overlap OFF", text_color=color.white, text_size=size.small, bgcolor=enableOverlap ? color.navy : color.gray)
+    table.cell(statsTable, 7, 0, enableNY ? "NYALC" : "NYALC OFF", text_color=color.white, text_size=size.small, bgcolor=enableNY ? color.navy : color.gray)
+    
+    // Row 1: Wins
+    table.cell(statsTable, 0, 1, "Wins", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 1, str.tostring(totalWins), text_color=color.green, text_size=size.small)
+    table.cell(statsTable, 2, 1, str.tostring(trendWins), text_color=color.green, text_size=size.small)
+    table.cell(statsTable, 3, 1, str.tostring(reversalWins), text_color=color.green, text_size=size.small)
+    table.cell(statsTable, 4, 1, str.tostring(asianWins), text_color=color.green, text_size=size.small)
+    table.cell(statsTable, 5, 1, str.tostring(londonWins), text_color=color.green, text_size=size.small)
+    table.cell(statsTable, 6, 1, str.tostring(overlapWins), text_color=color.green, text_size=size.small)
+    table.cell(statsTable, 7, 1, str.tostring(nyWins), text_color=color.green, text_size=size.small)
+    
+    // Row 2: Losses
+    table.cell(statsTable, 0, 2, "Losses", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 2, str.tostring(totalLosses), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 2, 2, str.tostring(trendLosses), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 3, 2, str.tostring(reversalLosses), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 4, 2, str.tostring(asianLosses), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 5, 2, str.tostring(londonLosses), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 6, 2, str.tostring(overlapLosses), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 7, 2, str.tostring(nyLosses), text_color=color.red, text_size=size.small)
+    
+    // Row 3: Win Rate
+    table.cell(statsTable, 0, 3, "Win Rate", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 3, str.tostring(winRateCalc, "#.#") + "%", text_color=winRateCalc >= 50 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 2, 3, str.tostring(trendWinRate, "#.#") + "%", text_color=trendWinRate >= 50 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 3, 3, str.tostring(reversalWinRate, "#.#") + "%", text_color=reversalWinRate >= 50 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 4, 3, str.tostring(asianWinRate, "#.#") + "%", text_color=asianWinRate >= 50 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 5, 3, str.tostring(londonWinRate, "#.#") + "%", text_color=londonWinRate >= 50 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 6, 3, str.tostring(overlapWinRate, "#.#") + "%", text_color=overlapWinRate >= 50 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 7, 3, str.tostring(nyWinRate, "#.#") + "%", text_color=nyWinRate >= 50 ? color.green : color.red, text_size=size.small)
+    
+    // Row 4: Total RR
+    table.cell(statsTable, 0, 4, "Total RR", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 4, str.tostring(totalRR, "#.##"), text_color=totalRR >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 2, 4, str.tostring(trendRR, "#.##"), text_color=trendRR >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 3, 4, str.tostring(reversalRR, "#.##"), text_color=reversalRR >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 4, 4, str.tostring(asianRR, "#.##"), text_color=asianRR >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 5, 4, str.tostring(londonRR, "#.##"), text_color=londonRR >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 6, 4, str.tostring(overlapRR, "#.##"), text_color=overlapRR >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 7, 4, str.tostring(nyRR, "#.##"), text_color=nyRR >= 0 ? color.green : color.red, text_size=size.small)
+    
+    // Row 5: Trade Count / Dollar P&L
+    table.cell(statsTable, 0, 5, "Trades/P&L", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 5, "$" + str.tostring(runningDollarPnL, "#"), text_color=runningDollarPnL >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 2, 5, str.tostring(trendTotalTrades), text_color=color.blue, text_size=size.small)
+    table.cell(statsTable, 3, 5, str.tostring(reversalTotalTrades), text_color=color.purple, text_size=size.small)
+    table.cell(statsTable, 4, 5, "$" + str.tostring(asianDollarPnL, "#"), text_color=asianDollarPnL >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 5, 5, "$" + str.tostring(londonDollarPnL, "#"), text_color=londonDollarPnL >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 6, 5, "$" + str.tostring(overlapDollarPnL, "#"), text_color=overlapDollarPnL >= 0 ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 7, 5, "$" + str.tostring(nyDollarPnL, "#"), text_color=nyDollarPnL >= 0 ? color.green : color.red, text_size=size.small)
+    
+    // Row 6: Account Balance
+    table.cell(statsTable, 0, 6, "Balance", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 6, "$" + str.tostring(currentAccountBalance, "#"), text_color=currentAccountBalance >= startingBalance ? color.green : color.red, text_size=size.small)
+    table.cell(statsTable, 2, 6, "Start: $" + str.tostring(startingBalance, "#"), text_color=color.blue, text_size=size.small)
+    table.cell(statsTable, 3, 6, "Risk: $" + str.tostring(targetRiskDollars, "#"), text_color=color.blue, text_size=size.small)
+    table.cell(statsTable, 4, 6, "", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 5, 6, "", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 6, 6, "", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 7, 6, "", text_color=color.black, text_size=size.small)
+    
+    // Row 7: Max DD
+    table.cell(statsTable, 0, 7, "Max DD", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 7, "$" + str.tostring(maxDollarDrawdown, "#"), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 2, 7, "", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 3, 7, "", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 4, 7, "$" + str.tostring(asianMaxDD, "#"), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 5, 7, "$" + str.tostring(londonMaxDD, "#"), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 6, 7, "$" + str.tostring(overlapMaxDD, "#"), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 7, 7, "$" + str.tostring(nyMaxDD, "#"), text_color=color.red, text_size=size.small)
+    
+    // Row 8: Anti-Repaint Status + Current DD
+    antiRepaintStatus = strictAntiRepaint ? "STRICT ON" : "REALTIME"
+    antiRepaintColor = strictAntiRepaint ? color.green : color.orange
+    reversalModeStatus = enableReversalMode ? "REV ON" : "REV OFF"
+    reversalColor = enableReversalMode ? color.purple : color.gray
+    table.cell(statsTable, 0, 8, "Mode", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 8, antiRepaintStatus, text_color=antiRepaintColor, text_size=size.small)
+    table.cell(statsTable, 2, 8, reversalModeStatus, text_color=reversalColor, text_size=size.small)
+    table.cell(statsTable, 3, 8, "CurrDD: $" + str.tostring(currentDollarDrawdown, "#"), text_color=color.red, text_size=size.small)
+    table.cell(statsTable, 4, 8, currentSession + " A:" + str.tostring(debugAsian) + " L:" + str.tostring(debugLondon) + " N:" + str.tostring(debugNY), text_color=color.navy, text_size=size.small)
+    table.cell(statsTable, 5, 8, "H:" + str.tostring(currentHour) + " M:" + str.tostring(currentMinute), text_color=color.blue, text_size=size.small)
+    table.cell(statsTable, 6, 8, firstTradeDate, text_color=color.blue, text_size=size.small)
+    table.cell(statsTable, 7, 8, "", text_color=color.black, text_size=size.small)

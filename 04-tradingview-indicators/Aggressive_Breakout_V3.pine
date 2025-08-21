@@ -1,0 +1,260 @@
+//@version=5
+indicator("Aggressive Breakout Momentum V3", shorttitle="ABM_V3", overlay=true, max_boxes_count=100, max_lines_count=100)
+
+// === PARAMETERS (Tuned for Visible Chart Patterns) ===
+
+// Swing Detection (Shorter periods for more signals)
+swingLookback = input.int(8, "Swing Lookback", minval=5, maxval=15, group="Swing Detection")
+
+// Momentum (Relaxed for more entries)
+fastEMA = input.int(5, "Fast EMA", minval=3, maxval=10, group="Momentum")
+slowEMA = input.int(13, "Slow EMA", minval=10, maxval=20, group="Momentum")
+momentumThreshold = input.float(0.01, "Momentum Threshold %", minval=0.005, maxval=0.05, step=0.005, group="Momentum")
+
+// Range Expansion (Key filter from your chart)
+rangeExpansionMultiplier = input.float(1.2, "Range Expansion Multiplier", minval=1.1, maxval=1.5, step=0.1, group="Filters")
+rangeAvgLength = input.int(15, "Range Average Length", minval=10, maxval=25, group="Filters")
+
+// Volume Confirmation (Relaxed)
+volumeMultiplier = input.float(1.1, "Volume Multiplier", minval=1.0, maxval=1.5, step=0.1, group="Filters")
+volumeAvgLength = input.int(15, "Volume Average Length", minval=10, maxval=25, group="Filters")
+
+// Risk Management (Matching your 3RR chart)
+stopLossPct = input.float(0.6, "Stop Loss %", minval=0.3, maxval=1.0, step=0.1, group="Risk Management")
+riskRewardRatio = input.float(3.0, "Risk:Reward Ratio", minval=2.0, maxval=5.0, step=0.5, group="Risk Management")
+riskPerTrade = input.float(2.0, "Risk Per Trade %", minval=1.0, maxval=3.0, step=0.1, group="Risk Management")
+
+// Cooldown period to avoid over-trading
+cooldownBars = input.int(5, "Cooldown Between Trades", minval=1, maxval=20, group="Risk Management")
+
+// Display Settings
+showTradeBoxes = input.bool(true, "Show Trade Boxes", group="Display")
+showSignalLabels = input.bool(true, "Show Signal Labels", group="Display")
+showSwingLevels = input.bool(true, "Show Swing Levels", group="Display")
+
+// === CALCULATIONS ===
+
+// EMAs and Momentum
+emaFast = ta.ema(close, fastEMA)
+emaSlow = ta.ema(close, slowEMA)
+momentum = (emaFast - emaSlow) / emaSlow * 100
+
+// Swing Levels
+swingHigh = ta.highest(high, swingLookback)
+swingLow = ta.lowest(low, swingLookback)
+
+// Range Expansion (Critical for chart-like breakouts)
+currentRange = high - low
+avgRange = ta.sma(currentRange, rangeAvgLength)
+rangeExpansion = currentRange > avgRange * rangeExpansionMultiplier
+
+// Volume Confirmation
+avgVolume = ta.sma(volume, volumeAvgLength)
+volumeSpike = volume > avgVolume * volumeMultiplier
+
+// Additional momentum confirmation
+priceVelocity = ta.change(close, 3) / close * 100  // 3-bar price velocity
+strongMomentum = math.abs(priceVelocity) > 0.02  // 0.02% velocity
+
+// === SIGNAL CONDITIONS ===
+
+// Enhanced Breakout Conditions (more aggressive)
+longBreakout = close > swingHigh[1] and close > open  // Bullish bar
+shortBreakout = close < swingLow[1] and close < open  // Bearish bar
+
+// Momentum Confirmation (relaxed)
+momentumUp = momentum > momentumThreshold
+momentumDown = momentum < -momentumThreshold
+
+// Combined Entry Signals (more permissive)
+longSignal = longBreakout and momentumUp and (rangeExpansion or volumeSpike or strongMomentum)
+shortSignal = shortBreakout and momentumDown and (rangeExpansion or volumeSpike or strongMomentum)
+
+// === TRADE MANAGEMENT ===
+
+// Track trade state
+var float entryPrice = na
+var float stopPrice = na
+var float targetPrice = na
+var bool inLongTrade = false
+var bool inShortTrade = false
+var int entryBar = na
+var int lastTradeBar = na
+
+// Cooldown check
+cooldownOK = na(lastTradeBar) or (bar_index - lastTradeBar) >= cooldownBars
+
+// Entry Logic
+if longSignal and not inLongTrade and not inShortTrade and cooldownOK
+    entryPrice := close
+    stopPrice := entryPrice * (1 - stopLossPct / 100)
+    targetPrice := entryPrice * (1 + (stopLossPct / 100) * riskRewardRatio)
+    inLongTrade := true
+    entryBar := bar_index
+    
+    if showSignalLabels
+        label.new(bar_index, low, "🚀 LONG\n" + str.tostring(entryPrice, "#.##") + "\nTP: " + str.tostring(targetPrice, "#.##"), 
+                 color=color.new(color.green, 20), style=label.style_label_up, size=size.normal, textcolor=color.white)
+
+if shortSignal and not inLongTrade and not inShortTrade and cooldownOK
+    entryPrice := close
+    stopPrice := entryPrice * (1 + stopLossPct / 100)
+    targetPrice := entryPrice * (1 - (stopLossPct / 100) * riskRewardRatio)
+    inShortTrade := true
+    entryBar := bar_index
+    
+    if showSignalLabels
+        label.new(bar_index, high, "🎯 SHORT\n" + str.tostring(entryPrice, "#.##") + "\nTP: " + str.tostring(targetPrice, "#.##"), 
+                 color=color.new(color.red, 20), style=label.style_label_down, size=size.normal, textcolor=color.white)
+
+// Exit Logic
+exitReason = ""
+exitPrice = 0.0
+
+if inLongTrade
+    if low <= stopPrice
+        exitReason := "SL HIT"
+        exitPrice := stopPrice
+        inLongTrade := false
+        lastTradeBar := bar_index
+    else if high >= targetPrice
+        exitReason := "TP HIT"
+        exitPrice := targetPrice
+        inLongTrade := false
+        lastTradeBar := bar_index
+
+if inShortTrade
+    if high >= stopPrice
+        exitReason := "SL HIT"
+        exitPrice := stopPrice
+        inShortTrade := false
+        lastTradeBar := bar_index
+    else if low <= targetPrice
+        exitReason := "TP HIT"
+        exitPrice := targetPrice
+        inShortTrade := false
+        lastTradeBar := bar_index
+
+// Calculate Performance
+var float totalPnL = 0.0
+var int totalTrades = 0
+var int winningTrades = 0
+
+if exitReason != ""
+    totalTrades += 1
+    
+    // Calculate P&L
+    positionSize = 10000 * (riskPerTrade / 100) / math.abs(entryPrice - stopPrice)
+    
+    var float pnl = 0.0
+    if inLongTrade[1] // Was in long trade
+        pnl := (exitPrice - entryPrice) * positionSize
+    else // Was in short trade
+        pnl := (entryPrice - exitPrice) * positionSize
+    
+    totalPnL += pnl
+    
+    if pnl > 0
+        winningTrades += 1
+    
+    // Calculate RR achieved
+    rrAchieved = exitReason == "TP HIT" ? riskRewardRatio : -1.0
+    
+    // Show exit label with more details
+    if showSignalLabels
+        labelColor = exitReason == "TP HIT" ? color.new(color.lime, 20) : color.new(color.maroon, 20)
+        labelText = (exitReason == "TP HIT" ? "✅ " : "❌ ") + exitReason + "\nRR: " + str.tostring(rrAchieved, "#.#") + "\nP&L: $" + str.tostring(pnl, "#")
+        label.new(bar_index, exitReason == "TP HIT" ? high : low, labelText, 
+                 color=labelColor, style=label.style_label_down, size=size.normal, textcolor=color.white)
+    
+    // Show trade box
+    if showTradeBoxes and not na(entryBar)
+        boxColor = exitReason == "TP HIT" ? color.new(color.green, 85) : color.new(color.red, 85)
+        borderColor = exitReason == "TP HIT" ? color.green : color.red
+        box.new(entryBar, math.max(entryPrice, exitPrice), bar_index, math.min(entryPrice, exitPrice), bgcolor=boxColor, border_color=borderColor, border_width=2)
+
+// === DISPLAY ELEMENTS ===
+
+// Plot EMAs
+plot(emaFast, "Fast EMA", color=color.new(color.blue, 30), linewidth=1)
+plot(emaSlow, "Slow EMA", color=color.new(color.red, 30), linewidth=1)
+
+// Plot swing levels (conditional)
+plot(showSwingLevels ? swingHigh : na, "Swing High", color=color.new(color.orange, 50), linewidth=1, style=plot.style_stepline)
+plot(showSwingLevels ? swingLow : na, "Swing Low", color=color.new(color.orange, 50), linewidth=1, style=plot.style_stepline)
+
+// Current trade levels
+plot(inLongTrade or inShortTrade ? entryPrice : na, "Entry", color=color.white, linewidth=3, style=plot.style_circles)
+plot(inLongTrade or inShortTrade ? stopPrice : na, "Stop", color=color.red, linewidth=2, style=plot.style_cross)
+plot(inLongTrade or inShortTrade ? targetPrice : na, "Target", color=color.lime, linewidth=2, style=plot.style_cross)
+
+// Background color for signal conditions
+bgcolor(longSignal ? color.new(color.green, 95) : shortSignal ? color.new(color.red, 95) : na, title="Signal Background")
+
+// Range expansion background
+bgcolor(rangeExpansion ? color.new(color.yellow, 97) : na, title="Range Expansion")
+
+// === STATISTICS TABLE ===
+
+if barstate.islast
+    var table infoTable = table.new(position.top_right, 2, 8, bgcolor=color.new(color.white, 20), border_width=1, frame_width=2)
+    
+    table.cell(infoTable, 0, 0, "📊 PERFORMANCE", text_color=color.black, bgcolor=color.new(color.gray, 50), text_size=size.normal)
+    table.cell(infoTable, 1, 0, "VALUE", text_color=color.black, bgcolor=color.new(color.gray, 50), text_size=size.normal)
+    
+    table.cell(infoTable, 0, 1, "Total Trades", text_color=color.black, text_size=size.normal)
+    table.cell(infoTable, 1, 1, str.tostring(totalTrades), text_color=color.black, text_size=size.normal)
+    
+    winRate = totalTrades > 0 ? winningTrades / totalTrades * 100 : 0
+    table.cell(infoTable, 0, 2, "Win Rate", text_color=color.black, text_size=size.normal)
+    winRateColor = winRate >= 40 ? color.green : winRate >= 30 ? color.orange : color.red
+    table.cell(infoTable, 1, 2, str.tostring(winRate, "#.#") + "%", text_color=winRateColor, text_size=size.normal)
+    
+    table.cell(infoTable, 0, 3, "Total P&L", text_color=color.black, text_size=size.normal)
+    pnlColor = totalPnL > 0 ? color.green : color.red
+    table.cell(infoTable, 1, 3, "$" + str.tostring(totalPnL, "#.##"), text_color=pnlColor, text_size=size.normal)
+    
+    avgReturn = totalTrades > 0 ? totalPnL / totalTrades : 0
+    table.cell(infoTable, 0, 4, "Avg P&L", text_color=color.black, text_size=size.normal)
+    avgColor = avgReturn > 0 ? color.green : color.red
+    table.cell(infoTable, 1, 4, "$" + str.tostring(avgReturn, "#.##"), text_color=avgColor, text_size=size.normal)
+    
+    targetHits = 0
+    for i = 0 to totalTrades - 1
+        if winningTrades > 0
+            targetHits := winningTrades  // Simplified for display
+    
+    table.cell(infoTable, 0, 5, "3RR Hits", text_color=color.black, text_size=size.normal)
+    rrColor = targetHits > 0 ? color.green : color.gray
+    table.cell(infoTable, 1, 5, str.tostring(targetHits), text_color=rrColor, text_size=size.normal)
+    
+    table.cell(infoTable, 0, 6, "Current Trade", text_color=color.black, text_size=size.normal)
+    currentTradeText = inLongTrade ? "🚀 LONG" : inShortTrade ? "🎯 SHORT" : "⏸️ NONE"
+    currentTradeColor = inLongTrade ? color.green : inShortTrade ? color.red : color.gray
+    table.cell(infoTable, 1, 6, currentTradeText, text_color=currentTradeColor, text_size=size.normal)
+    
+    // Success assessment
+    table.cell(infoTable, 0, 7, "Assessment", text_color=color.black, text_size=size.normal)
+    var string assessment = ""
+    var color assessColor = color.gray
+    if totalTrades >= 5 and winRate >= 35 and totalPnL > 0
+        assessment := "✅ GOOD"
+        assessColor := color.green
+    else if totalTrades >= 3 and winRate >= 25
+        assessment := "⚠️ FAIR"
+        assessColor := color.orange
+    else if totalTrades > 0
+        assessment := "❌ POOR"
+        assessColor := color.red
+    else
+        assessment := "🔍 TESTING"
+        assessColor := color.blue
+    
+    table.cell(infoTable, 1, 7, assessment, text_color=assessColor, text_size=size.normal)
+
+// === ALERTS ===
+
+alertcondition(longSignal, title="🚀 Long Breakout Signal", message="Long breakout with 3RR target - Entry: {{close}}")
+alertcondition(shortSignal, title="🎯 Short Breakout Signal", message="Short breakout with 3RR target - Entry: {{close}}")
+alertcondition(exitReason == "TP HIT", title="✅ 3RR Target Hit", message="Target achieved! RR: 3.0")
+alertcondition(exitReason == "SL HIT", title="❌ Stop Loss Hit", message="Stop loss triggered")

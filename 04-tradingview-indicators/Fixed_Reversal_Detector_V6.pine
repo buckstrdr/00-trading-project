@@ -1,0 +1,246 @@
+//@version=5
+indicator("Fixed Reversal Detector V6", shorttitle="FRD_V6", overlay=true, max_boxes_count=50, max_lines_count=50, max_labels_count=50)
+
+// === PARAMETERS ===
+
+// Reversal Detection (Fixed engulfing logic)
+minPointChange = input.float(1.5, "Minimum Point Change", minval=0.5, maxval=3.0, step=0.1, group="Reversal Pattern")
+engulfBars = input.int(2, "Bars to Check for Engulfing", minval=1, maxval=3, group="Reversal Pattern")
+volumeMultiplier = input.float(2.0, "Volume Multiplier (vs 20MA)", minval=1.5, maxval=3.0, step=0.1, group="Reversal Pattern")
+
+// Risk Management
+stopLossPct = input.float(0.8, "Stop Loss %", minval=0.5, maxval=2.0, step=0.1, group="Risk Management")
+riskRewardRatio = input.float(3.0, "Risk:Reward Ratio", minval=2.0, maxval=5.0, step=0.5, group="Risk Management")
+
+// Trade Management
+cooldownBars = input.int(10, "Cooldown Between Signals", minval=5, maxval=30, group="Risk Management")
+
+// Display
+showPatternInfo = input.bool(true, "Show Pattern Details", group="Display")
+
+// === IMPROVED REVERSAL PATTERN DETECTION ===
+
+// Volume analysis
+volume20MA = ta.sma(volume, 20)
+volumeSpike = volume >= volume20MA * volumeMultiplier
+
+// Current candle analysis
+candleSize = high - low
+candleChange = close - open
+isBullishCandle = close > open
+isBearishCandle = close < open
+significantChange = math.abs(candleChange) >= minPointChange
+
+// CORRECTED Engulfing Logic - More realistic
+// Instead of requiring complete engulfment of ALL previous bars,
+// check if current candle shows strong reversal characteristics
+engulfingBullish = false
+engulfingBearish = false
+
+// For bullish: current bar should have lower low than recent bars AND higher high
+if bar_index >= engulfBars
+    recentLow = ta.lowest(low, engulfBars)[1]  // Lowest of previous bars
+    recentHigh = ta.highest(high, engulfBars)[1]  // Highest of previous bars
+    
+    // Bullish engulfing: break below recent low then close above recent range
+    engulfingBullish := low < recentLow and high > recentHigh
+    
+    // Bearish engulfing: break above recent high then close below recent range  
+    engulfingBearish := high > recentHigh and low < recentLow
+
+// === REVERSAL SIGNAL CONDITIONS ===
+
+// Bullish reversal (long signal) - CORRECTED
+bullishReversal = isBullishCandle and engulfingBullish and volumeSpike and 
+                 significantChange and candleChange >= minPointChange
+
+// Bearish reversal (short signal) - CORRECTED
+bearishReversal = isBearishCandle and engulfingBearish and volumeSpike and 
+                 significantChange and candleChange <= -minPointChange
+
+// === TRADE STATE MANAGEMENT ===
+
+var float entryPrice = na
+var float stopPrice = na
+var float targetPrice = na
+var bool inTrade = false
+var string tradeDirection = ""
+var int entryBar = na
+var int lastSignalBar = na
+
+// Cooldown check
+cooldownOK = na(lastSignalBar) or (bar_index - lastSignalBar) >= cooldownBars
+canEnter = not inTrade and cooldownOK
+
+// === ENTRY LOGIC ===
+
+if bullishReversal and canEnter
+    entryPrice := close
+    stopPrice := entryPrice * (1 - stopLossPct / 100)
+    targetPrice := entryPrice * (1 + (stopLossPct / 100) * riskRewardRatio)
+    inTrade := true
+    tradeDirection := "LONG"
+    entryBar := bar_index
+    lastSignalBar := bar_index
+    
+    // Entry label with pattern details
+    labelText = "🔄 LONG REVERSAL\n" + str.tostring(entryPrice, "#.##")
+    if showPatternInfo
+        labelText := labelText + "\nΔ" + str.tostring(candleChange, "#.#") + " pts"
+        labelText := labelText + "\nVol: " + str.tostring(volume/volume20MA, "#.#") + "x"
+        labelText := labelText + "\nRange: " + str.tostring(candleSize, "#.#")
+    
+    label.new(bar_index, low, labelText, 
+             color=color.new(color.green, 10), style=label.style_label_up, 
+             size=size.small, textcolor=color.white)
+
+if bearishReversal and canEnter
+    entryPrice := close
+    stopPrice := entryPrice * (1 + stopLossPct / 100)
+    targetPrice := entryPrice * (1 - (stopLossPct / 100) * riskRewardRatio)
+    inTrade := true
+    tradeDirection := "SHORT"
+    entryBar := bar_index
+    lastSignalBar := bar_index
+    
+    // Entry label with pattern details
+    labelText = "🔄 SHORT REVERSAL\n" + str.tostring(entryPrice, "#.##")
+    if showPatternInfo
+        labelText := labelText + "\nΔ" + str.tostring(candleChange, "#.#") + " pts"
+        labelText := labelText + "\nVol: " + str.tostring(volume/volume20MA, "#.#") + "x"
+        labelText := labelText + "\nRange: " + str.tostring(candleSize, "#.#")
+    
+    label.new(bar_index, high, labelText, 
+             color=color.new(color.red, 10), style=label.style_label_down, 
+             size=size.small, textcolor=color.white)
+
+// === EXIT LOGIC ===
+
+var string exitReason = ""
+var float exitPrice = 0.0
+
+if inTrade
+    if tradeDirection == "LONG"
+        if low <= stopPrice
+            exitReason := "STOP"
+            exitPrice := stopPrice
+            inTrade := false
+        else if high >= targetPrice
+            exitReason := "TARGET"
+            exitPrice := targetPrice
+            inTrade := false
+    
+    else if tradeDirection == "SHORT"
+        if high >= stopPrice
+            exitReason := "STOP"
+            exitPrice := stopPrice
+            inTrade := false
+        else if low <= targetPrice
+            exitReason := "TARGET"
+            exitPrice := targetPrice
+            inTrade := false
+
+// === PERFORMANCE TRACKING ===
+
+var int totalTrades = 0
+var int winningTrades = 0
+var float totalPnL = 0.0
+
+if exitReason != ""
+    totalTrades += 1
+    
+    // Simple P&L calculation
+    pnlPct = 0.0
+    if tradeDirection == "LONG"
+        pnlPct := (exitPrice - entryPrice) / entryPrice * 100
+    else
+        pnlPct := (entryPrice - exitPrice) / entryPrice * 100
+    
+    totalPnL += pnlPct
+    
+    if pnlPct > 0
+        winningTrades += 1
+    
+    // Calculate RR achieved
+    rrAchieved = exitReason == "TARGET" ? riskRewardRatio : -1.0
+    
+    // Exit label
+    isWin = exitReason == "TARGET"
+    labelColor = isWin ? color.new(color.lime, 10) : color.new(color.maroon, 10)
+    exitText = (isWin ? "✅ 3RR " : "❌ SL ") + exitReason
+    exitText := exitText + "\nP&L: " + str.tostring(pnlPct, "#.#") + "%"
+    
+    label.new(bar_index, isWin ? high : low, exitText, 
+             color=labelColor, style=label.style_label_down, 
+             size=size.small, textcolor=color.white)
+    
+    // Trade box matching user's chart style
+    if not na(entryBar) and isWin
+        // Winning trade: Combined red-to-green box (SL bottom, TP top)
+        box.new(entryBar, targetPrice, bar_index, stopPrice, 
+                bgcolor=color.new(color.green, 85), border_color=color.green, border_width=2)
+        // Entry price line (white line through middle)
+        line.new(entryBar, entryPrice, bar_index, entryPrice, 
+                color=color.white, width=2, style=line.style_solid)
+    else if not na(entryBar) and not isWin
+        // Losing trade: Red box only (entry to stop)
+        if tradeDirection == "LONG"
+            box.new(entryBar, entryPrice, bar_index, stopPrice, 
+                    bgcolor=color.new(color.red, 85), border_color=color.red, border_width=1)
+        else
+            box.new(entryBar, stopPrice, bar_index, entryPrice, 
+                    bgcolor=color.new(color.red, 85), border_color=color.red, border_width=1)
+    
+    // Reset for next trade
+    exitReason := ""
+    tradeDirection := ""
+    entryBar := na
+
+// === DISPLAY ELEMENTS ===
+
+// Active trade levels
+plot(inTrade ? entryPrice : na, "Entry", color=color.white, linewidth=3, style=plot.style_circles)
+plot(inTrade ? stopPrice : na, "Stop Loss", color=color.red, linewidth=2, style=plot.style_cross)
+plot(inTrade ? targetPrice : na, "Take Profit (3RR)", color=color.lime, linewidth=2, style=plot.style_cross)
+
+// Volume threshold line (optional)
+plot(volume20MA * volumeMultiplier, "Volume Threshold", color=color.new(color.orange, 80), linewidth=1)
+
+// Background for reversal signals
+bgcolor(bullishReversal ? color.new(color.green, 95) : bearishReversal ? color.new(color.red, 95) : na, title="Reversal Signal")
+
+// === STATISTICS TABLE ===
+
+if barstate.islast
+    var table statsTable = table.new(position.top_right, 2, 6, bgcolor=color.new(color.white, 10), border_width=1)
+    
+    // Header
+    table.cell(statsTable, 0, 0, "REVERSAL STATS", text_color=color.black, bgcolor=color.new(color.gray, 30))
+    table.cell(statsTable, 1, 0, "VALUE", text_color=color.black, bgcolor=color.new(color.gray, 30))
+    
+    // Stats
+    table.cell(statsTable, 0, 1, "Total Trades", text_color=color.black)
+    table.cell(statsTable, 1, 1, str.tostring(totalTrades), text_color=color.black)
+    
+    winRate = totalTrades > 0 ? winningTrades / totalTrades * 100 : 0
+    table.cell(statsTable, 0, 2, "Win Rate", text_color=color.black)
+    table.cell(statsTable, 1, 2, str.tostring(winRate, "#") + "%", text_color=winRate >= 40 ? color.green : color.red)
+    
+    avgReturn = totalTrades > 0 ? totalPnL / totalTrades : 0
+    table.cell(statsTable, 0, 3, "Avg Return", text_color=color.black)
+    table.cell(statsTable, 1, 3, str.tostring(avgReturn, "#.#") + "%", text_color=avgReturn > 0 ? color.green : color.red)
+    
+    table.cell(statsTable, 0, 4, "3RR Hits", text_color=color.black)
+    table.cell(statsTable, 1, 4, str.tostring(winningTrades), text_color=winningTrades > 0 ? color.green : color.gray)
+    
+    // Current status
+    table.cell(statsTable, 0, 5, "Active", text_color=color.black)
+    activeText = inTrade ? (tradeDirection == "LONG" ? "LONG" : "SHORT") : "None"
+    table.cell(statsTable, 1, 5, activeText, text_color=inTrade ? color.blue : color.gray)
+
+// === ALERTS ===
+
+alertcondition(bullishReversal, title="Bullish Reversal", message="Strong bullish reversal pattern - Long setup")
+alertcondition(bearishReversal, title="Bearish Reversal", message="Strong bearish reversal pattern - Short setup") 
+alertcondition(exitReason == "TARGET", title="3RR Hit", message="Reversal trade achieved 3RR target!")
+alertcondition(exitReason == "STOP", title="Stop Loss", message="Reversal trade stopped out")

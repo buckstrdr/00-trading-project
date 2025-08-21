@@ -1,0 +1,90 @@
+//@version=5
+// OPTIMIZED REVERSAL MOMENTUM PARAMETERS
+// Based on systematic optimization analysis
+// Regime: CRISIS/HIGH VOLATILITY (2008 Financial Crisis Period)
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CRISIS-OPTIMIZED PARAMETERS FOR VOLATILE CONDITIONS
+// Prioritizes capital preservation over maximum profit
+// ═══════════════════════════════════════════════════════════════════════════
+
+// EMA Settings - More responsive for volatile conditions
+fastEMA = input.int(8, "Fast EMA", minval=5, maxval=15, group="Crisis-Optimized EMA")
+slowEMA = input.int(21, "Slow EMA", minval=15, maxval=30, group="Crisis-Optimized EMA") 
+momentumLookback = input.int(5, "Momentum Lookback", minval=3, maxval=10, group="Crisis-Optimized EMA")
+
+// Entry Settings - Lower threshold for crisis conditions
+entryThreshold = input.float(1.5, "Entry Threshold", minval=1.0, maxval=2.5, step=0.1, group="Crisis Entry Settings")
+exitThreshold = input.float(1.0, "Exit Threshold", minval=0.5, maxval=2.0, step=0.1, group="Crisis Entry Settings")
+
+// Reversal Settings - More conservative multiplier
+reversalMomentumMultiplier = input.float(1.2, "Reversal Momentum Multiplier", minval=1.0, maxval=2.0, step=0.1, group="Crisis Reversal Settings")
+swingLookback = input.int(8, "Swing Lookback Period", minval=5, maxval=15, group="Crisis Reversal Settings")
+candleBodyThreshold = input.float(50, "Candle Body Size %", minval=40, maxval=70, step=5, group="Crisis Reversal Settings")
+
+// Risk Management - Tighter controls for volatile periods  
+riskRewardRatio = input.float(1.5, "Risk:Reward Ratio", minval=1.0, maxval=2.5, step=0.1, group="Crisis Risk Management")
+stopLossMethod = input.string("Previous Candle", "Stop Loss Method", options=["Previous Candle", "Swing Level"], group="Crisis Risk Management")
+targetRiskDollars = input.float(15, "Target Risk ($)", minval=10, maxval=50, tooltip="Reduced risk per trade for volatile conditions", group="Crisis Risk Management")
+
+// Volume Confirmation - REQUIRED for crisis conditions
+volumeConfirmation = input.bool(true, "Volume Confirmation (REQUIRED)", tooltip="Essential filter for crisis periods", group="Crisis Risk Management")
+volumeLookback = input.int(20, "Volume SMA Period", minval=10, maxval=30, group="Crisis Risk Management")
+
+// Additional Crisis Controls
+maxBarsInTrade = input.int(20, "Max Bars in Trade", minval=10, maxval=50, tooltip="Force exit after X bars to avoid overnight risk", group="Crisis Controls")
+enableTimeExit = input.bool(true, "Enable Time-Based Exit", tooltip="Exit trades after max bars regardless of P&L", group="Crisis Controls")
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ALTERNATIVE PARAMETER SETS FOR OTHER MARKET REGIMES
+// ═══════════════════════════════════════════════════════════════════════════
+
+// NORMAL TRENDING PARAMETERS (VIX 15-30)
+// Uncomment these and comment out crisis parameters when market normalizes
+/*
+fastEMA = input.int(9, "Fast EMA", minval=5, maxval=15)
+slowEMA = input.int(25, "Slow EMA", minval=15, maxval=35)
+entryThreshold = input.float(2.0, "Entry Threshold", minval=1.5, maxval=3.0, step=0.1)
+reversalMomentumMultiplier = input.float(1.8, "Reversal Momentum Multiplier", minval=1.4, maxval=2.2, step=0.1)
+swingLookback = input.int(12, "Swing Lookback Period", minval=8, maxval=16)
+riskRewardRatio = input.float(2.5, "Risk:Reward Ratio", minval=2.0, maxval=3.5, step=0.1)
+stopLossMethod = input.string("Swing Level", "Stop Loss Method", options=["Previous Candle", "Swing Level"])
+targetRiskDollars = input.float(25, "Target Risk ($)", minval=15, maxval=75)
+*/
+
+// LOW VOLATILITY PARAMETERS (VIX < 15) 
+// Use for range-bound, low volatility periods
+/*
+fastEMA = input.int(12, "Fast EMA", minval=8, maxval=20)
+slowEMA = input.int(30, "Slow EMA", minval=20, maxval=40)
+entryThreshold = input.float(2.5, "Entry Threshold", minval=2.0, maxval=4.0, step=0.1)
+reversalMomentumMultiplier = input.float(2.2, "Reversal Momentum Multiplier", minval=1.8, maxval=2.6, step=0.1)
+swingLookback = input.int(15, "Swing Lookback Period", minval=12, maxval=20)
+riskRewardRatio = input.float(3.0, "Risk:Reward Ratio", minval=2.5, maxval=4.0, step=0.1)
+stopLossMethod = input.string("Swing Level", "Stop Loss Method", options=["Previous Candle", "Swing Level"])
+targetRiskDollars = input.float(35, "Target Risk ($)", minval=20, maxval=100)
+*/
+
+// ═══════════════════════════════════════════════════════════════════════════
+// REGIME DETECTION HINTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Add these indicators to help identify market regime:
+// atr_ratio = ta.atr(14) / ta.atr(50)  // Rising ATR ratio = increasing volatility
+// volume_spike = volume > ta.sma(volume, 20) * 1.5  // Volume spikes indicate stress
+// range_expansion = (high - low) > ta.atr(14) * 1.5  // Large ranges indicate volatility
+
+// REGIME SWITCHING RULES:
+// Crisis Mode: ATR ratio > 1.3 AND frequent volume spikes
+// Normal Mode: ATR ratio 0.8-1.3 AND moderate volume  
+// Low Vol Mode: ATR ratio < 0.8 AND low volume spikes
+
+// ═══════════════════════════════════════════════════════════════════════════
+// USAGE INSTRUCTIONS
+// ═══════════════════════════════════════════════════════════════════════════
+
+// 1. START with Crisis parameters (active above) for 2008 data
+// 2. MONITOR market conditions and switch parameter sets as needed
+// 3. TEST each parameter set on your specific timeframe and instrument
+// 4. ADJUST risk amounts based on account size and risk tolerance
+// 5. CONSIDER adding regime detection indicators for automatic switching

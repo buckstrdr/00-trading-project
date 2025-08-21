@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Context7__resolve-library-id",
+      "mcp__Context7__get-library-docs",
+      "Bash(*)",
+      "Shell(*)",
+      "Cmd(*)",
+      "PowerShell(*)",
+      "Python(*)",
+      "python*",
+      "Node(*)",
+      "node*",
+      "npm*",
+      "Git(*)",
+      "git*",
+      "Docker(*)",
+      "docker*"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "playwright",
+    "firecrawl",
+    "Context7",
+    "sequential-thinking",
+    "jupyter"
+  ]
+}

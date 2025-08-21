@@ -1,0 +1,24 @@
+<Configuration>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\Users\salte\ClaudeProjects\github-repos\00-trading-project</HostFolder>
+      <SandboxFolder>C:\Project</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>C:\Users\salte\AppData\Roaming\npm</HostFolder>
+      <SandboxFolder>C:\npm-global</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>cmd.exe /c "cd /d C:\Project && echo Installing Node.js... && curl -o node-installer.msi https://nodejs.org/dist/v20.11.0/node-v20.11.0-x64.msi && msiexec /i node-installer.msi /quiet && timeout /t 10 && npm install -g @anthropic-ai/claude-code && cd C:\Project && claude --dangerously-skip-permissions"</Command>
+  </LogonCommand>
+  <MemoryInMB>8192</MemoryInMB>
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <ProtectedClient>Enable</ProtectedClient>
+  <PrinterRedirection>Disable</PrinterRedirection>
+  <ClipboardRedirection>Default</ClipboardRedirection>
+  <vGPU>Enable</vGPU>
+</Configuration>

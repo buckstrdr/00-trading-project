@@ -1,0 +1,302 @@
+//@version=5
+indicator("Profitable 3-Candle Reversal V8", shorttitle="P3CR_V8", overlay=true, max_boxes_count=50, max_lines_count=50, max_labels_count=50)
+
+// === OPTIMIZATION-BASED PARAMETERS ===
+// Based on 2025 backtesting analysis showing path to profitability
+
+// Reversal Detection
+minPointChange = input.float(1.5, "Minimum Point Change", minval=0.5, maxval=5.0, step=0.1, group="Pattern Detection")
+volumeMultiplier = input.float(2.0, "Volume Multiplier (vs 20MA)", minval=1.5, maxval=5.0, step=0.1, group="Pattern Detection")
+
+// OPTIMIZATION: Enhanced filters based on profitable periods
+aprilLikeFilters = input.bool(true, "April-Like Filters (Higher Requirements)", group="Pattern Detection")
+enhancedVolumeReq = input.float(3.3, "Enhanced Volume Requirement", minval=2.0, maxval=6.0, step=0.1, group="Pattern Detection")
+enhancedPointReq = input.float(3.6, "Enhanced Point Change", minval=1.5, maxval=6.0, step=0.1, group="Pattern Detection")
+
+// TIME FILTERING: Trade only during profitable hours
+enableTimeFilter = input.bool(true, "Enable Time Filtering", group="Time Filters")
+// Based on analysis: Hours 18, 1, 2, 10, 17, 23, 20, 12 showed positive performance
+hour18Enable = input.bool(true, "18:00 Hour (Best: +0.57% avg)", group="Time Filters")
+hour1Enable = input.bool(true, "01:00 Hour (+0.27% avg)", group="Time Filters") 
+hour2Enable = input.bool(true, "02:00 Hour (+0.11% avg)", group="Time Filters")
+hour10Enable = input.bool(true, "10:00 Hour (0.0% avg)", group="Time Filters")
+hour17Enable = input.bool(true, "17:00 Hour (-0.11% avg)", group="Time Filters")
+
+// Risk Management - OPTIMIZED
+stopLossPct = input.float(0.8, "Stop Loss %", minval=0.5, maxval=2.0, step=0.1, group="Risk Management")
+riskRewardRatio = input.float(3.0, "Risk:Reward Ratio", minval=1.0, maxval=5.0, step=0.5, group="Risk Management")
+
+// Alternative RR ratios based on analysis
+useConservativeRR = input.bool(false, "Use Conservative 1.5:1 RR (More Profitable)", group="Risk Management")
+conservativeRR = input.float(1.5, "Conservative Risk:Reward", minval=1.0, maxval=2.5, step=0.1, group="Risk Management")
+
+// Trade Management
+cooldownBars = input.int(10, "Cooldown Between Signals", minval=5, maxval=50, group="Risk Management")
+
+// Display
+showPatternDetails = input.bool(true, "Show Pattern Details", group="Display")
+showOptimizationInfo = input.bool(true, "Show Optimization Status", group="Display")
+
+// === PROFITABLE TIME FILTER ===
+currentHour = hour(time)
+validTradingHour = not enableTimeFilter or 
+                  (hour18Enable and currentHour == 18) or
+                  (hour1Enable and currentHour == 1) or
+                  (hour2Enable and currentHour == 2) or
+                  (hour10Enable and currentHour == 10) or
+                  (hour17Enable and currentHour == 17)
+
+// === ENHANCED PATTERN DETECTION ===
+
+// Volume analysis
+volume20MA = ta.sma(volume, 20)
+baseVolumeSpike = volume >= volume20MA * volumeMultiplier
+enhancedVolumeSpike = volume >= volume20MA * enhancedVolumeReq
+
+// Use enhanced requirements if April-like filters enabled
+volumeSpike = aprilLikeFilters ? enhancedVolumeSpike : baseVolumeSpike
+
+// Candle analysis
+candleChange = close - open
+baseCandleSize = math.abs(candleChange) >= minPointChange
+enhancedCandleSize = math.abs(candleChange) >= enhancedPointReq
+
+// Use enhanced requirements if April-like filters enabled
+significantChange = aprilLikeFilters ? enhancedCandleSize : baseCandleSize
+
+// OPTIMIZED 3-Candle Engulfing Logic (proven pattern from V7)
+var bool engulfs3Candles = false
+
+if bar_index >= 3
+    // Get previous 3 bars
+    prev1High = high[1]
+    prev1Low = low[1] 
+    prev2High = high[2]
+    prev2Low = low[2]
+    prev3High = high[3]
+    prev3Low = low[3]
+    
+    // Current candle must have higher high than ALL 3 previous highs
+    // AND lower low than ALL 3 previous lows
+    highEngulfs = high > prev1High and high > prev2High and high > prev3High
+    lowEngulfs = low < prev1Low and low < prev2Low and low < prev3Low
+    
+    engulfs3Candles := highEngulfs and lowEngulfs
+
+// === OPTIMIZED REVERSAL SIGNALS ===
+
+// Base conditions
+baseConditions = engulfs3Candles and volumeSpike and significantChange and validTradingHour
+
+// Bullish 3-candle reversal
+bullishReversal = close > open and baseConditions and candleChange >= (aprilLikeFilters ? enhancedPointReq : minPointChange)
+
+// Bearish 3-candle reversal  
+bearishReversal = close < open and baseConditions and candleChange <= -(aprilLikeFilters ? enhancedPointReq : minPointChange)
+
+// === TRADE STATE MANAGEMENT ===
+
+var float entryPrice = na
+var float stopPrice = na
+var float targetPrice = na
+var bool inTrade = false
+var string tradeDirection = ""
+var int entryBar = na
+var int lastSignalBar = na
+
+// Cooldown and entry conditions
+cooldownOK = na(lastSignalBar) or (bar_index - lastSignalBar) >= cooldownBars
+canEnter = not inTrade and cooldownOK
+
+// Determine RR ratio to use
+activeRR = useConservativeRR ? conservativeRR : riskRewardRatio
+
+// === ENTRY LOGIC ===
+
+if bullishReversal and canEnter
+    entryPrice := close
+    stopPrice := entryPrice * (1 - stopLossPct / 100)
+    targetPrice := entryPrice * (1 + (stopLossPct / 100) * activeRR)
+    inTrade := true
+    tradeDirection := "LONG"
+    entryBar := bar_index
+    lastSignalBar := bar_index
+    
+    // Entry label with optimization info
+    labelText = "🎯 OPTIMIZED LONG\n" + str.tostring(entryPrice, "#.##")
+    if showPatternDetails
+        labelText := labelText + "\n△" + str.tostring(candleChange, "#.#") + " pts"
+        labelText := labelText + "\nVol: " + str.tostring(volume/volume20MA, "#.#") + "x"
+        if aprilLikeFilters
+            labelText := labelText + "\n✓ Enhanced"
+        if enableTimeFilter
+            labelText := labelText + "\n⏰ " + str.tostring(currentHour) + ":00"
+    
+    label.new(bar_index, low, labelText, 
+             color=color.new(color.green, 10), style=label.style_label_up, 
+             size=size.normal, textcolor=color.white)
+
+if bearishReversal and canEnter
+    entryPrice := close
+    stopPrice := entryPrice * (1 + stopLossPct / 100)
+    targetPrice := entryPrice * (1 - (stopLossPct / 100) * activeRR)
+    inTrade := true
+    tradeDirection := "SHORT"
+    entryBar := bar_index
+    lastSignalBar := bar_index
+    
+    // Entry label with optimization info
+    labelText = "🎯 OPTIMIZED SHORT\n" + str.tostring(entryPrice, "#.##")
+    if showPatternDetails
+        labelText := labelText + "\n△" + str.tostring(candleChange, "#.#") + " pts"
+        labelText := labelText + "\nVol: " + str.tostring(volume/volume20MA, "#.#") + "x"
+        if aprilLikeFilters
+            labelText := labelText + "\n✓ Enhanced"
+        if enableTimeFilter
+            labelText := labelText + "\n⏰ " + str.tostring(currentHour) + ":00"
+    
+    label.new(bar_index, high, labelText, 
+             color=color.new(color.red, 10), style=label.style_label_down, 
+             size=size.normal, textcolor=color.white)
+
+// === EXIT LOGIC ===
+
+var string exitReason = ""
+
+if inTrade
+    if tradeDirection == "LONG"
+        if low <= stopPrice
+            exitReason := "STOP"
+            inTrade := false
+        else if high >= targetPrice
+            exitReason := "TARGET"
+            inTrade := false
+    else if tradeDirection == "SHORT"
+        if high >= stopPrice
+            exitReason := "STOP"
+            inTrade := false
+        else if low <= targetPrice
+            exitReason := "TARGET"
+            inTrade := false
+
+// === PERFORMANCE TRACKING ===
+
+var int totalTrades = 0
+var int winningTrades = 0
+var float totalReturnPct = 0.0
+
+if exitReason != ""
+    totalTrades += 1
+    
+    // Calculate return percentage
+    returnPct = 0.0
+    if tradeDirection == "LONG"
+        returnPct := (close - entryPrice) / entryPrice * 100
+    else
+        returnPct := (entryPrice - close) / entryPrice * 100
+    
+    totalReturnPct += returnPct
+    
+    if returnPct > 0
+        winningTrades += 1
+    
+    // Calculate RR achieved
+    rrAchieved = exitReason == "TARGET" ? activeRR : -1.0
+    
+    // Exit label
+    isWin = exitReason == "TARGET"
+    labelColor = isWin ? color.new(color.lime, 10) : color.new(color.maroon, 10)
+    exitText = (isWin ? "✅ " + str.tostring(activeRR) + "RR" : "❌ SL") + " " + exitReason
+    exitText := exitText + "\nReturn: " + str.tostring(returnPct, "#.#") + "%"
+    
+    label.new(bar_index, isWin ? high : low, exitText, 
+             color=labelColor, style=label.style_label_down, 
+             size=size.normal, textcolor=color.white)
+    
+    // Optimized trade box visualization
+    if not na(entryBar) and isWin
+        // Winning trade: Green box with white entry line
+        box.new(entryBar, targetPrice, bar_index, stopPrice, 
+                bgcolor=color.new(color.green, 80), border_color=color.green, border_width=2)
+        line.new(entryBar, entryPrice, bar_index, entryPrice, 
+                color=color.white, width=2, style=line.style_solid)
+    else if not na(entryBar) and not isWin
+        // Losing trade: Red box
+        if tradeDirection == "LONG"
+            box.new(entryBar, entryPrice, bar_index, stopPrice, 
+                    bgcolor=color.new(color.red, 80), border_color=color.red, border_width=2)
+        else
+            box.new(entryBar, stopPrice, bar_index, entryPrice, 
+                    bgcolor=color.new(color.red, 80), border_color=color.red, border_width=2)
+    
+    // Reset variables
+    exitReason := ""
+    tradeDirection := ""
+    entryBar := na
+
+// === DISPLAY ELEMENTS ===
+
+// Active trade levels
+plot(inTrade ? entryPrice : na, "Entry Price", color=color.white, linewidth=3, style=plot.style_circles)
+plot(inTrade ? stopPrice : na, "Stop Loss", color=color.red, linewidth=2, style=plot.style_cross)
+plot(inTrade ? targetPrice : na, "Take Profit", color=color.lime, linewidth=2, style=plot.style_cross)
+
+// Volume threshold reference
+volThreshold = aprilLikeFilters ? volume20MA * enhancedVolumeReq : volume20MA * volumeMultiplier
+plot(volThreshold, "Volume Threshold", color=color.new(color.orange, 80), linewidth=1)
+
+// Background highlight for valid trading hours
+bgcolor(validTradingHour and enableTimeFilter ? color.new(color.blue, 95) : na, title="Valid Trading Hours")
+
+// Background highlight for reversal signals
+bgcolor(bullishReversal ? color.new(color.green, 95) : bearishReversal ? color.new(color.red, 95) : na, title="Optimized Reversal")
+
+// === OPTIMIZED STATISTICS TABLE ===
+
+if barstate.islast
+    var table optimizedTable = table.new(position.top_right, 2, 10, bgcolor=color.new(color.white, 10), border_width=1)
+    
+    // Header
+    table.cell(optimizedTable, 0, 0, "OPTIMIZED 3CR", text_color=color.black, bgcolor=color.new(color.green, 30))
+    table.cell(optimizedTable, 1, 0, "VALUE", text_color=color.black, bgcolor=color.new(color.green, 30))
+    
+    // Core statistics
+    table.cell(optimizedTable, 0, 1, "Total Trades", text_color=color.black)
+    table.cell(optimizedTable, 1, 1, str.tostring(totalTrades), text_color=color.black)
+    
+    winRate = totalTrades > 0 ? winningTrades / totalTrades * 100 : 0
+    table.cell(optimizedTable, 0, 2, "Win Rate", text_color=color.black)
+    table.cell(optimizedTable, 1, 2, str.tostring(winRate, "#") + "%", text_color=winRate >= 25 ? color.green : color.red)
+    
+    avgReturn = totalTrades > 0 ? totalReturnPct / totalTrades : 0
+    table.cell(optimizedTable, 0, 3, "Avg Return", text_color=color.black)
+    table.cell(optimizedTable, 1, 3, str.tostring(avgReturn, "#.#") + "%", text_color=avgReturn > 0 ? color.green : color.red)
+    
+    totalReturn = totalTrades > 0 ? totalReturnPct : 0
+    table.cell(optimizedTable, 0, 4, "Total Return", text_color=color.black)
+    table.cell(optimizedTable, 1, 4, str.tostring(totalReturn, "#.#") + "%", text_color=totalReturn > 0 ? color.green : color.red)
+    
+    // Optimization status
+    table.cell(optimizedTable, 0, 5, "RR Ratio", text_color=color.black)
+    table.cell(optimizedTable, 1, 5, str.tostring(activeRR) + ":1", text_color=color.blue)
+    
+    table.cell(optimizedTable, 0, 6, "Time Filter", text_color=color.black)
+    table.cell(optimizedTable, 1, 6, enableTimeFilter ? "ON" : "OFF", text_color=enableTimeFilter ? color.green : color.gray)
+    
+    table.cell(optimizedTable, 0, 7, "April Filters", text_color=color.black)
+    table.cell(optimizedTable, 1, 7, aprilLikeFilters ? "ON" : "OFF", text_color=aprilLikeFilters ? color.green : color.gray)
+    
+    table.cell(optimizedTable, 0, 8, "Current Hour", text_color=color.black)
+    table.cell(optimizedTable, 1, 8, str.tostring(currentHour) + ":00", text_color=validTradingHour ? color.green : color.gray)
+    
+    // Current trade status
+    table.cell(optimizedTable, 0, 9, "Active Trade", text_color=color.black)
+    activeText = inTrade ? (tradeDirection == "LONG" ? "3C-LONG" : "3C-SHORT") : "None"
+    table.cell(optimizedTable, 1, 9, activeText, text_color=inTrade ? color.blue : color.gray)
+
+// === ALERTS ===
+
+alertcondition(bullishReversal, title="Optimized Bullish Reversal", message="Optimized 3-candle bullish reversal with filters")
+alertcondition(bearishReversal, title="Optimized Bearish Reversal", message="Optimized 3-candle bearish reversal with filters")
+alertcondition(exitReason == "TARGET", title="Optimized Target Hit", message="Optimized reversal trade hit target!")
+alertcondition(exitReason == "STOP", title="Optimized Stop Hit", message="Optimized reversal trade stopped out")

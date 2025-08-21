@@ -1,0 +1,413 @@
+//@version=5
+indicator("Reversal Momentum Trading Indicator", shorttitle="REV_MOM", overlay=true, max_labels_count=500, max_lines_count=500)
+
+// ═══════════════════════════════════════════════════════════════════════════
+// REVERSAL MOMENTUM TRADING INDICATOR
+// Detects momentum reversal breakouts at swing highs/lows
+// Features: Swing breakout detection, candle analysis, volume confirmation
+// Anti-repainting: Full support with strict mode
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Input Parameters
+// ════════════════════════════════════════════════════════════════════════════
+enableReversalDetection = input.bool(true, "Enable Reversal Detection", group="Reversal Settings")
+reversalMomentumMultiplier = input.float(1.8, "Reversal Momentum Multiplier", minval=1.0, maxval=3.0, step=0.1, tooltip="Higher values = stronger reversals required", group="Reversal Settings")
+swingLookback = input.int(10, "Swing Lookback Period", minval=5, maxval=20, tooltip="Bars to look back for swing highs/lows", group="Reversal Settings")
+candleBodyThreshold = input.float(60, "Candle Body Size %", minval=40, maxval=80, step=5, tooltip="Minimum candle body percentage for reversal", group="Reversal Settings")
+volumeConfirmation = input.bool(true, "Volume Confirmation", tooltip="Require volume spike for reversal signals", group="Reversal Settings")
+volumeLookback = input.int(20, "Volume SMA Period", minval=10, maxval=50, group="Reversal Settings")
+
+// Entry Settings
+entryThreshold = input.float(2.0, "Entry Threshold", minval=1.0, maxval=5.0, step=0.5, tooltip="Momentum threshold for entries", group="Entry Settings")
+exitThreshold = input.float(1.0, "Exit Threshold", minval=0.5, maxval=3.0, step=0.5, tooltip="Momentum threshold for exits", group="Entry Settings")
+
+// EMA Settings for momentum calculation
+fastEMA = input.int(9, "Fast EMA", minval=5, maxval=50, group="EMA Settings")
+slowEMA = input.int(21, "Slow EMA", minval=10, maxval=100, group="EMA Settings")
+momentumLookback = input.int(5, "Momentum Lookback", minval=3, maxval=20, tooltip="Bars to calculate momentum", group="EMA Settings")
+
+// Anti-Repainting Settings
+strictAntiRepaint = input.bool(true, "Strict Anti-Repaint Mode", tooltip="Use confirmed bars only for all calculations", group="Anti-Repainting")
+useRealTimeSignals = input.bool(false, "Allow Real-Time Signals", tooltip="Show signals on current bar (may repaint)", group="Anti-Repainting")
+
+// Visual Settings
+showSwingLevels = input.bool(true, "Show Swing Levels", group="Visual Settings")
+showEntryLabels = input.bool(true, "Show Entry Labels", group="Visual Settings")
+showExitLabels = input.bool(true, "Show Exit Labels", group="Visual Settings")
+showMomentumLabels = input.bool(false, "Show Momentum Values", group="Visual Settings")
+
+// Risk Management
+stopLossMethod = input.string("Previous Candle", "Stop Loss Method", options=["Previous Candle", "Swing Level"], tooltip="How to calculate stop loss", group="Risk Management")
+riskRewardRatio = input.float(2.0, "Risk:Reward Ratio", minval=1.0, maxval=5.0, step=0.5, group="Risk Management")
+targetRiskDollars = input.float(25, "Target Risk ($)", minval=10, maxval=1000, tooltip="Dollar amount to risk per trade", group="Risk Management")
+startingBalance = input.float(10000, "Starting Balance ($)", minval=1000, maxval=100000, group="Risk Management")
+
+// Color Settings
+bullishReversalColor = color.new(color.purple, 20)
+bearishReversalColor = color.new(color.maroon, 20)
+swingHighColor = color.new(color.red, 50)
+swingLowColor = color.new(color.green, 50)
+
+// ════════════════════════════════════════════════════════════════════════════
+// CORE CALCULATIONS
+// ════════════════════════════════════════════════════════════════════════════
+
+// EMA calculations with anti-repaint protection
+fastEMAValue = strictAntiRepaint ? ta.ema(close[1], fastEMA) : ta.ema(close, fastEMA)
+slowEMAValue = strictAntiRepaint ? ta.ema(close[1], slowEMA) : ta.ema(close, slowEMA)
+
+// Trend direction
+uptrend = fastEMAValue > slowEMAValue
+downtrend = fastEMAValue < slowEMAValue
+
+// Momentum calculation (EMA-based with 5000x scaling)
+currentMomentum = (fastEMAValue - slowEMAValue) * 5000
+momentumDirection = currentMomentum > 0 ? 1 : currentMomentum < 0 ? -1 : 0
+
+// Safe previous values for anti-repaint calculations
+safePrevLow = strictAntiRepaint ? low[1] : low
+safePrevHigh = strictAntiRepaint ? high[1] : high
+safePrevClose = strictAntiRepaint ? close[1] : close
+safePrevOpen = strictAntiRepaint ? open[1] : open
+
+// ════════════════════════════════════════════════════════════════════════════
+// REVERSAL DETECTION SYSTEM
+// ════════════════════════════════════════════════════════════════════════════
+
+// Swing high/low detection with anti-repaint protection
+recentHigh = strictAntiRepaint ? ta.highest(high[1], swingLookback) : ta.highest(high, swingLookback)
+recentLow = strictAntiRepaint ? ta.lowest(low[1], swingLookback) : ta.lowest(low, swingLookback)
+
+// Volume analysis with anti-repaint protection
+volumeSMA = strictAntiRepaint ? ta.sma(volume[1], volumeLookback) : ta.sma(volume, volumeLookback)
+volumeSpike = not volumeConfirmation or (strictAntiRepaint ? volume[1] > volumeSMA : volume > volumeSMA)
+
+// Candle body analysis with anti-repaint protection
+safeHigh = strictAntiRepaint ? high[1] : high
+safeLow = strictAntiRepaint ? low[1] : low
+candleRange = safeHigh - safeLow
+candleBodySize = candleRange > 0 ? math.abs(safePrevClose - safePrevOpen) / candleRange * 100 : 0
+strongCandle = candleBodySize >= candleBodyThreshold
+
+// Breakout detection with anti-repaint protection
+bullishBreakout = safePrevClose > recentHigh[1] and safePrevClose > safePrevOpen and strongCandle and volumeSpike
+bearishBreakout = safePrevClose < recentLow[1] and safePrevClose < safePrevOpen and strongCandle and volumeSpike
+
+// Enhanced momentum thresholds for reversals
+reversalEntryThreshold = entryThreshold * reversalMomentumMultiplier
+reversalExitThreshold = exitThreshold * reversalMomentumMultiplier
+
+// Momentum validation for reversals
+entryMomentumForSignal = math.abs(currentMomentum)
+reversalLongSignal = enableReversalDetection and bullishBreakout and entryMomentumForSignal > reversalEntryThreshold and momentumDirection > 0
+reversalShortSignal = enableReversalDetection and bearishBreakout and entryMomentumForSignal > reversalEntryThreshold and momentumDirection < 0
+
+// Entry conditions with anti-repaint protection
+longEntry = reversalLongSignal and (useRealTimeSignals or barstate.isconfirmed)
+shortEntry = reversalShortSignal and (useRealTimeSignals or barstate.isconfirmed)
+
+// Exit momentum conditions
+exitMomentumLong = entryMomentumForSignal < exitThreshold and momentumDirection <= 0
+exitMomentumShort = entryMomentumForSignal < exitThreshold and momentumDirection >= 0
+
+// ════════════════════════════════════════════════════════════════════════════
+// TRADE MANAGEMENT SYSTEM
+// ════════════════════════════════════════════════════════════════════════════
+
+// Trade state variables
+var bool inTrade = false
+var bool isLong = false
+var float entryPrice = 0.0
+var float stopLossPrice = 0.0
+var float targetPrice = 0.0
+var int entryBar = 0
+var float entryMomentum = 0.0
+
+// Snapshot variables to prevent stop loss repainting
+var float entrySnapshotPrevLow = 0.0
+var float entrySnapshotPrevHigh = 0.0
+var float entrySnapshotSwingHigh = 0.0
+var float entrySnapshotSwingLow = 0.0
+
+// Debug: Force exit any hanging trades first (but don't reset entry price to zero!)
+if longEntry and inTrade
+    // Force exit the previous trade if still active
+    inTrade := false
+    isLong := false
+    // Don't reset entryPrice to 0.0 here - causes issues
+
+// Entry logic with proper snapshots
+if longEntry and not inTrade
+    inTrade := true
+    isLong := true
+    entryPrice := safePrevClose  // Use previous bar close for entry
+    entryBar := bar_index
+    entryMomentum := currentMomentum
+    
+    // Snapshot all values at entry to prevent repainting
+    entrySnapshotPrevLow := safePrevLow
+    entrySnapshotPrevHigh := safePrevHigh
+    entrySnapshotSwingHigh := recentHigh[1]
+    entrySnapshotSwingLow := recentLow[1]
+    
+    // Calculate stop loss using snapshots
+    if stopLossMethod == "Previous Candle"
+        stopLossPrice := entrySnapshotPrevLow
+    else // Swing Level
+        stopLossPrice := entrySnapshotSwingLow
+    
+    // Calculate target based on risk:reward ratio
+    riskPoints = entryPrice - stopLossPrice
+    targetPrice := entryPrice + (riskPoints * riskRewardRatio)
+
+// Debug: Force exit any hanging trades first (but don't reset entry price to zero!)
+if shortEntry and inTrade
+    // Force exit the previous trade if still active
+    inTrade := false
+    isLong := false
+    // Don't reset entryPrice to 0.0 here - causes issues
+
+if shortEntry and not inTrade
+    inTrade := true
+    isLong := false
+    entryPrice := safePrevClose  // Use previous bar close for entry
+    entryBar := bar_index
+    entryMomentum := currentMomentum
+    
+    // Snapshot all values at entry to prevent repainting
+    entrySnapshotPrevLow := safePrevLow
+    entrySnapshotPrevHigh := safePrevHigh
+    entrySnapshotSwingHigh := recentHigh[1]
+    entrySnapshotSwingLow := recentLow[1]
+    
+    // Calculate stop loss using snapshots
+    if stopLossMethod == "Previous Candle"
+        stopLossPrice := entrySnapshotPrevHigh
+    else // Swing Level
+        stopLossPrice := entrySnapshotSwingHigh
+    
+    // Calculate target based on risk:reward ratio
+    riskPoints = stopLossPrice - entryPrice
+    targetPrice := entryPrice - (riskPoints * riskRewardRatio)
+
+// Exit conditions with anti-repaint protection
+hitSL = strictAntiRepaint ? (inTrade and ((isLong and low[1] <= stopLossPrice) or (not isLong and high[1] >= stopLossPrice))) : (inTrade and ((isLong and low <= stopLossPrice) or (not isLong and high >= stopLossPrice)))
+hitTP = strictAntiRepaint ? (inTrade and ((isLong and high[1] >= targetPrice) or (not isLong and low[1] <= targetPrice))) : (inTrade and ((isLong and high >= targetPrice) or (not isLong and low <= targetPrice)))
+momentumExit = inTrade and ((isLong and exitMomentumLong) or (not isLong and exitMomentumShort))
+
+exitTrade = hitSL or hitTP or momentumExit
+
+// Reset trade state on exit (only after calculating statistics)
+if exitTrade
+    inTrade := false
+    isLong := false
+    // Reset these after statistics calculation to avoid zero values
+    // entryPrice := 0.0
+    // stopLossPrice := 0.0  
+    // targetPrice := 0.0
+    entryBar := 0
+    entryMomentum := 0.0
+
+// ════════════════════════════════════════════════════════════════════════════
+// TRADE STATISTICS
+// ════════════════════════════════════════════════════════════════════════════
+
+var int totalTrades = 0
+var int totalWins = 0
+var int totalLosses = 0
+var float totalRR = 0.0
+var float winningRR = 0.0
+var float runningDollarPnL = 0.0
+var float maxDollarDrawdown = 0.0
+var float peakDollarPnL = 0.0
+var int firstTradeTime = 0
+
+// Calculate trade metrics on exit
+var float tradeRR = 0.0
+
+if exitTrade
+    if firstTradeTime == 0
+        firstTradeTime := int(time)
+    
+    // Calculate position size and P&L
+    riskPoints = isLong ? entryPrice - stopLossPrice : stopLossPrice - entryPrice
+    dollarPerPoint = 1.0 // Adjust based on instrument
+    
+    // Calculate exit price based on exit type (declare before validRisk check)
+    exitPrice = 0.0
+    if hitSL
+        // Stop loss hit - use stop loss price as exit
+        exitPrice := stopLossPrice
+    else if hitTP
+        // Take profit hit - use target price as exit  
+        exitPrice := targetPrice
+    else
+        // Momentum exit - use actual close price
+        exitPrice := strictAntiRepaint ? close[1] : close
+    
+    // Add minimum risk requirement to prevent zero/tiny risk trades
+    minRiskPoints = 0.01 // Minimum 1 cent risk
+    validRisk = riskPoints >= minRiskPoints and dollarPerPoint > 0
+    
+    // Debug output (temporary)
+    if exitTrade and not validRisk
+        label.new(bar_index, high, "INVALID TRADE\\nRisk: " + str.tostring(riskPoints, "#.####") + "\\nEntry: " + str.tostring(entryPrice, "#.##") + "\\nSL: " + str.tostring(stopLossPrice, "#.##"), 
+                  style=label.style_label_down, color=color.orange, textcolor=color.white, size=size.small)
+    
+    // Only count trades with valid risk calculations
+    if validRisk
+        totalTrades := totalTrades + 1
+        
+        positionSize = targetRiskDollars / (riskPoints * dollarPerPoint)
+        priceChange = isLong ? exitPrice - entryPrice : entryPrice - exitPrice
+        
+        dollarProfit = priceChange * positionSize * dollarPerPoint
+        dollarRisk = riskPoints * positionSize * dollarPerPoint
+        tradeRR := dollarRisk > 0 ? dollarProfit / dollarRisk : 0
+        
+        // Update statistics
+        totalRR := totalRR + tradeRR
+        tradeWin = dollarProfit > 0
+        
+        // Debug RR calculation (temporary)
+        debugRR = input.bool(false, "Show RR Debug", group="Visual Settings")
+        if debugRR
+            debugText = "RR CALC\\nEntry: " + str.tostring(entryPrice, "#.##") + "\\nExit: " + str.tostring(exitPrice, "#.##") + "\\nSL: " + str.tostring(stopLossPrice, "#.##") + "\\nTP: " + str.tostring(targetPrice, "#.##") + "\\nRisk$: " + str.tostring(dollarRisk, "#") + "\\nProfit$: " + str.tostring(dollarProfit, "#") + "\\nRR: " + str.tostring(tradeRR, "#.##") + "\\nWin: " + str.tostring(tradeWin)
+            label.new(bar_index, isLong ? low : high, debugText, style=isLong ? label.style_label_up : label.style_label_down, color=color.yellow, textcolor=color.black, size=size.small)
+        
+        if tradeWin
+            totalWins := totalWins + 1
+            winningRR := winningRR + tradeRR
+        else
+            totalLosses := totalLosses + 1
+        
+        // Update P&L tracking
+        runningDollarPnL := runningDollarPnL + dollarProfit
+        peakDollarPnL := runningDollarPnL > peakDollarPnL ? runningDollarPnL : peakDollarPnL
+        currentDrawdown = peakDollarPnL - runningDollarPnL
+        maxDollarDrawdown := currentDrawdown > maxDollarDrawdown ? currentDrawdown : maxDollarDrawdown
+
+// Reset trade prices after statistics calculation (to avoid zero values during calc)
+if exitTrade
+    entryPrice := 0.0
+    stopLossPrice := 0.0
+    targetPrice := 0.0
+
+// Calculate statistics
+winRate = totalTrades > 0 and totalWins + totalLosses > 0 ? totalWins / (totalWins + totalLosses) * 100 : 0
+avgRR = totalTrades > 0 ? totalRR / totalTrades : 0
+currentBalance = startingBalance + runningDollarPnL
+
+// ════════════════════════════════════════════════════════════════════════════
+// VISUAL ELEMENTS
+// ════════════════════════════════════════════════════════════════════════════
+
+// Plot swing levels
+plot(showSwingLevels ? recentHigh : na, "Recent High", color=swingHighColor, linewidth=1, style=plot.style_stepline)
+plot(showSwingLevels ? recentLow : na, "Recent Low", color=swingLowColor, linewidth=1, style=plot.style_stepline)
+
+// Entry labels
+if showEntryLabels and longEntry
+    label.new(bar_index, low, "REV LONG\nEntry: " + str.tostring(entryPrice, "#.##") + "\nSL: " + str.tostring(stopLossPrice, "#.##") + "\nTP: " + str.tostring(targetPrice, "#.##"), 
+              style=label.style_label_up, color=bullishReversalColor, textcolor=color.white, size=size.normal)
+
+if showEntryLabels and shortEntry
+    label.new(bar_index, high, "REV SHORT\nEntry: " + str.tostring(entryPrice, "#.##") + "\nSL: " + str.tostring(stopLossPrice, "#.##") + "\nTP: " + str.tostring(targetPrice, "#.##"), 
+              style=label.style_label_down, color=bearishReversalColor, textcolor=color.white, size=size.normal)
+
+// Exit labels with proper win/loss detection
+if showExitLabels and exitTrade and hitTP
+    // TP hit means we should have a win (positive RR), but check actual result
+    actualResult = tradeRR > 0 ? "WIN" : "LOSS"
+    labelColor = actualResult == "WIN" ? color.green : color.red
+    label.new(bar_index, isLong ? high : low, "TP " + actualResult + "\nRR: " + str.tostring(tradeRR, "#.##"), 
+              style=isLong ? label.style_label_down : label.style_label_up, color=labelColor, textcolor=color.white, size=size.small)
+
+if showExitLabels and exitTrade and hitSL
+    label.new(bar_index, isLong ? low : high, "SL LOSS\nRR: " + str.tostring(tradeRR, "#.##"), 
+              style=isLong ? label.style_label_up : label.style_label_down, color=color.red, textcolor=color.white, size=size.small)
+
+if showExitLabels and exitTrade and momentumExit
+    actualResult = tradeRR > 0 ? "WIN" : "LOSS"
+    labelColor = actualResult == "WIN" ? color.green : color.red
+    label.new(bar_index, isLong ? high : low, "MOM EXIT " + actualResult + "\nRR: " + str.tostring(tradeRR, "#.##"), 
+              style=isLong ? label.style_label_down : label.style_label_up, color=labelColor, textcolor=color.white, size=size.small)
+
+// Momentum labels
+if showMomentumLabels and (longEntry or shortEntry)
+    label.new(bar_index, high + (high * 0.02), str.tostring(math.abs(currentMomentum), "#.#"), 
+              style=label.style_label_down, color=color.purple, textcolor=color.white, size=size.small)
+
+// Debug: Add trade state label (temporary for debugging)
+debugTradeState = input.bool(false, "Show Debug Trade State", group="Visual Settings")
+if debugTradeState and (longEntry or shortEntry or exitTrade)
+    debugText = "InTrade: " + str.tostring(inTrade) + "\\nIsLong: " + str.tostring(isLong) + "\\nExit: " + str.tostring(exitTrade) + "\\nHitSL: " + str.tostring(hitSL) + "\\nHitTP: " + str.tostring(hitTP)
+    label.new(bar_index, low - (low * 0.02), debugText, style=label.style_label_up, color=color.yellow, textcolor=color.black, size=size.small)
+
+// ════════════════════════════════════════════════════════════════════════════
+// STATISTICS TABLE
+// ════════════════════════════════════════════════════════════════════════════
+
+var table statsTable = table.new(position.top_right, columns=2, rows=12, bgcolor=color.white, border_width=1)
+
+if barstate.islast
+    // Clear table
+    table.clear(statsTable, 0, 0, 1, 11)
+    
+    // Header
+    table.cell(statsTable, 0, 0, "REVERSAL STATS", text_color=color.white, text_size=size.normal, bgcolor=color.purple)
+    table.cell(statsTable, 1, 0, "VALUES", text_color=color.white, text_size=size.normal, bgcolor=color.purple)
+    
+    // Statistics
+    table.cell(statsTable, 0, 1, "Total Trades", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 1, str.tostring(totalTrades), text_color=color.blue, text_size=size.small)
+    
+    table.cell(statsTable, 0, 2, "Wins", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 2, str.tostring(totalWins), text_color=color.green, text_size=size.small)
+    
+    table.cell(statsTable, 0, 3, "Losses", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 3, str.tostring(totalLosses), text_color=color.red, text_size=size.small)
+    
+    table.cell(statsTable, 0, 4, "Win Rate", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 4, str.tostring(winRate, "#.#") + "%", text_color=winRate >= 50 ? color.green : color.red, text_size=size.small)
+    
+    table.cell(statsTable, 0, 5, "Avg RR", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 5, str.tostring(avgRR, "#.##"), text_color=avgRR >= 0 ? color.green : color.red, text_size=size.small)
+    
+    table.cell(statsTable, 0, 6, "Total RR", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 6, str.tostring(totalRR, "#.##"), text_color=totalRR >= 0 ? color.green : color.red, text_size=size.small)
+    
+    table.cell(statsTable, 0, 7, "Dollar P&L", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 7, "$" + str.tostring(runningDollarPnL, "#"), text_color=runningDollarPnL >= 0 ? color.green : color.red, text_size=size.small)
+    
+    table.cell(statsTable, 0, 8, "Balance", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 8, "$" + str.tostring(currentBalance, "#"), text_color=currentBalance >= startingBalance ? color.green : color.red, text_size=size.small)
+    
+    table.cell(statsTable, 0, 9, "Max DD", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 9, "$" + str.tostring(maxDollarDrawdown, "#"), text_color=color.red, text_size=size.small)
+    
+    // Settings display
+    table.cell(statsTable, 0, 10, "Rev Multiplier", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 10, str.tostring(reversalMomentumMultiplier, "#.#") + "x", text_color=color.blue, text_size=size.small)
+    
+    // Anti-repaint status
+    antiRepaintStatus = strictAntiRepaint ? "STRICT ON" : "REALTIME"
+    antiRepaintColor = strictAntiRepaint ? color.green : color.orange
+    table.cell(statsTable, 0, 11, "Anti-Repaint", text_color=color.black, text_size=size.small)
+    table.cell(statsTable, 1, 11, antiRepaintStatus, text_color=antiRepaintColor, text_size=size.small)
+
+// ════════════════════════════════════════════════════════════════════════════
+// ALERTS
+// ════════════════════════════════════════════════════════════════════════════
+
+// Entry alerts
+alertcondition(longEntry, title="Reversal Long Entry", message="Reversal LONG signal - Bullish breakout detected")
+alertcondition(shortEntry, title="Reversal Short Entry", message="Reversal SHORT signal - Bearish breakout detected")
+
+// Exit alerts
+alertcondition(exitTrade and hitTP, title="Take Profit Hit", message="Take profit level reached")
+alertcondition(exitTrade and hitSL, title="Stop Loss Hit", message="Stop loss level reached")
+alertcondition(exitTrade and momentumExit, title="Momentum Exit", message="Momentum-based exit triggered")
+
+// Background color for active trades
+bgcolor(inTrade and isLong ? color.new(color.green, 95) : inTrade and not isLong ? color.new(color.red, 95) : na, title="Trade Background")

@@ -1,0 +1,21 @@
+<Configuration>
+  <!-- SAFE MODE: Read-only project, separate output folder -->
+  <MappedFolders>
+    <!-- Your main project - READ ONLY for safety -->
+    <MappedFolder>
+      <HostFolder>C:\Users\salte\ClaudeProjects\github-repos\00-trading-project</HostFolder>
+      <SandboxFolder>C:\Project-ReadOnly</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <!-- Writable work folder for Claude's output -->
+    <MappedFolder>
+      <HostFolder>C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\96-sandbox\sandbox-work</HostFolder>
+      <SandboxFolder>C:\Work</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>cmd.exe /c "echo === SANDBOX SAFE MODE === && echo Project is READ-ONLY at C:\Project-ReadOnly && echo Claude can write to C:\Work && cd /d C:\Work && pause"</Command>
+  </LogonCommand>
+  <MemoryInMB>8192</MemoryInMB>
+</Configuration>

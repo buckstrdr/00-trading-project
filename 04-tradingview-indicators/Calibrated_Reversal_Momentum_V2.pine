@@ -1,0 +1,208 @@
+//@version=5
+indicator("Calibrated Reversal Momentum V2", shorttitle="CRM_V2", overlay=true, max_boxes_count=100, max_lines_count=100)
+
+// === PARAMETERS (Calibrated to Modern Market Conditions) ===
+
+// Momentum Settings
+fastEMA = input.int(9, "Fast EMA", minval=5, maxval=15, group="Momentum")
+slowEMA = input.int(21, "Slow EMA", minval=15, maxval=30, group="Momentum")
+momentumThreshold = input.float(0.03, "Momentum Threshold %", minval=0.01, maxval=0.10, step=0.01, group="Momentum")
+
+// Swing Detection
+swingLookback = input.int(15, "Swing Lookback", minval=8, maxval=25, group="Swing Detection")
+
+// Range Expansion Filter (KEY for capturing chart-like moves)
+rangeExpansionMultiplier = input.float(1.3, "Range Expansion Multiplier", minval=1.1, maxval=2.0, step=0.1, group="Filters")
+rangeAvgLength = input.int(20, "Range Average Length", minval=10, maxval=30, group="Filters")
+
+// Volume Filter
+volumeMultiplier = input.float(1.2, "Volume Spike Multiplier", minval=1.0, maxval=2.0, step=0.1, group="Filters")
+volumeAvgLength = input.int(20, "Volume Average Length", minval=10, maxval=30, group="Filters")
+
+// Risk Management
+stopLossPct = input.float(0.8, "Stop Loss %", minval=0.3, maxval=1.5, step=0.1, group="Risk Management")
+riskRewardRatio = input.float(3.0, "Risk:Reward Ratio", minval=1.5, maxval=5.0, step=0.5, group="Risk Management")
+riskPerTrade = input.float(2.0, "Risk Per Trade %", minval=1.0, maxval=3.0, step=0.1, group="Risk Management")
+
+// Display Settings
+showTradeBoxes = input.bool(true, "Show Trade Boxes", group="Display")
+showSignalLabels = input.bool(true, "Show Signal Labels", group="Display")
+
+// === CALCULATIONS ===
+
+// EMAs and Momentum
+emaFast = ta.ema(close, fastEMA)
+emaSlow = ta.ema(close, slowEMA)
+momentum = (emaFast - emaSlow) / emaSlow * 100
+
+// Swing Levels
+swingHigh = ta.highest(high, swingLookback)
+swingLow = ta.lowest(low, swingLookback)
+
+// Range Expansion Detection (Critical for chart-like breakouts)
+currentRange = high - low
+avgRange = ta.sma(currentRange, rangeAvgLength)
+rangeExpansion = currentRange > avgRange * rangeExpansionMultiplier
+
+// Volume Confirmation
+avgVolume = ta.sma(volume, volumeAvgLength)
+volumeSpike = volume > avgVolume * volumeMultiplier
+
+// === SIGNAL CONDITIONS ===
+
+// Enhanced Breakout Conditions (matching visual patterns)
+longBreakout = close > swingHigh[1]
+shortBreakout = close < swingLow[1]
+
+// Momentum Confirmation (relaxed thresholds)
+momentumUp = momentum > momentumThreshold
+momentumDown = momentum < -momentumThreshold
+
+// Combined Entry Signals
+longSignal = longBreakout and momentumUp and rangeExpansion and volumeSpike
+shortSignal = shortBreakout and momentumDown and rangeExpansion and volumeSpike
+
+// === TRADE MANAGEMENT ===
+
+// Track trade state
+var float entryPrice = na
+var float stopPrice = na
+var float targetPrice = na
+var bool inLongTrade = false
+var bool inShortTrade = false
+var int entryBar = na
+
+// Entry Logic
+if longSignal and not inLongTrade and not inShortTrade
+    entryPrice := close
+    stopPrice := entryPrice * (1 - stopLossPct / 100)
+    targetPrice := entryPrice * (1 + (stopLossPct / 100) * riskRewardRatio)
+    inLongTrade := true
+    entryBar := bar_index
+    
+    if showSignalLabels
+        label.new(bar_index, low, "LONG\n" + str.tostring(entryPrice, "#.##"), 
+                 color=color.green, style=label.style_label_up, size=size.small)
+
+if shortSignal and not inLongTrade and not inShortTrade
+    entryPrice := close
+    stopPrice := entryPrice * (1 + stopLossPct / 100)
+    targetPrice := entryPrice * (1 - (stopLossPct / 100) * riskRewardRatio)
+    inShortTrade := true
+    entryBar := bar_index
+    
+    if showSignalLabels
+        label.new(bar_index, high, "SHORT\n" + str.tostring(entryPrice, "#.##"), 
+                 color=color.red, style=label.style_label_down, size=size.small)
+
+// Exit Logic
+exitReason = ""
+exitPrice = 0.0
+
+if inLongTrade
+    if low <= stopPrice
+        exitReason := "SL HIT"
+        exitPrice := stopPrice
+        inLongTrade := false
+    else if high >= targetPrice
+        exitReason := "TP HIT"
+        exitPrice := targetPrice
+        inLongTrade := false
+
+if inShortTrade
+    if high >= stopPrice
+        exitReason := "SL HIT"
+        exitPrice := stopPrice
+        inShortTrade := false
+    else if low <= targetPrice
+        exitReason := "TP HIT"
+        exitPrice := targetPrice
+        inShortTrade := false
+
+// Calculate Performance
+var float totalPnL = 0.0
+var int totalTrades = 0
+var int winningTrades = 0
+
+if exitReason != ""
+    totalTrades += 1
+    
+    // Calculate P&L
+    positionSize = 10000 * (riskPerTrade / 100) / math.abs(entryPrice - stopPrice)
+    
+    if inLongTrade[1] // Was in long trade
+        pnl = (exitPrice - entryPrice) * positionSize
+    else // Was in short trade
+        pnl = (entryPrice - exitPrice) * positionSize
+    
+    totalPnL += pnl
+    
+    if pnl > 0
+        winningTrades += 1
+    
+    // Calculate RR achieved
+    rrAchieved = exitReason == "TP HIT" ? riskRewardRatio : -1.0
+    
+    // Show exit label
+    if showSignalLabels
+        labelColor = exitReason == "TP HIT" ? color.green : color.red
+        labelText = exitReason + "\nRR: " + str.tostring(rrAchieved, "#.#")
+        label.new(bar_index, exitReason == "TP HIT" ? high : low, labelText, 
+                 color=labelColor, style=label.style_label_down, size=size.small)
+    
+    // Show trade box
+    if showTradeBoxes and not na(entryBar)
+        boxColor = exitReason == "TP HIT" ? color.new(color.green, 80) : color.new(color.red, 80)
+        box.new(entryBar, math.max(entryPrice, exitPrice), bar_index, math.min(entryPrice, exitPrice), 
+                bgcolor=boxColor, border_color=color.gray, border_width=1)
+
+// === DISPLAY ELEMENTS ===
+
+// Plot EMAs
+plot(emaFast, "Fast EMA", color=color.blue, linewidth=1)
+plot(emaSlow, "Slow EMA", color=color.red, linewidth=1)
+
+// Plot swing levels
+plot(swingHigh, "Swing High", color=color.orange, linewidth=1, style=plot.style_stepline)
+plot(swingLow, "Swing Low", color=color.orange, linewidth=1, style=plot.style_stepline)
+
+// Current trade levels
+plot(inLongTrade or inShortTrade ? entryPrice : na, "Entry", color=color.white, linewidth=2, style=plot.style_circles)
+plot(inLongTrade or inShortTrade ? stopPrice : na, "Stop", color=color.red, linewidth=1, style=plot.style_cross)
+plot(inLongTrade or inShortTrade ? targetPrice : na, "Target", color=color.green, linewidth=1, style=plot.style_cross)
+
+// Background color for range expansion
+bgcolor(rangeExpansion and volumeSpike ? color.new(color.yellow, 95) : na, title="Range Expansion")
+
+// === STATISTICS TABLE ===
+
+if barstate.islast and totalTrades > 0
+    winRate = winningTrades / totalTrades * 100
+    avgReturn = totalPnL / totalTrades
+    
+    var table infoTable = table.new(position.top_right, 2, 6, bgcolor=color.white, border_width=1)
+    
+    table.cell(infoTable, 0, 0, "Metric", text_color=color.black, bgcolor=color.gray)
+    table.cell(infoTable, 1, 0, "Value", text_color=color.black, bgcolor=color.gray)
+    
+    table.cell(infoTable, 0, 1, "Total Trades", text_color=color.black)
+    table.cell(infoTable, 1, 1, str.tostring(totalTrades), text_color=color.black)
+    
+    table.cell(infoTable, 0, 2, "Win Rate", text_color=color.black)
+    table.cell(infoTable, 1, 2, str.tostring(winRate, "#.#") + "%", text_color=color.black)
+    
+    table.cell(infoTable, 0, 3, "Total P&L", text_color=color.black)
+    table.cell(infoTable, 1, 3, "$" + str.tostring(totalPnL, "#.##"), text_color=color.black)
+    
+    table.cell(infoTable, 0, 4, "Avg P&L", text_color=color.black)
+    table.cell(infoTable, 1, 4, "$" + str.tostring(avgReturn, "#.##"), text_color=color.black)
+    
+    table.cell(infoTable, 0, 5, "Current Trade", text_color=color.black)
+    currentTradeText = inLongTrade ? "LONG" : inShortTrade ? "SHORT" : "NONE"
+    table.cell(infoTable, 1, 5, currentTradeText, text_color=color.black)
+
+// === ALERTS ===
+
+alertcondition(longSignal, title="Long Signal", message="Long breakout signal triggered")
+alertcondition(shortSignal, title="Short Signal", message="Short breakout signal triggered")
+alertcondition(exitReason != "", title="Trade Exit", message="Trade exited: {{plot_0}}")

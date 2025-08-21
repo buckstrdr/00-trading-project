@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    },
+    "firecrawl": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "firecrawl-mcp@latest"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-defc37ea980a490abfa2970fe3a7647a"
+      }
+    },
+    "Context7": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "C:\\Users\\salte\\AppData\\Roaming\\npm\\node_modules\\@upstash\\context7-mcp\\dist\\index.js"
+      ],
+      "env": {}
+    },
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "C:\\Users\\salte\\AppData\\Roaming\\npm\\node_modules\\@modelcontextprotocol\\server-sequential-thinking\\dist\\index.js"
+      ],
+      "env": {}
+    },
+    "jupyter": {
+      "type": "stdio",
+      "command": "C:\\Program Files\\Python313\\python.exe",
+      "args": [
+        "C:\\Users\\salte\\jupyter_mcp_wrapper.py"
+      ],
+      "env": {}
+    }
+  }
+}

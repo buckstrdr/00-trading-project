@@ -1,0 +1,56 @@
+# Crazy Horse Strategy Configuration
+# Opening Range Breakout Strategy for NY Session
+# Version: 1.0
+
+bot:
+  name: "BOT_CRAZY_HORSE"
+  strategy: "CrazyHorseStrategy"
+  enabled: true
+  port: 3010
+  accountId: "9627376"  # Your TopStepX account ID
+
+strategy:
+  # Risk Management
+  dollarRiskPerTrade: 100          # Risk per trade in dollars
+  dollarPerPoint: 10               # Dollar value per point for MGC
+  maxRiskPoints: 3.0               # Maximum risk in points
+  riskRewardRatio: 2               # Risk:Reward ratio (1:2)
+  maxDollarLoss: 100               # Maximum dollar loss per trade
+  accountSize: 1000                # Account size for risk calculation
+  
+  # Opening Range Parameters
+  sessionStartHour: 9              # NY session start hour (9:30 AM EST)
+  sessionStartMinute: 30           # NY session start minute
+  rangeMinutes: 15                 # 15-minute opening range
+  
+  # Position Management Options
+  enableAddToPosition: true        # Enable adding at midpoint (Step 4 - optional)
+  enableDeleveraging: true         # Enable deleveraging when back in profit (Step 5 - optional)
+  moveToBreakEven: true            # Move stop to break-even after first shelf (Step 7)
+  
+  # Shelf Method Parameters
+  shelfMinPoints: 1.0              # Minimum points for shelf formation
+  shelfConsolidationBars: 3        # Number of bars to confirm shelf
+  
+  # Candle Settings
+  candlePeriodMinutes: 5           # 5-minute candles for breakout detection
+  maxCandleHistory: 200            # Maximum candles to keep in memory
+  
+  # Debug Settings
+  enableDebugLogging: false        # Enable detailed debug logging
+  verboseLogging: false            # Enable verbose logging
+
+# Connection Settings
+connection:
+  aggregatorHost: "localhost"
+  aggregatorPort: 7777
+  redisHost: "localhost"
+  redisPort: 6379
+  
+# Trading Settings
+trading:
+  instrument: "MGC"                # Micro Gold futures
+  contractId: "F.US.MGC"           # TopStepX contract ID
+  oneTradeAtTime: true             # Only one position at a time
+  maxTradeDurationMinutes: 480     # Maximum trade duration (8 hours)
+  signalCooldownMs: 300000         # 5-minute cooldown between signals

@@ -1,0 +1,17 @@
+<Configuration>
+  <!-- WORK MODE: Direct editing of your actual project -->
+  <MappedFolders>
+    <!-- Your actual project folder - WRITABLE -->
+    <MappedFolder>
+      <HostFolder>C:\Users\salte\ClaudeProjects\github-repos\00-trading-project</HostFolder>
+      <SandboxFolder>C:\Project</SandboxFolder>
+      <ReadOnly>false</ReadOnly>  <!-- Changes are saved to your real folder! -->
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>cmd.exe /c "cd /d C:\Project && echo ======================================== && echo WINDOWS SANDBOX - WORK MODE && echo ======================================== && echo. && echo Your project is mapped to C:\Project && echo ALL CHANGES WILL BE SAVED to your actual project! && echo Only the sandbox environment is deleted on close. && echo. && echo Starting Claude Code in YOLO mode... && echo. && timeout /t 5 && claude-code-yolo.bat"</Command>
+  </LogonCommand>
+  <MemoryInMB>8192</MemoryInMB>
+  <ClipboardRedirection>Default</ClipboardRedirection>
+  <vGPU>Enable</vGPU>
+</Configuration>
