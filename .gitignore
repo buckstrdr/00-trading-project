@@ -35,3 +35,6 @@ desktop.ini
 # Large data files
 01-simulation-project/data/futures.db
 98-month-by-month-data-files/source files not for backtesting/*.csv
+
+# Obsolete folders
+03-trading-bot/99-Obsolete/
