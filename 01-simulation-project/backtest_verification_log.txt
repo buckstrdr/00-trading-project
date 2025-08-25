@@ -1,0 +1,107 @@
+INFO:__main__:=== VERIFICATION 1: Files and Paths ===
+INFO:__main__:\u2705 File verification passed
+INFO:__main__:=== VERIFICATION 2: Framework Initialization ===
+INFO:tsx_backtest_framework:TSX Backtest Framework initialized for testTimeStrategy.js
+INFO:__main__:\u2705 Framework initialization passed
+INFO:__main__:=== VERIFICATION 3: Backtest Execution ===
+INFO:tsx_backtest_framework:Running backtest: MCL from 2023-06-01 to 2023-06-01
+INFO:tsx_pybroker_strategy:Creating TSX PyBroker Strategy for MCL from 2023-06-01 to 2023-06-01
+INFO:tsx_pybroker_strategy:TSX Bridge Strategy initialized for testTimeStrategy.js
+INFO:claude_csv_data_loader:CSV Data Loader initialized with directory: ../98-month-by-month-data-files
+INFO:tsx_pybroker_strategy:Same-day backtest detected, extending end time to: 2023-06-01 23:59:59.999999
+INFO:claude_csv_data_loader:Loading MCL data from 2023-05-15 23:59:59.999999 to 2023-06-01 23:59:59.999999
+INFO:claude_csv_data_loader:Found 2 CSV files for MCL in date range
+INFO:claude_csv_data_loader:Loaded 31369 bars from MCL_2023_05_May.csv
+INFO:claude_csv_data_loader:Loaded 29634 bars from MCL_2023_06_June.csv
+INFO:claude_csv_data_loader:Loaded 17676 bars for MCL after filtering
+INFO:claude_csv_data_loader:Retrieved 5000 historical bars for MCL ending at 2023-06-01 23:59:59.999999
+INFO:tsx_pybroker_strategy:Loaded 1377 bars for PyBroker backtesting
+INFO:tsx_pybroker_strategy:PyBroker Strategy created for TSX strategy: testTimeStrategy.js
+INFO:tsx_backtest_framework:Executing PyBroker backtest...
+=== BACKTESTER VERIFICATION TEST START ===
+Timestamp: 2025-08-24T17:41:29.190250
+Session PID: 25012
+Strategy file exists: True
+Strategy path: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\..\03-trading-bot\TSX-Trading-Bot-V5\src\strategies\test\testTimeStrategy.js
+CSV directory exists: True
+CSV directory path: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\..\98-month-by-month-data-files
+Framework initialized: True
+Running backtest with TEST_TIME_STRATEGY...
+Expected: Multiple trades every 5 minutes with 1377 bars of data
+Backtesting: 2023-06-01 00:00:00 to 2023-06-01 00:00:00
+
+Test split: 2023-06-01 00:00:00 to 2023-06-01 00:00:00
+  0% (0 of 1) |                          | Elapsed Time: 0:00:00 ETA:  --:--:--
+INFO:tsx_pybroker_strategy:Initializing Enhanced TSX Strategy Bridge for PyBroker...
+INFO:claude_csv_data_loader:CSV Data Loader initialized with directory: ../98-month-by-month-data-files
+INFO:claude_real_csv_bootstrap_service:CSV data loader initialized with directory: ../98-month-by-month-data-files
+INFO:claude_real_csv_bootstrap_service:Available symbols in CSV data: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+INFO:claude_real_csv_bootstrap_service:Real CSV Historical Bootstrap Service initialized
+INFO:claude_enhanced_tsx_strategy_bridge:Real CSV Bootstrap Service initialized
+INFO:claude_enhanced_tsx_strategy_bridge:Starting Enhanced TSX Strategy Bridge for testTimeStrategy.js
+INFO:claude_enhanced_tsx_strategy_bridge:Initializing real CSV historical bootstrap service...
+INFO:claude_real_csv_bootstrap_service:Started listening for historical data requests
+INFO:claude_real_csv_bootstrap_service:Real CSV Historical Bootstrap Service started successfully
+INFO:claude_real_csv_bootstrap_service:Listening on: aggregator:historical-data:request
+INFO:claude_enhanced_tsx_strategy_bridge:Real CSV Bootstrap Service started for symbol: MCL
+INFO:claude_enhanced_tsx_strategy_bridge:Date range available: {'min_date': '2008-01-01T00:00:00', 'max_date': '2025-12-01T00:00:00'}
+INFO:claude_enhanced_tsx_strategy_bridge:Starting TSX strategy runner...
+INFO:claude_enhanced_tsx_strategy_bridge:Starting Node.js TSX strategy: testTimeStrategy.js
+INFO:claude_enhanced_tsx_strategy_bridge:TSX strategy process started (PID: 20836)
+INFO:claude_enhanced_tsx_strategy_bridge:Setting up Redis signal listeners...
+INFO:claude_enhanced_tsx_strategy_bridge:Stdout reader starting for PID 20836
+INFO:claude_enhanced_tsx_strategy_bridge:Stdout reader ending - captured 0 lines, process status: None
+INFO:claude_enhanced_tsx_strategy_bridge:Started stdout reader thread with enhanced Unicode handling and debug logging
+INFO:claude_enhanced_tsx_strategy_bridge:Waiting for strategy to become ready...
+INFO:claude_enhanced_tsx_strategy_bridge:Listening for signals on: aggregator:signal:pybroker_mcl_bot
+INFO:claude_enhanced_tsx_strategy_bridge:Listening for ready signals on: aggregator:strategy-ready
+INFO:claude_enhanced_tsx_strategy_bridge:Redis connection verified in listener thread
+INFO:claude_real_csv_bootstrap_service:Received historical data request: {'requestId': 'hist_1756053690732_ggacuwo0i', 'symbol': 'MCL', 'barsBack': 50, 'timestamp': '2025-08-24T16:41:30.732Z'}
+INFO:claude_real_csv_bootstrap_service:Processing request for 50 bars of MCL data
+INFO:claude_csv_data_loader:Loading MCL data from 2025-08-18 17:41:30.741311 to 2025-08-23 17:41:30.741311
+INFO:claude_csv_data_loader:Found 0 CSV files for MCL in date range
+WARNING:claude_csv_data_loader:No CSV files found for MCL in date range
+INFO:claude_real_csv_bootstrap_service:Retrieved 0 real market bars for MCL
+WARNING:claude_real_csv_bootstrap_service:No historical data found for MCL ending at 2025-08-23 17:41:30.741311
+INFO:claude_real_csv_bootstrap_service:Sending 0 real bars for MCL (requested: 50)
+WARNING:claude_enhanced_tsx_strategy_bridge:Strategy did not become ready within 30 seconds
+INFO:claude_enhanced_tsx_strategy_bridge:Enhanced TSX Strategy Bridge started successfully (Strategy Ready: False)
+WARNING:tsx_pybroker_strategy:Enhanced TSX Strategy Bridge started but ready status unclear
+WARNING:claude_enhanced_tsx_strategy_bridge:Failed to publish simulation datetime: 'numpy.datetime64' object has no attribute 'isoformat'
+INFO:tsx_pybroker_strategy:Set bridge simulation datetime to: 2023-06-01T00:00:00.000000000
+100% (1 of 1) |##########################| Elapsed Time: 0:00:30 ETA:  00:00:00
+100% (1 of 1) |##########################| Elapsed Time: 0:00:30 Time:  0:00:30
+
+Finished backtest: 0:00:31
+ERROR:tsx_backtest_framework:Backtest failed for MCL 2023-06-01-2023-06-01: 'numpy.datetime64' object has no attribute 'isoformat'
+INFO:__main__:=== VERIFICATION 4: Results Analysis ===
+WARNING:__main__:\u26a0\ufe0f Trade generation LOW: 0 < 50
+INFO:__main__:=== VERIFICATION 5: Performance Stats ===
+INFO:__main__:=== VERIFICATION COMPLETE ===
+Execution time: 31.32 seconds
+Success: False
+Total Trades: 0
+Total Return: 0.0000
+Win Rate: 0.0%
+Max Drawdown: 0.0000
+Traceback (most recent call last):
+  File "C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\backtest_verification_test.py", line 125, in main
+    print("\u274c BACKTESTER VERIFICATION: FAILED")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\backtest_verification_test.py", line 136, in <module>
+    success = main()
+  File "C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\backtest_verification_test.py", line 130, in main
+    print(f"\u274c VERIFICATION ERROR: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>

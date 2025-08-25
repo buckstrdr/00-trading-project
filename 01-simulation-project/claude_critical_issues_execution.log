@@ -1,0 +1,60 @@
+CRITICAL QC VERIFICATION: CLAIMS vs REALITY
+Execution time: 2025-08-24 14:10:22.207973
+Session PID: 1312
+Random verification: 14300
+[INFO] 2025-08-24 14:10:22.208016 | Starting critical issues verification...
+
+======================================================================
+CRITICAL ISSUE VERIFICATION: PHASE 2A UNICODE ENCODING
+Time: 2025-08-24 14:10:22.208028
+Session PID: 1312
+Random: 34900
+======================================================================
+[INFO] 2025-08-24 14:10:22.208037 | Testing if Unicode crashes still occur...
+[CRITICAL] 2025-08-24 14:10:22.208057 | CONFIRMED: Unicode crash still occurs - 'charmap' codec can't encode character '\u274c' in position 27: character maps to <undefined>
+
+======================================================================
+CRITICAL ISSUE VERIFICATION: CSV DATA WITH CORRECT API
+Time: 2025-08-24 14:10:22.208069
+Session PID: 1312
+Random: 76900
+======================================================================
+[INFO] 2025-08-24 14:10:22.208079 | Testing CSV data loader with correct method names...
+[INFO] 2025-08-24 14:10:22.577089 | CSV Data Loader initialized successfully
+[INFO] 2025-08-24 14:10:22.577417 | Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+[INFO] 2025-08-24 14:10:22.577462 | MCL symbol available: True
+[INFO] 2025-08-24 14:10:22.584439 | MCL date range: (datetime.datetime(2008, 1, 1, 0, 0), datetime.datetime(2025, 12, 1, 0, 0))
+
+======================================================================
+CRITICAL ISSUE VERIFICATION: HISTORICAL DATA SLICE TEST
+Time: 2025-08-24 14:10:22.584470
+Session PID: 1312
+Random: 81000
+======================================================================
+[INFO] 2025-08-24 14:10:22.584484 | Testing historical data slice with correct API...
+[ERROR] 2025-08-24 14:10:22.584573 | Historical data slice error: unsupported operand type(s) for //: 'datetime.datetime' and 'int'
+
+======================================================================
+CRITICAL ANALYSIS: CLAIMS vs ACTUAL RESULTS
+======================================================================
+
+PHASE 2A ANALYSIS:
+CLAIMED: 'Subprocess communication PROPERLY FIXED - Unicode encoding crashes resolved'
+REALITY: FAILED - Unicode crashes still occurring
+         Error: 'charmap' codec can't encode character '\u274c' in position 27: character maps to <undefined>
+
+CSV DATA ANALYSIS:
+CLAIMED: '27,777 real MCL bars loaded successfully'
+REALITY: CSV loader works - 7 symbols found
+         Symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+
+HISTORICAL DATA ANALYSIS:
+CLAIMED: 'Real CSV data integration with authentic historical data'
+REALITY: FAILED - Historical data not accessible
+
+======================================================================
+CRITICAL VERIFICATION COMPLETED: 2025-08-24 14:10:22.584619
+======================================================================
+
+CRITICAL ISSUES VERIFICATION COMPLETE
+Session ended: 2025-08-24 14:10:22.584629

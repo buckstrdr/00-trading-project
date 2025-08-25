@@ -1,0 +1,762 @@
+[
+  {
+    "success": true,
+    "backtest_id": "bt_1756120032_0",
+    "symbol": "MCL",
+    "strategy": "PDHPDL_COMPREHENSIVE",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "lookback_days": 1,
+      "breakout_threshold": 0.05,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 593,
+      "win_rate": 64.0185730032924,
+      "total_pnl": 1151.2399694911587,
+      "total_return": 0.011512399694911588,
+      "profit_factor": 3.193258417517463,
+      "avg_win": 4.422531248253591,
+      "avg_loss": 2.452800811200711,
+      "max_win": 9.995994576062817,
+      "max_loss": -4.252467459031154,
+      "sharpe_ratio": 0.03261594653083688
+    },
+    "data_points": 29652,
+    "execution_timestamp": "2025-08-25T12:07:12.985776",
+    "timestamp": "2025-08-25T12:07:12.997950"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_1",
+    "symbol": "MCL",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "fast_period": 5,
+      "slow_period": 15,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 296,
+      "win_rate": 40.07300476616637,
+      "total_pnl": -81.84158175957276,
+      "total_return": -0.0008184158175957276,
+      "profit_factor": 0.7371125425128614,
+      "avg_win": 1.9447149017235903,
+      "avg_loss": 1.7489771919267214,
+      "max_win": 3.321091113659431,
+      "max_loss": -4.187984746861668,
+      "sharpe_ratio": 0.011735968083327553
+    },
+    "data_points": 29652,
+    "execution_timestamp": "2025-08-25T12:07:12.986480",
+    "timestamp": "2025-08-25T12:07:13.001870"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_2",
+    "symbol": "MCL",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "orb_period": 15,
+      "rubber_band_pct": 0.3,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 593,
+      "win_rate": 63.31497537417539,
+      "total_pnl": 57.396596922467324,
+      "total_return": 0.0005739659692246732,
+      "profit_factor": 1.1475412547543484,
+      "avg_win": 1.190446029678517,
+      "avg_loss": 1.7844984596650302,
+      "max_win": 3.187440631937128,
+      "max_loss": -3.4036799451793973,
+      "sharpe_ratio": -0.4339298732889672
+    },
+    "data_points": 29652,
+    "execution_timestamp": "2025-08-25T12:07:12.987451",
+    "timestamp": "2025-08-25T12:07:13.003444"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_3",
+    "symbol": "MCL",
+    "strategy": "TEST_TIME_STRATEGY",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "interval_minutes": 3,
+      "hold_minutes": 2,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 823,
+      "win_rate": 46.93532937839494,
+      "total_pnl": -50.30108520634485,
+      "total_return": -0.0005030108520634485,
+      "profit_factor": 0.9508087492210118,
+      "avg_win": 2.5188096819487744,
+      "avg_loss": 2.3399579460836883,
+      "max_win": 4.704887014412918,
+      "max_loss": -5.808617745830033,
+      "sharpe_ratio": 0.9789666209092394
+    },
+    "data_points": 29652,
+    "execution_timestamp": "2025-08-25T12:07:12.999959",
+    "timestamp": "2025-08-25T12:07:13.005343"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_4",
+    "symbol": "MES",
+    "strategy": "TEST_TIME_STRATEGY",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "interval_minutes": 3,
+      "hold_minutes": 2,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 880,
+      "win_rate": 39.082668454964534,
+      "total_pnl": 579.983196100318,
+      "total_return": 0.00579983196100318,
+      "profit_factor": 1.9209830742000393,
+      "avg_win": 3.52690027832246,
+      "avg_loss": 1.1727068889465286,
+      "max_win": 7.5202240500789514,
+      "max_loss": -2.2252508655999685,
+      "sharpe_ratio": 0.677309400976299
+    },
+    "data_points": 31715,
+    "execution_timestamp": "2025-08-25T12:07:13.053532",
+    "timestamp": "2025-08-25T12:07:13.056649"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_5",
+    "symbol": "MES",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "orb_period": 15,
+      "rubber_band_pct": 0.3,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 634,
+      "win_rate": 57.99439977757823,
+      "total_pnl": 1189.5366739985907,
+      "total_return": 0.011895366739985907,
+      "profit_factor": 5.955891747649815,
+      "avg_win": 3.8952627336247336,
+      "avg_loss": 0.8989690982834704,
+      "max_win": 6.2100052753772195,
+      "max_loss": -2.483674498566385,
+      "sharpe_ratio": 1.003510051027745
+    },
+    "data_points": 31715,
+    "execution_timestamp": "2025-08-25T12:07:13.054461",
+    "timestamp": "2025-08-25T12:07:13.072475"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_6",
+    "symbol": "MES",
+    "strategy": "PDHPDL_COMPREHENSIVE",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "lookback_days": 1,
+      "breakout_threshold": 0.05,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 634,
+      "win_rate": 36.0704088529879,
+      "total_pnl": -730.3177854217366,
+      "total_return": -0.007303177854217366,
+      "profit_factor": 0.27039560758680686,
+      "avg_win": 1.187105241937592,
+      "avg_loss": 2.465462513752482,
+      "max_win": 2.0663442954561186,
+      "max_loss": -6.941748248109173,
+      "sharpe_ratio": 0.18023536623386582
+    },
+    "data_points": 31715,
+    "execution_timestamp": "2025-08-25T12:07:13.069905",
+    "timestamp": "2025-08-25T12:07:13.074161"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_7",
+    "symbol": "MES",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "fast_period": 5,
+      "slow_period": 15,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 317,
+      "win_rate": 37.36280971048534,
+      "total_pnl": 8.407854700919529,
+      "total_return": 8.40785470091953e-05,
+      "profit_factor": 1.0257062133199844,
+      "avg_win": 2.8430733846576492,
+      "avg_loss": 1.6435919833602164,
+      "max_win": 8.039006587485733,
+      "max_loss": -4.87395981826826,
+      "sharpe_ratio": 1.7441518347249403
+    },
+    "data_points": 31715,
+    "execution_timestamp": "2025-08-25T12:07:13.070737",
+    "timestamp": "2025-08-25T12:07:13.075480"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_8",
+    "symbol": "MGC",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "orb_period": 15,
+      "rubber_band_pct": 0.3,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 630,
+      "win_rate": 47.28804514045456,
+      "total_pnl": 878.1165737292899,
+      "total_return": 0.008781165737292899,
+      "profit_factor": 2.7340377050886113,
+      "avg_win": 4.661671732165209,
+      "avg_loss": 1.520720512684015,
+      "max_win": 12.60344820439023,
+      "max_loss": -3.040634877360646,
+      "sharpe_ratio": -0.23002345284712855
+    },
+    "data_points": 31547,
+    "execution_timestamp": "2025-08-25T12:07:13.096407",
+    "timestamp": "2025-08-25T12:07:13.097098"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_9",
+    "symbol": "MGC",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "fast_period": 5,
+      "slow_period": 15,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 315,
+      "win_rate": 48.706392170195144,
+      "total_pnl": 38.969606880438675,
+      "total_return": 0.00038969606880438675,
+      "profit_factor": 1.1016342507987793,
+      "avg_win": 2.760780850213624,
+      "avg_loss": 2.3668510074212703,
+      "max_win": 6.863545696451365,
+      "max_loss": -3.6665700130667056,
+      "sharpe_ratio": 0.9756088410680284
+    },
+    "data_points": 31547,
+    "execution_timestamp": "2025-08-25T12:07:13.123557",
+    "timestamp": "2025-08-25T12:07:13.139869"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_10",
+    "symbol": "MGC",
+    "strategy": "TEST_TIME_STRATEGY",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "interval_minutes": 3,
+      "hold_minutes": 2,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 876,
+      "win_rate": 60.41959538049932,
+      "total_pnl": 1689.8652767614826,
+      "total_return": 0.016898652767614826,
+      "profit_factor": 5.889541119495413,
+      "avg_win": 3.847775860217374,
+      "avg_loss": 0.9959889143905138,
+      "max_win": 8.00466686770882,
+      "max_loss": -1.6281057418587894,
+      "sharpe_ratio": 0.5778098321745415
+    },
+    "data_points": 31547,
+    "execution_timestamp": "2025-08-25T12:07:13.138288",
+    "timestamp": "2025-08-25T12:07:13.142573"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_11",
+    "symbol": "MGC",
+    "strategy": "PDHPDL_COMPREHENSIVE",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "lookback_days": 1,
+      "breakout_threshold": 0.05,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 630,
+      "win_rate": 35.83845668558677,
+      "total_pnl": -134.08344596750987,
+      "total_return": -0.0013408344596750987,
+      "profit_factor": 0.8418497394489365,
+      "avg_win": 3.172176290765725,
+      "avg_loss": 2.0933903984933284,
+      "max_win": 5.1878014477137855,
+      "max_loss": -5.28080631929133,
+      "sharpe_ratio": 1.8186432313219014
+    },
+    "data_points": 31547,
+    "execution_timestamp": "2025-08-25T12:07:13.140776",
+    "timestamp": "2025-08-25T12:07:13.145005"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_12",
+    "symbol": "NG",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "fast_period": 5,
+      "slow_period": 15,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 278,
+      "win_rate": 63.209494931348466,
+      "total_pnl": 354.7710178730189,
+      "total_return": 0.0035477101787301886,
+      "profit_factor": 2.496850310896014,
+      "avg_win": 3.3816154583301437,
+      "avg_loss": 2.3010843430558863,
+      "max_win": 7.849984747752758,
+      "max_loss": -3.6936339264522298,
+      "sharpe_ratio": 1.199745109173366
+    },
+    "data_points": 27854,
+    "execution_timestamp": "2025-08-25T12:07:13.158844",
+    "timestamp": "2025-08-25T12:07:13.159603"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_13",
+    "symbol": "NG",
+    "strategy": "TEST_TIME_STRATEGY",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "interval_minutes": 3,
+      "hold_minutes": 2,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 773,
+      "win_rate": 54.523988225924334,
+      "total_pnl": 1691.3373488600105,
+      "total_return": 0.016913373488600104,
+      "profit_factor": 8.66295722317925,
+      "avg_win": 4.541694440882601,
+      "avg_loss": 0.6270341214533084,
+      "max_win": 9.305684716921684,
+      "max_loss": -1.840208897617373,
+      "sharpe_ratio": 0.6452644358216879
+    },
+    "data_points": 27854,
+    "execution_timestamp": "2025-08-25T12:07:13.192242",
+    "timestamp": "2025-08-25T12:07:13.193741"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_14",
+    "symbol": "NG",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "orb_period": 15,
+      "rubber_band_pct": 0.3,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 557,
+      "win_rate": 53.26483601926274,
+      "total_pnl": 1099.6097415816487,
+      "total_return": 0.010996097415816487,
+      "profit_factor": 6.527158048060908,
+      "avg_win": 4.387014936605116,
+      "avg_loss": 0.7622478147642366,
+      "max_win": 7.875489742474264,
+      "max_loss": -1.3367284938114132,
+      "sharpe_ratio": 1.3288050734673942
+    },
+    "data_points": 27854,
+    "execution_timestamp": "2025-08-25T12:07:13.194806",
+    "timestamp": "2025-08-25T12:07:13.198492"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_15",
+    "symbol": "NG",
+    "strategy": "PDHPDL_COMPREHENSIVE",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "lookback_days": 1,
+      "breakout_threshold": 0.05,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 557,
+      "win_rate": 39.33507229701433,
+      "total_pnl": 113.51076111186,
+      "total_return": 0.0011351076111186002,
+      "profit_factor": 1.1591311183227588,
+      "avg_win": 3.7754643272955204,
+      "avg_loss": 2.110402149603133,
+      "max_win": 9.709889307815457,
+      "max_loss": -4.402249287901552,
+      "sharpe_ratio": 0.9580134846304591
+    },
+    "data_points": 27854,
+    "execution_timestamp": "2025-08-25T12:07:13.197111",
+    "timestamp": "2025-08-25T12:07:13.200989"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_16",
+    "symbol": "SI",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "fast_period": 5,
+      "slow_period": 15,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 280,
+      "win_rate": 62.26542949023185,
+      "total_pnl": 643.2968194289233,
+      "total_return": 0.006432968194289233,
+      "profit_factor": 4.348371432685739,
+      "avg_win": 4.801259304534604,
+      "avg_loss": 1.8124745241518656,
+      "max_win": 9.441594673179537,
+      "max_loss": -3.9964709688513493,
+      "sharpe_ratio": 0.6731759426077297
+    },
+    "data_points": 28092,
+    "execution_timestamp": "2025-08-25T12:07:13.214886",
+    "timestamp": "2025-08-25T12:07:13.215377"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_17",
+    "symbol": "SI",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "orb_period": 15,
+      "rubber_band_pct": 0.3,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 561,
+      "win_rate": 44.33371768618761,
+      "total_pnl": 132.98230060286755,
+      "total_return": 0.0013298230060286755,
+      "profit_factor": 1.1801747712051531,
+      "avg_win": 3.512323491083934,
+      "avg_loss": 2.358063658741048,
+      "max_win": 6.697328426142332,
+      "max_loss": -5.31414472954793,
+      "sharpe_ratio": 1.0482109375484314
+    },
+    "data_points": 28092,
+    "execution_timestamp": "2025-08-25T12:07:13.230703",
+    "timestamp": "2025-08-25T12:07:13.230928"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_18",
+    "symbol": "SI",
+    "strategy": "PDHPDL_COMPREHENSIVE",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "lookback_days": 1,
+      "breakout_threshold": 0.05,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 561,
+      "win_rate": 47.368016821550796,
+      "total_pnl": 732.6954870878416,
+      "total_return": 0.0073269548708784155,
+      "profit_factor": 2.372336202357553,
+      "avg_win": 4.779619879153197,
+      "avg_loss": 1.8037289894856603,
+      "max_win": 11.386893790160837,
+      "max_loss": -5.0603703773032676,
+      "sharpe_ratio": 0.2745749069573127
+    },
+    "data_points": 28092,
+    "execution_timestamp": "2025-08-25T12:07:13.253617",
+    "timestamp": "2025-08-25T12:07:13.254388"
+  },
+  {
+    "success": true,
+    "backtest_id": "bt_1756120033_19",
+    "symbol": "SI",
+    "strategy": "TEST_TIME_STRATEGY",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "strategy_params": {
+      "interval_minutes": 3,
+      "hold_minutes": 2,
+      "risk_per_trade": 25
+    },
+    "market_conditions": {
+      "volatility_regime": "unknown",
+      "trend_strength": 0.0,
+      "trend_direction": "unknown",
+      "market_regime": "unknown",
+      "volatility_value": 0.0,
+      "price_range_pct": 0.0,
+      "avg_volume": 0.0,
+      "total_bars": 0
+    },
+    "performance_metrics": {
+      "total_trades": 780,
+      "win_rate": 57.167794843292,
+      "total_pnl": 745.1695724559576,
+      "total_return": 0.007451695724559576,
+      "profit_factor": 1.953362080279539,
+      "avg_win": 3.4309941752047575,
+      "avg_loss": 2.3332024940601777,
+      "max_win": 6.979033442260804,
+      "max_loss": -5.127484955398085,
+      "sharpe_ratio": 1.5942881330432237
+    },
+    "data_points": 28092,
+    "execution_timestamp": "2025-08-25T12:07:13.254150",
+    "timestamp": "2025-08-25T12:07:13.256191"
+  }
+]

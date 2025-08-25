@@ -1,0 +1,17 @@
+{
+  "name": "tsx-strategy-bridge",
+  "version": "1.0.0",
+  "description": "Bridge for running TSX Trading Bot V5 strategies in PyBroker backtesting",
+  "main": "shared/strategy_runner.js",
+  "scripts": {
+    "test": "node tests/test_redis_connectivity.js"
+  },
+  "dependencies": {
+    "redis": "4.7.1",
+    "events": "^3.3.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

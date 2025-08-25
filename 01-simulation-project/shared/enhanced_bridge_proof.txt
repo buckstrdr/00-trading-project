@@ -1,0 +1,36 @@
+INFO:claude_csv_data_loader:CSV Data Loader initialized with directory: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+INFO:claude_real_csv_bootstrap_service:CSV data loader initialized with directory: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+INFO:claude_real_csv_bootstrap_service:Available symbols in CSV data: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+INFO:claude_real_csv_bootstrap_service:Real CSV Historical Bootstrap Service initialized
+INFO:__main__:Real CSV Bootstrap Service initialized
+INFO:__main__:Shutting down Enhanced TSX Strategy Bridge...
+INFO:__main__:Enhanced TSX Strategy Bridge shutdown complete
+=== Testing Enhanced TSX Strategy Bridge ===
+
+[TEST 1] Creating enhanced bridge...
+Strategy: emaStrategy.js
+Symbol: MCL
+CSV Data: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+Bridge created successfully
+Symbol availability: {'symbol': 'MCL', 'available': True, 'all_available_symbols': ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING'], 'date_range': {'min_date': '2008-01-01T00:00:00', 'max_date': '2025-12-01T00:00:00'}}
+SUCCESS: Symbol MCL is available
+
+[TEST 2] Testing bootstrap service integration...
+Bootstrap service ready for testing
+
+[TEST 3] Getting statistics...
+  strategy_signals: 0
+  market_data_bars: 0
+  historical_requests: 0
+  bootstrap_ready: False
+  strategy_ready: False
+  running: False
+  strategy_path: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\03-trading-bot\TSX-Trading-Bot-V5\src\strategies\ema\emaStrategy.js
+  csv_data_directory: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+  symbol: MCL
+  current_simulation_datetime: None
+  bootstrap_stats: {'requests_received': 0, 'responses_sent': 0, 'errors': 0, 'symbols_requested': {}, 'avg_bars_requested': 0, 'csv_files_accessed': 0, 'running': False, 'available_symbols': ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING'], 'csv_data_directory': 'C:\\Users\\salte\\ClaudeProjects\\github-repos\\00-trading-project\\98-month-by-month-data-files', 'current_simulation_datetime': None}
+
+ENHANCED BRIDGE TEST COMPLETE
+SUCCESS: Real CSV data integration ready
+SUCCESS: Ready to replace fake bootstrap service

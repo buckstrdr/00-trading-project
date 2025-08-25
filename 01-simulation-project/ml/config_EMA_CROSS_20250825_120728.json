@@ -1,0 +1,115 @@
+{
+  "strategy_name": "EMA_CROSS",
+  "total_configurations": 18,
+  "generated_at": "2025-08-25T12:07:28.229072",
+  "configurations": [
+    {
+      "fast_period": 3,
+      "slow_period": 10,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 3,
+      "slow_period": 10,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 3,
+      "slow_period": 105,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 3,
+      "slow_period": 105,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 3,
+      "slow_period": 200,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 3,
+      "slow_period": 200,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 26,
+      "slow_period": 10,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 26,
+      "slow_period": 10,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 26,
+      "slow_period": 105,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 26,
+      "slow_period": 105,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 26,
+      "slow_period": 200,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 26,
+      "slow_period": 200,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 49,
+      "slow_period": 10,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 49,
+      "slow_period": 10,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 49,
+      "slow_period": 105,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 49,
+      "slow_period": 105,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 49,
+      "slow_period": 200,
+      "risk_per_trade": 10.0,
+      "stop_loss_pct": 2.0
+    },
+    {
+      "fast_period": 49,
+      "slow_period": 200,
+      "risk_per_trade": 200.0,
+      "stop_loss_pct": 2.0
+    }
+  ]
+}

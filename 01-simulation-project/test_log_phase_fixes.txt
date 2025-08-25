@@ -1,0 +1,57 @@
+=== QC PHASE 2C: MULTI-SYMBOL CSV SUPPORT (FIXED) ===
+QC Start Time: 2025-08-24 14:29:42.438661
+QC Session PID: 23332
+
+[QC TEST] Initializing CSV Data Loader...
+Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+
+[QC TEST] Testing all 5 trading symbols...
+
+--- Testing Symbol: MCL ---
+[PASS] MCL: Available
+  Date range: (datetime.datetime(2008, 1, 1, 0, 0), datetime.datetime(2025, 12, 1, 0, 0))
+[PASS] MCL: Data loaded - 293 bars
+  Sample price: $61.94
+  Columns: ['datetime', 'open', 'high', 'low', 'close', 'volume']
+
+--- Testing Symbol: MES ---
+[PASS] MES: Available
+  Date range: (datetime.datetime(2008, 1, 1, 0, 0), datetime.datetime(2025, 12, 1, 0, 0))
+[PASS] MES: Data loaded - 301 bars
+  Sample price: $4814.02
+  Columns: ['datetime', 'open', 'high', 'low', 'close', 'volume']
+
+--- Testing Symbol: MGC ---
+[PASS] MGC: Available
+  Date range: (datetime.datetime(2008, 1, 1, 0, 0), datetime.datetime(2025, 12, 1, 0, 0))
+[PASS] MGC: Data loaded - 298 bars
+  Sample price: $2167.49
+  Columns: ['datetime', 'open', 'high', 'low', 'close', 'volume']
+
+--- Testing Symbol: NG ---
+[PASS] NG: Available
+  Date range: (datetime.datetime(2008, 1, 1, 0, 0), datetime.datetime(2025, 12, 1, 0, 0))
+[PASS] NG: Data loaded - 283 bars
+  Sample price: $5.35
+  Columns: ['datetime', 'open', 'high', 'low', 'close', 'volume']
+
+--- Testing Symbol: SI ---
+[PASS] SI: Available
+  Date range: (datetime.datetime(2008, 1, 1, 0, 0), datetime.datetime(2025, 12, 1, 0, 0))
+[PASS] SI: Data loaded - 266 bars
+  Sample price: $25.66
+  Columns: ['datetime', 'open', 'high', 'low', 'close', 'volume']
+
+=== PHASE 2C MULTI-SYMBOL QC RESULTS ===
+  [PASS] MCL: 293 bars, $61.94 sample price
+  [PASS] MES: 301 bars, $4814.02 sample price
+  [PASS] MGC: 298 bars, $2167.49 sample price
+  [PASS] NG: 283 bars, $5.35 sample price
+  [PASS] SI: 266 bars, $25.66 sample price
+
+Multi-Symbol Support: 5/5 (100.0%)
+SUCCESS: PHASE 2C IS 100% COMPLETE!
+All trading symbols available with real CSV data
+
+Phase 2C QC Result: COMPLETE
+QC completed at: 2025-08-24 14:29:43.739262

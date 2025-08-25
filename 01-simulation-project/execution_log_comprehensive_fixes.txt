@@ -1,0 +1,92 @@
+COMPREHENSIVE INTEGRATION TEST - ALL FIXES APPLIED
+Start time: 2025-08-24 14:29:31.667007
+Session PID: 21548
+Random verification: 53300
+[INFO] 2025-08-24 14:29:31.667056 | Starting comprehensive integration tests...
+
+======================================================================
+INTEGRATION TEST: PHASE 1 REDIS INFRASTRUCTURE
+Time: 2025-08-24 14:29:31.667071
+Session PID: 21548
+Random: 80700
+======================================================================
+[INFO] 2025-08-24 14:29:31.731733 | Redis server running: True
+[INFO] 2025-08-24 14:29:31.737693 | Python Redis PING: True
+
+======================================================================
+INTEGRATION TEST: PHASE 2C CSV DATA LOADING
+Time: 2025-08-24 14:29:31.737781
+Session PID: 21548
+Random: 93900
+======================================================================
+[INFO] 2025-08-24 14:29:32.086316 | CSV Data Loader initialized successfully
+[INFO] 2025-08-24 14:29:32.086340 | Testing symbol: MCL
+[INFO] 2025-08-24 14:29:32.086383 | MCL available: True
+[INFO] 2025-08-24 14:29:32.347382 | MCL: 293 bars loaded, sample price: $61.94
+[INFO] 2025-08-24 14:29:32.347410 | Testing symbol: MES
+[INFO] 2025-08-24 14:29:32.347530 | MES available: True
+[INFO] 2025-08-24 14:29:32.609313 | MES: 301 bars loaded, sample price: $4814.02
+[INFO] 2025-08-24 14:29:32.609357 | Testing symbol: MGC
+[INFO] 2025-08-24 14:29:32.609484 | MGC available: True
+[INFO] 2025-08-24 14:29:32.866530 | MGC: 298 bars loaded, sample price: $2167.49
+[INFO] 2025-08-24 14:29:32.866557 | Testing symbol: NG
+[INFO] 2025-08-24 14:29:32.866669 | NG available: True
+[INFO] 2025-08-24 14:29:33.090254 | NG: 283 bars loaded, sample price: $5.35
+[INFO] 2025-08-24 14:29:33.090286 | Testing symbol: SI
+[INFO] 2025-08-24 14:29:33.090426 | SI available: True
+[INFO] 2025-08-24 14:29:33.356984 | SI: 266 bars loaded, sample price: $25.66
+
+======================================================================
+INTEGRATION TEST: HISTORICAL DATA API
+Time: 2025-08-24 14:29:33.369479
+Session PID: 21548
+Random: 14600
+======================================================================
+[INFO] 2025-08-24 14:29:33.626418 | Historical slice: 10 bars retrieved
+[INFO] 2025-08-24 14:29:33.658906 | Historical bars (compatibility): 10 bars retrieved
+[INFO] 2025-08-24 14:29:33.665643 | Symbol availability test: {'available': True, 'symbol': 'MCL', 'date_range': '2008-01-01 00:00:00 to 2025-12-01 00:00:00'}
+
+======================================================================
+INTEGRATION TEST: NODE.JS COMPONENTS
+Time: 2025-08-24 14:29:33.667397
+Session PID: 21548
+Random: 12100
+======================================================================
+[INFO] 2025-08-24 14:29:33.684529 | Node.js version: v22.17.0
+[INFO] 2025-08-24 14:29:33.684619 | Strategy runner exists: True
+[INFO] 2025-08-24 14:29:33.684665 | Fixed Redis client exists: True
+
+======================================================================
+COMPREHENSIVE INTEGRATION TEST RESULTS
+======================================================================
+
+PHASE 1 REDIS INFRASTRUCTURE:
+  [PASS] redis_process: True
+  [PASS] python_redis: True
+
+PHASE 2C CSV DATA LOADING:
+  [PASS] MCL: 293 bars, $61.94
+  [PASS] MES: 301 bars, $4814.02
+  [PASS] MGC: 298 bars, $2167.49
+  [PASS] NG: 283 bars, $5.35
+  [PASS] SI: 266 bars, $25.66
+
+HISTORICAL DATA API:
+  [PASS] historical_slice: 10
+  [PASS] historical_bars_compat: 10
+  [PASS] symbol_availability: True
+
+NODE.JS COMPONENTS:
+  [PASS] nodejs_version: v22.17.0
+  [PASS] strategy_runner: True
+  [PASS] redis_client: True
+
+======================================================================
+INTEGRATION TEST RESULTS: 13/13 tests passed (100.0%)
+Test completed at: 2025-08-24 14:29:33.684733
+======================================================================
+SUCCESS: COMPREHENSIVE INTEGRATION TEST PASSED!
+All major components working correctly
+
+Final Integration Test Result: SUCCESS
+Test session ended: 2025-08-24 14:29:33.684748

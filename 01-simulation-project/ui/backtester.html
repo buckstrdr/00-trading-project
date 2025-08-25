@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSX Strategy Backtester</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <style>
+        /* TSXV5 Premium Dark Theme Variables */
+        :root {
+            /* Primary Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-hover: #1f1f1f;
+            
+            /* Text Colors */
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-tertiary: #666666;
+            
+            /* Accent Colors */
+            --accent-primary: #3b82f6;
+            --accent-primary-hover: #2563eb;
+            --accent-success: #10b981;
+            --accent-danger: #ef4444;
+            --accent-warning: #f59e0b;
+            
+            /* Border Colors */
+            --border-default: #222222;
+            --border-hover: #333333;
+            --border-focus: #3b82f6;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            
+            /* Border Radius */
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            
+            /* Font Stack */
+            --font-stack: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
+        }
+        
+        /* Global Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-stack);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: var(--spacing-xl);
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-header {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .dashboard-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .dashboard-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .trading-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .trading-card h2, .trading-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: block;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        input, select {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-default);
+            color: var(--text-primary);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            width: 100%;
+            font-size: 1rem;
+            transition: border-color 200ms ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--border-focus);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 200ms ease;
+            text-decoration: none;
+            gap: var(--spacing-sm);
+        }
+        
+        .btn:hover {
+            background: var(--accent-primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-success {
+            background: var(--accent-success);
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .status-badge {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .status-badge.running {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-success);
+            border: 1px solid var(--accent-success);
+        }
+        
+        .status-badge.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-danger);
+            border: 1px solid var(--accent-danger);
+        }
+        
+        .results-section {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .metric-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+        }
+        
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .metric-value {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .metric-value.positive {
+            color: var(--accent-success);
+        }
+        
+        .metric-value.negative {
+            color: var(--accent-danger);
+        }
+        
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--accent-danger);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            color: var(--accent-danger);
+            margin-top: var(--spacing-md);
+        }
+        
+        .raw-results {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 1.4;
+            overflow-x: auto;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .progress-container {
+            width: 100%;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-success) 0%, var(--accent-primary) 100%);
+            transition: width 0.3s ease;
+            border-radius: var(--radius-md);
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-sm);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-md);
+            }
+            
+            .dashboard-header {
+                padding: var(--spacing-lg);
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>TSX Strategy Backtester</h1>
+            <p>Standalone backtesting - separate from live trading</p>
+        </div>
+        
+        <!-- Backtest Parameters -->
+        <div class="trading-card">
+            <h2>Backtest Parameters</h2>
+            <form id="backtest-form">
+                <div class="form-group">
+                    <label for="symbol">Symbol:</label>
+                    <select id="symbol" name="symbol" required>
+                        <option value="MCL">MCL - Crude Oil Futures</option>
+                        <option value="MES">MES - E-mini S&P 500</option>
+                        <option value="MGC">MGC - Gold Futures</option>
+                        <option value="NG">NG - Natural Gas Futures</option>
+                        <option value="SI">SI - Silver Futures</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="strategy">Strategy:</label>
+                    <select id="strategy" name="strategy" required>
+                        <option value="ema/emaStrategy.js">EMA Strategy</option>
+                        <option value="orb-rubber-band/ORBRubberBandStrategy.js">ORB Rubber Band Strategy</option>
+                        <option value="PDHPDL/PDHPDLStrategy-Comprehensive.js">PDHPDL Strategy</option>
+                        <option value="test/testTimeStrategy.js">Test Time Strategy</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" value="2023-06-01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" value="2023-06-15" required>
+                </div>
+                
+                <button type="submit" class="btn btn-success" id="run-btn">
+                    <span id="btn-text">Run Backtest</span>
+                    <span id="btn-spinner" class="loading-spinner" style="display: none;"></span>
+                </button>
+            </form>
+        </div>
+        
+        <!-- Loading Status -->
+        <div id="loading" class="trading-card" style="display: none;">
+            <div class="status-badge running">Running Backtest</div>
+            <h3>Executing Strategy...</h3>
+            <p>Please wait while the backtest executes using Phase 3 components.</p>
+            <div class="progress-container" style="margin-top: var(--spacing-lg);">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progress-percent">0%</span>
+                    <span id="progress-eta">Calculating...</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Error Display -->
+        <div id="error" class="trading-card" style="display: none;">
+            <div class="status-badge error">Error</div>
+            <h3>Backtest Failed</h3>
+            <div id="error-content" class="error-message"></div>
+        </div>
+        
+        <!-- Results Display -->
+        <div id="results" class="trading-card" style="display: none;">
+            <h3>Backtest Results</h3>
+            <div id="results-summary" class="results-grid"></div>
+            <div id="results-details" class="results-section">
+                <h4 style="margin-bottom: var(--spacing-md);">Raw Results</h4>
+                <div id="results-raw" class="raw-results"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="backtester.js"></script>
+</body>
+</html>

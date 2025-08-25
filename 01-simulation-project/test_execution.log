@@ -1,0 +1,74 @@
+INFO:shared.tsx_strategy_bridge:Starting Node.js process: node C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\shared\strategy_runner_enhanced.js C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\strategies\test_simple_strategy.js
+INFO:shared.tsx_strategy_bridge:TSX Strategy Bridge started for test_simple_strategy.js
+INFO:shared.tsx_strategy_bridge:Subscribed to aggregator:signal
+INFO:shared.tsx_strategy_bridge:Subscribed to aggregator:trade:request
+INFO:shared.tsx_strategy_bridge:Subscribed to aggregator:historical-data:request
+INFO:shared.tsx_strategy_bridge:Shutting down TSX Strategy Bridge...
+INFO:shared.tsx_strategy_bridge:TSX Strategy Bridge shutdown complete
+=== Testing Complete TSX Strategy Bridge ===
+
+Creating bridge for strategy: test_simple_strategy.js
+Waiting for initialization...
+
+--- Testing Market Data Processing ---
+
+Bar 1: Sending close=15005, volume=1000
+  - No signal
+  Updating positions: 0 position(s)
+
+Bar 2: Sending close=15015, volume=1100
+  - No signal
+
+Bar 3: Sending close=15025, volume=1200
+  - No signal
+
+Bar 4: Sending close=15035, volume=1300
+  - No signal
+  Updating positions: 1 position(s)
+
+Bar 5: Sending close=15045, volume=1400
+  - No signal
+
+Bar 6: Sending close=15055, volume=1500
+  - No signal
+
+Bar 7: Sending close=15065, volume=1600
+  - No signal
+  Updating positions: 1 position(s)
+
+Bar 8: Sending close=15075, volume=1700
+  - No signal
+
+Bar 9: Sending close=15085, volume=1800
+  - No signal
+
+Bar 10: Sending close=15095, volume=1900
+  - No signal
+  Updating positions: 1 position(s)
+
+=== Test Results ===
+Bars processed: 10
+Signals received: 0
+
+Shutting down bridge...
+Traceback (most recent call last):
+  File "C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\tests\test_complete_bridge.py", line 106, in test_complete_bridge
+    print("\n\u274c BRIDGE TEST FAILED - No signals received")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\tests\test_complete_bridge.py", line 125, in <module>
+    success = test_complete_bridge()
+  File "C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\01-simulation-project\tests\test_complete_bridge.py", line 111, in test_complete_bridge
+    print(f"\n\u274c Test failed with error: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>

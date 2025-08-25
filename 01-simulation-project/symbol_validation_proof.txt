@@ -1,0 +1,22 @@
+=== Testing Symbol Error Handling ===
+
+[TEST 1] Valid symbol - MCL:
+SUCCESS: MCL loaded 27777 bars
+
+[TEST 2] Invalid symbol - NQ (should error):
+SUCCESS: NQ correctly returned error: Symbol 'NQ' not available. Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+
+[TEST 3] Historical slice with invalid symbol - NQ:
+SUCCESS: NQ historical slice correctly returned error: Symbol 'NQ' not available. Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+
+[TEST 4] Available symbols:
+Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+NQ in available: False
+MCL in available: True
+
+[TEST 5] Symbol availability checks:
+is_symbol_available('NQ'): False
+is_symbol_available('MCL'): True
+is_symbol_available('MES'): True
+
+=== Symbol Error Handling Test Complete ===

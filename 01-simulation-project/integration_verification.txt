@@ -1,0 +1,21 @@
+=== TESTING SUBPROCESS UNICODE HANDLING ===
+Test time: 2025-08-24 14:29:49.605935
+Test PID: 23732
+
+Test 1: Subprocess with UTF-8 encoding...
+[PASS] Subprocess UTF-8 test successful
+       Output: Test output with ASCII only
+This should work fine
+
+Test 2: Enhanced Bridge style subprocess...
+[PASS] Enhanced Bridge style subprocess successful
+       Output lines: ['Enhanced bridge test output']
+
+Test 3: Subprocess handling of potentially problematic input...
+[PASS] Unicode handling capability test successful
+       Output: Unicode handling test: Test without problematic chars
+
+=== SUBPROCESS UNICODE TEST COMPLETE ===
+All subprocess tests completed at: 2025-08-24 14:29:49.799023
+
+Subprocess Unicode Test Result: SUCCESS

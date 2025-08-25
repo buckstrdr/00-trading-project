@@ -1,0 +1,92 @@
+COMPREHENSIVE INTEGRATION TEST - ALL FIXES APPLIED
+Start time: 2025-08-24 14:17:49.808477
+Session PID: 21588
+Random verification: 13900
+[INFO] 2025-08-24 14:17:49.808516 | Starting comprehensive integration tests...
+
+======================================================================
+INTEGRATION TEST: PHASE 1 REDIS INFRASTRUCTURE
+Time: 2025-08-24 14:17:49.808526
+Session PID: 21588
+Random: 33300
+======================================================================
+[INFO] 2025-08-24 14:17:49.882817 | Redis server running: True
+[INFO] 2025-08-24 14:17:49.888549 | Python Redis PING: True
+
+======================================================================
+INTEGRATION TEST: PHASE 2C CSV DATA LOADING
+Time: 2025-08-24 14:17:49.888634
+Session PID: 21588
+Random: 46200
+======================================================================
+[INFO] 2025-08-24 14:17:50.242958 | CSV Data Loader initialized successfully
+[INFO] 2025-08-24 14:17:50.242984 | Testing symbol: MCL
+[INFO] 2025-08-24 14:17:50.243029 | MCL available: True
+[INFO] 2025-08-24 14:17:50.504490 | MCL: 293 bars loaded, sample price: $61.94
+[INFO] 2025-08-24 14:17:50.504518 | Testing symbol: MES
+[INFO] 2025-08-24 14:17:50.504629 | MES available: True
+[INFO] 2025-08-24 14:17:50.766212 | MES: 301 bars loaded, sample price: $4814.02
+[INFO] 2025-08-24 14:17:50.766241 | Testing symbol: MGC
+[INFO] 2025-08-24 14:17:50.766378 | MGC available: True
+[INFO] 2025-08-24 14:17:51.026653 | MGC: 298 bars loaded, sample price: $2167.49
+[INFO] 2025-08-24 14:17:51.026680 | Testing symbol: NG
+[INFO] 2025-08-24 14:17:51.026797 | NG available: True
+[INFO] 2025-08-24 14:17:51.252789 | NG: 283 bars loaded, sample price: $5.35
+[INFO] 2025-08-24 14:17:51.252817 | Testing symbol: SI
+[INFO] 2025-08-24 14:17:51.252934 | SI available: True
+[INFO] 2025-08-24 14:17:51.516468 | SI: 266 bars loaded, sample price: $25.66
+
+======================================================================
+INTEGRATION TEST: HISTORICAL DATA API
+Time: 2025-08-24 14:17:51.528797
+Session PID: 21588
+Random: 33800
+======================================================================
+[INFO] 2025-08-24 14:17:51.784112 | Historical slice: 10 bars retrieved
+[INFO] 2025-08-24 14:17:51.816174 | Historical bars (compatibility): 10 bars retrieved
+[INFO] 2025-08-24 14:17:51.822902 | Symbol availability test: {'available': True, 'symbol': 'MCL', 'date_range': '2008-01-01 00:00:00 to 2025-12-01 00:00:00'}
+
+======================================================================
+INTEGRATION TEST: NODE.JS COMPONENTS
+Time: 2025-08-24 14:17:51.824632
+Session PID: 21588
+Random: 47200
+======================================================================
+[INFO] 2025-08-24 14:17:51.842369 | Node.js version: v22.17.0
+[INFO] 2025-08-24 14:17:51.842454 | Strategy runner exists: True
+[INFO] 2025-08-24 14:17:51.842500 | Fixed Redis client exists: True
+
+======================================================================
+COMPREHENSIVE INTEGRATION TEST RESULTS
+======================================================================
+
+PHASE 1 REDIS INFRASTRUCTURE:
+  [PASS] redis_process: True
+  [PASS] python_redis: True
+
+PHASE 2C CSV DATA LOADING:
+  [PASS] MCL: 293 bars, $61.94
+  [PASS] MES: 301 bars, $4814.02
+  [PASS] MGC: 298 bars, $2167.49
+  [PASS] NG: 283 bars, $5.35
+  [PASS] SI: 266 bars, $25.66
+
+HISTORICAL DATA API:
+  [PASS] historical_slice: 10
+  [PASS] historical_bars_compat: 10
+  [PASS] symbol_availability: True
+
+NODE.JS COMPONENTS:
+  [PASS] nodejs_version: v22.17.0
+  [PASS] strategy_runner: True
+  [PASS] redis_client: True
+
+======================================================================
+INTEGRATION TEST RESULTS: 13/13 tests passed (100.0%)
+Test completed at: 2025-08-24 14:17:51.842566
+======================================================================
+SUCCESS: COMPREHENSIVE INTEGRATION TEST PASSED!
+All major components working correctly
+
+Final Integration Test Result: SUCCESS
+Test session ended: 2025-08-24 14:17:51.842582

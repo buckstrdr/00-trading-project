@@ -1,0 +1,96 @@
+[
+  {
+    "job_id": "bt_MCL_EMA_CROSS_4923cdec",
+    "symbol": "MCL",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "parameters": {
+      "test_param": 123
+    },
+    "priority": "NORMAL",
+    "created_at": "2025-08-25T12:07:31.775859",
+    "scheduled_for": null,
+    "timeout_seconds": 300,
+    "retry_count": 0,
+    "max_retries": 3,
+    "status": "queued",
+    "result": null,
+    "error_message": null,
+    "execution_start": null,
+    "execution_end": null
+  },
+  {
+    "job_id": "bt_MCL_ORB_RUBBER_BAND_c8c3176f",
+    "symbol": "MCL",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "parameters": {
+      "test_param": 123
+    },
+    "priority": "NORMAL",
+    "created_at": "2025-08-25T12:07:31.776536",
+    "scheduled_for": null,
+    "timeout_seconds": 300,
+    "retry_count": 0,
+    "max_retries": 3,
+    "status": "queued",
+    "result": null,
+    "error_message": null,
+    "execution_start": null,
+    "execution_end": null
+  },
+  {
+    "job_id": "bt_MES_EMA_CROSS_d824091c",
+    "symbol": "MES",
+    "strategy": "EMA_CROSS",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "parameters": {
+      "test_param": 123
+    },
+    "priority": "NORMAL",
+    "created_at": "2025-08-25T12:07:31.783557",
+    "scheduled_for": null,
+    "timeout_seconds": 300,
+    "retry_count": 0,
+    "max_retries": 3,
+    "status": "completed",
+    "result": {
+      "success": true,
+      "total_trades": 100,
+      "win_rate": 45.0,
+      "total_pnl": 150.0
+    },
+    "error_message": null,
+    "execution_start": "2025-08-25T12:07:31.798207",
+    "execution_end": "2025-08-25T12:07:33.799712"
+  },
+  {
+    "job_id": "bt_MES_ORB_RUBBER_BAND_7518ccbb",
+    "symbol": "MES",
+    "strategy": "ORB_RUBBER_BAND",
+    "start_date": "2023-08-01",
+    "end_date": "2023-08-31",
+    "parameters": {
+      "test_param": 123
+    },
+    "priority": "NORMAL",
+    "created_at": "2025-08-25T12:07:31.790732",
+    "scheduled_for": null,
+    "timeout_seconds": 300,
+    "retry_count": 0,
+    "max_retries": 3,
+    "status": "completed",
+    "result": {
+      "success": true,
+      "total_trades": 100,
+      "win_rate": 45.0,
+      "total_pnl": 150.0
+    },
+    "error_message": null,
+    "execution_start": "2025-08-25T12:07:34.800556",
+    "execution_end": "2025-08-25T12:07:36.801304"
+  }
+]

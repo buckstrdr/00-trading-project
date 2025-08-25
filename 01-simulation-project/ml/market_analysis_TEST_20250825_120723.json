@@ -1,0 +1,21 @@
+{
+  "symbol": "TEST",
+  "period": "2023-08-01_2023-08-31",
+  "timestamp": "2025-08-25T12:07:23.348188",
+  "trend_regime": "unknown",
+  "trend_strength": 0.0,
+  "trend_direction": "unknown",
+  "volatility_regime": "unknown",
+  "volatility_value": 0.0,
+  "volatility_percentile": 50.0,
+  "volume_regime": "unknown",
+  "volume_trend": "unknown",
+  "price_range_pct": 0.0,
+  "momentum_score": 0.0,
+  "autocorrelation": 0.0,
+  "mean_reversion_score": 0.0,
+  "bid_ask_spread_proxy": 0.0,
+  "market_efficiency_score": 0.5,
+  "total_bars": 0,
+  "data_quality_score": 0.0
+}

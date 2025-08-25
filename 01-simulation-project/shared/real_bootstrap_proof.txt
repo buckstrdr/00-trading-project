@@ -1,0 +1,49 @@
+INFO:claude_csv_data_loader:CSV Data Loader initialized with directory: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+INFO:__main__:CSV data loader initialized with directory: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+INFO:__main__:Available symbols in CSV data: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+INFO:__main__:Real CSV Historical Bootstrap Service initialized
+INFO:__main__:Processing request for 10 bars of MCL data
+INFO:claude_csv_data_loader:Loading MCL data from 2023-01-08 12:00:00 to 2023-01-15 12:00:00
+INFO:claude_csv_data_loader:Found 1 CSV files for MCL in date range
+INFO:claude_csv_data_loader:Loaded 29151 bars from MCL_2023_01_January.csv
+INFO:claude_csv_data_loader:Loaded 6892 bars for MCL after filtering
+INFO:claude_csv_data_loader:Retrieved 10 historical bars for MCL ending at 2023-01-15 12:00:00
+INFO:__main__:Retrieved 10 real market bars for MCL
+INFO:__main__:Sending 10 real bars for MCL (requested: 10)
+INFO:__main__:Processing request for 10 bars of NQ data
+WARNING:__main__:Symbol NQ not available in CSV data: Symbol 'NQ' not available. Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+WARNING:__main__:Symbol not available: Symbol 'NQ' not available. Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+=== Testing Real CSV Historical Bootstrap Service ===
+
+[TEST 1] Testing CSV data loader initialization...
+Redis connection: OK
+Service initialization: OK
+
+[TEST 2] Testing symbol availability...
+  MCL: True - {'min_date': '2008-01-01T00:00:00', 'max_date': '2025-12-01T00:00:00'}
+  NQ: False - No date info
+  MES: True - {'min_date': '2008-01-01T00:00:00', 'max_date': '2025-12-01T00:00:00'}
+  INVALID: False - No date info
+
+[TEST 3] Testing historical data request processing...
+  MCL request: True
+  Bars returned: 10
+  NQ request: False (should be False)
+  Error: DATA_NOT_AVAILABLE: Symbol 'NQ' not available. Available symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+
+[TEST 4] Service statistics:
+  requests_received: 0
+  responses_sent: 1
+  errors: 0
+  symbols_requested: {'MCL': 1, 'NQ': 1}
+  avg_bars_requested: 10.0
+  csv_files_accessed: 1
+  running: False
+  available_symbols: ['01_MONTHLY YEARLY SPLIT SCRIPT', 'MCL', 'MES', 'MGC', 'NG', 'SI', 'SOURCE FILES NOT FOR BACKTESTING']
+  csv_data_directory: C:\Users\salte\ClaudeProjects\github-repos\00-trading-project\98-month-by-month-data-files
+  current_simulation_datetime: 2023-01-15T12:00:00Z
+
+=== Real CSV Historical Bootstrap Service Test Complete ===
+SUCCESS: Service can load real market data from CSV files
+SUCCESS: Symbol validation working (NQ returns error, MCL works)
+SUCCESS: Ready to replace fake bootstrap service
